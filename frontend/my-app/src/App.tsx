@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignUpForm from "./pages/SignUpForm";
+import SignInForm from "./pages/SignInForm";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import HomeLoginPage from "./pages/Home/HomeLoginPage";
+import HomeUnlogPage from "./pages/Home/HomeUnlog";
+import Transactions from "./pages/Transactions";
+import { MyFavors } from "./pages/MyFavors";
+import { isUserLoggedIn } from "./api/auth";
+import NavbarUnlog from "./components/Navbar/NavbarUnlog";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    setIsAuthenticated(isUserLoggedIn());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hola Edix!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      { isAuthenticated ? <Navbar /> : <NavbarUnlog/>}
+        <Router>
+          <Routes>
+            <Route path="/" element={ isAuthenticated ? <HomeLoginPage/> : <HomeUnlogPage/>} />
+            <Route path="/signup" element={<SignUpForm />} />
+            <Route path="/signin" element={<SignInForm/>} />
+            <Route path="/transactions" element={<Transactions/>}/>
+            <Route path="/myfavors" element={<MyFavors/>}/>
+          </Routes>
+        </Router>
+      <Footer/>
+    </>
   );
 }
 

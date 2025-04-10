@@ -1,0 +1,1398 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2025-03-26T12:16:12.164Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "Arganzuela ()",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2025-03-26T12:16:48.343Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Bea -  ",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Phone number\", \"District\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2025-03-26T12:19:23.521Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2025-03-26T12:21:03.553Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "1",
+        "object_repr": "Board of Arganzuela",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2025-04-03T15:43:19.225Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2025-04-03T15:43:37.416Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "Class - Bea",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2025-04-03T15:44:39.441Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "beatrizsobrino -  ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2025-04-03T15:45:02.624Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": "Masonry - beatrizsobrino",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2025-04-03T15:45:16.730Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "Cooking - beatrizsobrino",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2025-04-09T15:34:57.312Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "6",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2025-04-09T15:34:57.312Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "Cooking - beatrizsobrino",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2025-04-09T15:34:57.312Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": "Masonry - beatrizsobrino",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2025-04-09T15:34:57.312Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "Class - Bea",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2025-04-09T15:34:57.312Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2025-04-09T15:34:57.312Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2025-04-09T15:38:52.228Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "6",
+        "object_repr": "David -  ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2025-04-09T15:39:22.682Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "9",
+        "object_repr": "Masonry - David",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2025-04-09T15:39:43.977Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "10",
+        "object_repr": "Cooking - David",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2025-04-09T15:40:21.091Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "7",
+        "object_repr": "JuanFran -  ",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2025-04-09T15:40:35.748Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "11",
+        "object_repr": "Class - JuanFran",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2025-04-09T16:08:30.895Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "11",
+        "object_repr": "Class - JuanFran",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"District\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2025-04-09T16:17:41.254Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "8",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2025-04-09T16:17:45.086Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "7",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2025-04-09T16:27:32.229Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "8",
+        "object_repr": "Cooking - Bea",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 4,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 4,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 4,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 4,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 5,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 5,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 5,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 5,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add Board",
+        "content_type": 6,
+        "codename": "add_board"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change Board",
+        "content_type": 6,
+        "codename": "change_board"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete Board",
+        "content_type": 6,
+        "codename": "delete_board"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view Board",
+        "content_type": 6,
+        "codename": "view_board"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add Distrit",
+        "content_type": 7,
+        "codename": "add_district"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change Distrit",
+        "content_type": 7,
+        "codename": "change_district"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete Distrit",
+        "content_type": 7,
+        "codename": "delete_district"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view Distrit",
+        "content_type": 7,
+        "codename": "view_district"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add Favor",
+        "content_type": 8,
+        "codename": "add_favor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change Favor",
+        "content_type": 8,
+        "codename": "change_favor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete Favor",
+        "content_type": 8,
+        "codename": "delete_favor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view Favor",
+        "content_type": 8,
+        "codename": "view_favor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add transaction",
+        "content_type": 9,
+        "codename": "add_transaction"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change transaction",
+        "content_type": 9,
+        "codename": "change_transaction"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete transaction",
+        "content_type": 9,
+        "codename": "delete_transaction"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view transaction",
+        "content_type": 9,
+        "codename": "view_transaction"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 10,
+        "codename": "add_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 10,
+        "codename": "change_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 10,
+        "codename": "delete_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 10,
+        "codename": "view_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add Token",
+        "content_type": 11,
+        "codename": "add_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change Token",
+        "content_type": 11,
+        "codename": "change_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete Token",
+        "content_type": 11,
+        "codename": "delete_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view Token",
+        "content_type": 11,
+        "codename": "view_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add Token",
+        "content_type": 12,
+        "codename": "add_tokenproxy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change Token",
+        "content_type": 12,
+        "codename": "change_tokenproxy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete Token",
+        "content_type": 12,
+        "codename": "delete_tokenproxy"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view Token",
+        "content_type": 12,
+        "codename": "view_tokenproxy"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "board",
+        "model": "board"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "district",
+        "model": "district"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "favor",
+        "model": "favor"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "transaction",
+        "model": "transaction"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "user",
+        "model": "customuser"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "authtoken",
+        "model": "token"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "authtoken",
+        "model": "tokenproxy"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lnlu6jow2vvi8g9nl0k2rt9ycexx1p36",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlmOvf5R0nMGa73e4ABypDipEHeHSCmgfTPzXiLhtta0dV7SVMRZDOL0u2WkB7cdlDu22yxpbusyZbkr8qBdXufCz8vh_h1U7PVbxxEgOMUEJYeAgL4YyiZb7UNQisaivSKIbAjZDhGcsawZAjoG77N4fwDnBzfg:1u2X6K:6SR3sG44flGwipNDzVap1UDl60L5yLaxrzlSNURM_vQ",
+        "expire_date": "2025-04-23T15:12:28.795Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "zbfenbv2as23z0ekvyhtp7xtf693r4q0",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlmOvf5R0nMGa73e4ABypDipEHeHSCmgfTPzXiLhtta0dV7SVMRZDOL0u2WkB7cdlDu22yxpbusyZbkr8qBdXufCz8vh_h1U7PVbxxEgOMUEJYeAgL4YyiZb7UNQisaivSKIbAjZDhGcsawZAjoG77N4fwDnBzfg:1u0MiD:eQ5PR3Des5GPs2Q9DFtXXorelKwjCMzdigCZkt3su0k",
+        "expire_date": "2025-04-17T15:42:37.345Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "71a5f75488f9a58609189a1296a3c4a09d94a155",
+    "fields": {
+        "user": 4,
+        "created": "2025-04-04T15:57:33.199Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "9103fad34c4b5dd468bd30f447c76a7fee438237",
+    "fields": {
+        "user": 3,
+        "created": "2025-04-03T15:57:17.725Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "cf227199c5cbefed4aceb319edc9619af287ab0b",
+    "fields": {
+        "user": 1,
+        "created": "2025-04-03T15:12:03.356Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "f03eeb2592cf4f7354fdd9d8273c73a064b6362d",
+    "fields": {
+        "user": 5,
+        "created": "2025-04-04T16:10:52.865Z"
+    }
+},
+{
+    "model": "board.board",
+    "pk": 1,
+    "fields": {
+        "district": 1,
+        "creation_date": "2025-03-26T12:21:03.552Z",
+        "favors": []
+    }
+},
+{
+    "model": "district.district",
+    "pk": 1,
+    "fields": {
+        "name": "Arganzuela",
+        "postal_code": ""
+    }
+},
+{
+    "model": "district.district",
+    "pk": 2,
+    "fields": {
+        "name": "Alcala",
+        "postal_code": "22000"
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 7,
+    "fields": {
+        "type": "COOKING",
+        "description": "AAA",
+        "publication_date": "2025-04-09T15:19:07.613Z",
+        "deadline": "2025-04-23T00:00:00Z",
+        "status": "PENDING",
+        "creator": 1,
+        "assigned_user": null,
+        "points": 99,
+        "title": "Favor 1 Bea",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 8,
+    "fields": {
+        "type": "COOKING",
+        "description": "Favor 2 bea description",
+        "publication_date": "2025-04-09T15:20:47.279Z",
+        "deadline": "2025-04-06T00:00:00Z",
+        "status": "PENDING",
+        "creator": 1,
+        "assigned_user": null,
+        "points": 12,
+        "title": "Favor 2 Bea",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 9,
+    "fields": {
+        "type": "MASONRY",
+        "description": "Favor 1 de David",
+        "publication_date": "2025-04-09T15:39:22.677Z",
+        "deadline": "2025-04-09T15:39:18Z",
+        "status": "ACCEPTED",
+        "creator": 6,
+        "assigned_user": 1,
+        "points": 88,
+        "title": "Favor David 1",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 10,
+    "fields": {
+        "type": "COOKING",
+        "description": "David el mejor",
+        "publication_date": "2025-04-09T15:39:43.975Z",
+        "deadline": "2025-04-16T15:39:41Z",
+        "status": "ACCEPTED",
+        "creator": 6,
+        "assigned_user": 1,
+        "points": -1,
+        "title": "Favor numero 2 David",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 11,
+    "fields": {
+        "type": "CLASS",
+        "description": "AAAAA",
+        "publication_date": "2025-04-09T15:40:35.747Z",
+        "deadline": "2025-04-09T15:40:33Z",
+        "status": "PENDING",
+        "creator": 7,
+        "assigned_user": null,
+        "points": 90,
+        "title": "Favor Juan",
+        "district": 2
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "favor": 9,
+        "transaction_type": "EARN",
+        "amount": 88,
+        "date_created": "2025-04-09T17:26:25.423Z"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 2,
+    "fields": {
+        "user": 6,
+        "favor": 9,
+        "transaction_type": "SPEND",
+        "amount": 88,
+        "date_created": "2025-04-09T17:26:25.423Z"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "favor": 10,
+        "transaction_type": "EARN",
+        "amount": -1,
+        "date_created": "2025-04-09T17:32:46.584Z"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 4,
+    "fields": {
+        "user": 6,
+        "favor": 10,
+        "transaction_type": "SPEND",
+        "amount": -1,
+        "date_created": "2025-04-09T17:32:46.584Z"
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$dPrbKHHnco5wicrVGwmuZN$w5A7unK9Llk8pP+93jb9MhuTJBUgT7EWXDgiaiOo1FY=",
+        "last_login": "2025-04-09T15:12:28.794Z",
+        "is_superuser": true,
+        "username": "Bea",
+        "first_name": "",
+        "last_name": "",
+        "email": "beatrizs0910@hotmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-26T12:12:27Z",
+        "phone_number": "626221237",
+        "points": 0,
+        "district": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$QT2HHio1bBMQxVNPPUs8H4$ECsXtb6DAZR3XzVYxe2HnVrURlALcvcst+LLJlGL3wI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "beatrizsobrino",
+        "first_name": "",
+        "last_name": "",
+        "email": "beatriz.sobrino.paredes@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-03T15:44:39.151Z",
+        "phone_number": "626221237",
+        "points": 0,
+        "district": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$OZPMz3RQ1sRhoR1CjSPLcM$Q6Izk5g0fuXaYGzHgkogfUZ4MZ3ZlbKJ4NiYMmR8Neg=",
+        "last_login": "2025-04-03T15:57:18.333Z",
+        "is_superuser": false,
+        "username": "beatriz.sobrino.paredes@gmail.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "beatriz.sobrino.paredes@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-03T15:56:46.130Z",
+        "phone_number": "",
+        "points": 0,
+        "district": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$AAVVgHHns0eIVKtRhjVLM7$Qi4QciGMvsiEOZ1xXcybkW5MpuZi1K55ANO1r3/WN9o=",
+        "last_login": "2025-04-04T15:57:33.200Z",
+        "is_superuser": false,
+        "username": "beatriz.sobrino.paredes+2@gmail.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "beatriz.sobrino.paredes+2@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-04T15:56:58.874Z",
+        "phone_number": "",
+        "points": 0,
+        "district": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$D7NlgWb0ci6dwe7PGRHnUr$0hd8IPiHu3P+oQC/cBJTyujGsc8Fry4Bjoq0OnncmlU=",
+        "last_login": "2025-04-04T16:10:52.866Z",
+        "is_superuser": false,
+        "username": "beatriz.sobrino@evbqa.com",
+        "first_name": "",
+        "last_name": "",
+        "email": "beatriz.sobrino@evbqa.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-04T16:10:29.607Z",
+        "phone_number": "",
+        "points": 0,
+        "district": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$GXjDlMCPJJwdh3ouolEr6G$X4Rc8LrfmDi96oZ7X/S1eHmnMgauy7udK6HzfWNba3I=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "David",
+        "first_name": "",
+        "last_name": "",
+        "email": "david@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-09T15:38:51.789Z",
+        "phone_number": "650777666",
+        "points": 0,
+        "district": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "JuanFran",
+        "first_name": "",
+        "last_name": "",
+        "email": "juan@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-09T15:40:20.806Z",
+        "phone_number": "7638923123",
+        "points": 0,
+        "district": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Maria",
+        "first_name": "",
+        "last_name": "",
+        "email": "maria@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-10T10:00:00.000Z",
+        "phone_number": "612345678",
+        "points": 0,
+        "district": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Carlos",
+        "first_name": "",
+        "last_name": "",
+        "email": "carlos@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-10T10:05:00.000Z",
+        "phone_number": "623456789",
+        "points": 0,
+        "district": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Laura",
+        "first_name": "",
+        "last_name": "",
+        "email": "laura@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-10T10:10:00.000Z",
+        "phone_number": "634567890",
+        "points": 0,
+        "district": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.customuser",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Pablo",
+        "first_name": "",
+        "last_name": "",
+        "email": "pablo@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-10T10:15:00.000Z",
+        "phone_number": "645678901",
+        "points": 0,
+        "district": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 12,
+    "fields": {
+        "type": "COOKING",
+        "description": "Necesito ayuda para preparar una cena especial",
+        "publication_date": "2025-04-10T10:20:00.000Z",
+        "deadline": "2025-04-20T00:00:00Z",
+        "status": "PENDING",
+        "creator": 8,
+        "assigned_user": null,
+        "points": 50,
+        "title": "Ayuda para cena especial",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 13,
+    "fields": {
+        "type": "CLASS",
+        "description": "Clases de inglés para principiantes",
+        "publication_date": "2025-04-10T10:25:00.000Z",
+        "deadline": "2025-04-25T00:00:00Z",
+        "status": "PENDING",
+        "creator": 8,
+        "assigned_user": null,
+        "points": 75,
+        "title": "Clases de inglés",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 14,
+    "fields": {
+        "type": "MASONRY",
+        "description": "Ayuda para arreglar una pared",
+        "publication_date": "2025-04-10T10:30:00.000Z",
+        "deadline": "2025-04-22T00:00:00Z",
+        "status": "PENDING",
+        "creator": 9,
+        "assigned_user": null,
+        "points": 100,
+        "title": "Reparación de pared",
+        "district": 2
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 15,
+    "fields": {
+        "type": "COOKING",
+        "description": "Preparación de comida para evento familiar",
+        "publication_date": "2025-04-10T10:35:00.000Z",
+        "deadline": "2025-04-18T00:00:00Z",
+        "status": "PENDING",
+        "creator": 9,
+        "assigned_user": null,
+        "points": 60,
+        "title": "Ayuda para evento familiar",
+        "district": 2
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 16,
+    "fields": {
+        "type": "CLASS",
+        "description": "Clases de guitarra para principiantes",
+        "publication_date": "2025-04-10T10:40:00.000Z",
+        "deadline": "2025-04-27T00:00:00Z",
+        "status": "PENDING",
+        "creator": 10,
+        "assigned_user": null,
+        "points": 80,
+        "title": "Clases de guitarra",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 17,
+    "fields": {
+        "type": "MASONRY",
+        "description": "Ayuda para instalar estanterías",
+        "publication_date": "2025-04-10T10:45:00.000Z",
+        "deadline": "2025-04-24T00:00:00Z",
+        "status": "PENDING",
+        "creator": 10,
+        "assigned_user": null,
+        "points": 45,
+        "title": "Instalación de estanterías",
+        "district": 1
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 18,
+    "fields": {
+        "type": "COOKING",
+        "description": "Preparación de postres para cumpleaños",
+        "publication_date": "2025-04-10T10:50:00.000Z",
+        "deadline": "2025-04-19T00:00:00Z",
+        "status": "PENDING",
+        "creator": 11,
+        "assigned_user": null,
+        "points": 55,
+        "title": "Ayuda para postres",
+        "district": 2
+    }
+},
+{
+    "model": "favor.favor",
+    "pk": 19,
+    "fields": {
+        "type": "CLASS",
+        "description": "Clases de programación básica",
+        "publication_date": "2025-04-10T10:55:00.000Z",
+        "deadline": "2025-04-26T00:00:00Z",
+        "status": "PENDING",
+        "creator": 11,
+        "assigned_user": null,
+        "points": 90,
+        "title": "Clases de programación",
+        "district": 2
+    }
+}
+]

@@ -18,8 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.authtoken')),
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),
-    path('points/', include('points.urls'))
-
+    path('users/', include('user.urls')),
+    path('districts/', include('district.urls')),
+    path('transactions/', include('transaction.urls')),
+    path('favors/', include('favor.urls')),
+    path('boards/', include('board.urls')),
 ]
