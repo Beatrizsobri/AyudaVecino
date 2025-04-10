@@ -2,9 +2,15 @@ import { useState } from "react";
 import './navbar.scss';
 import { logout } from "../../api/auth";
 import { ROUTES } from '../../constants/routes';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const location = useLocation();
+
+  const isActiveRoute = (route: string) => {
+    return location.pathname === route;
+  };
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
@@ -22,8 +28,8 @@ const Navbar = () => {
                 { name: "Mis favores", 
                   url: ROUTES.MY_FAVORS,
                 }, 
-                { name: "Favores disponibles", 
-                  url: ROUTES.HOME,
+                { name: "Favores en mi barrio", 
+                  url: ROUTES.BOARD,
                 },
                 { name: "Transacciones", 
                   url: ROUTES.TRANSACTIONS
@@ -32,7 +38,11 @@ const Navbar = () => {
                     <a
                       key={index}
                       href={item.url}
-                      className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                        isActiveRoute(item.url)
+                          ? 'border-indigo-500 text-gray-900'
+                          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      }`}
                     >
                       {item.name}
                     </a>
@@ -68,7 +78,11 @@ const Navbar = () => {
                   <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <a
                         href={ROUTES.HOME}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className={`block px-4 py-2 text-sm ${
+                          isActiveRoute(ROUTES.HOME)
+                            ? 'bg-indigo-50 text-indigo-700'
+                            : 'text-gray-700 hover:bg-gray-100'
+                        }`}
                       >
                         Mi perfil
                       </a>
