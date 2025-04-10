@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { login } from "../api/auth";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../constants/routes";
 
 interface FormData {
   usuario: string;
@@ -18,7 +19,8 @@ export default function SignInForm() {
   const onSubmit = async (data: FormData) => {
     try {
       await login(data.usuario, data.password);
-      navigate('/');
+      // Recargamos la página para que App.tsx detecte el nuevo estado de autenticación
+      window.location.href = ROUTES.HOME;
     } catch (error) {
       console.error("Login failed:", error);
     }

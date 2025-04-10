@@ -10,12 +10,30 @@ import { MyFavors } from "./pages/MyFavors";
 import { isUserLoggedIn } from "./api/auth";
 import NavbarUnlog from "./components/Navbar/NavbarUnlog";
 import { useEffect, useState } from "react";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { ROUTES } from "./constants/routes";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  // Verificamos el estado de autenticación al montar el componente
   useEffect(() => {
-    setIsAuthenticated(isUserLoggedIn());
+    const checkAuth = () => {
+      setIsAuthenticated(isUserLoggedIn());
+    };
+    
+    checkAuth();
+    
+    // También verificamos cuando cambia la ruta
+    const handleRouteChange = () => {
+      checkAuth();
+    };
+    
+    window.addEventListener('popstate', handleRouteChange);
+    
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
   }, []);
 
   return (
@@ -23,11 +41,22 @@ function App() {
       { isAuthenticated ? <Navbar /> : <NavbarUnlog/>}
         <Router>
           <Routes>
-            <Route path="/" element={ isAuthenticated ? <HomeLoginPage/> : <HomeUnlogPage/>} />
-            <Route path="/signup" element={<SignUpForm />} />
-            <Route path="/signin" element={<SignInForm/>} />
-            <Route path="/transactions" element={<Transactions/>}/>
-            <Route path="/myfavors" element={<MyFavors/>}/>
+            {/* Rutas públicas */}
+            <Route path={ROUTES.HOME} element={isAuthenticated ? <HomeLoginPage/> : <HomeUnlogPage/>} />
+            <Route path={ROUTES.SIGN_UP} element={<SignUpForm />} />
+            <Route path={ROUTES.SIGN_IN} element={<SignInForm/>} />
+            
+            {/* Rutas protegidas */}
+            <Route path={ROUTES.TRANSACTIONS} element={
+              <ProtectedRoute>
+                <Transactions/>
+              </ProtectedRoute>
+            }/>
+            <Route path={ROUTES.MY_FAVORS} element={
+              <ProtectedRoute>
+                <MyFavors/>
+              </ProtectedRoute>
+            }/>
           </Routes>
         </Router>
       <Footer/>

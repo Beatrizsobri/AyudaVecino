@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './navbar.scss';
 import { logout } from "../../api/auth";
+import { ROUTES } from '../../constants/routes';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -17,15 +18,15 @@ const Navbar = () => {
             </div>
             <div className="sm:ml-6 flex space-x-8">
               {[{name:"Home", 
-                url: "/",}, 
+                url: ROUTES.HOME}, 
                 { name: "Mis favores", 
-                  url: '/myfavors',
+                  url: ROUTES.MY_FAVORS,
                 }, 
                 { name: "Favores disponibles", 
-                  url: "/",
+                  url: ROUTES.HOME,
                 },
                 { name: "Transacciones", 
-                  url: "/transactions"
+                  url: ROUTES.TRANSACTIONS
                 }].map(
                   (item, index) => (
                     <a
@@ -66,13 +67,13 @@ const Navbar = () => {
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <a
-                        href="/"
+                        href={ROUTES.HOME}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Mi perfil
                       </a>
                       <button
-                          onClick={logout} // Call logout function
+                          onClick={logout}
                           className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         >
                           Salir

@@ -1,3 +1,5 @@
+import { ROUTES } from '../../constants/routes';
+
 interface TestimonialCardProps {
   image: string;
   name: string;
@@ -20,7 +22,7 @@ const HeroSection = () => (
       Una comunidad donde ayudar a los demás te hace ganar puntos para recibir ayuda a cambio.
     </p>
     <div className="mt-10 flex justify-center space-x-4">
-      <a href="/signup" className="px-8 py-3 bg-white text-indigo-600 font-medium rounded-md hover:bg-indigo-50">Comenzar</a>
+      <a href={ROUTES.SIGN_UP} className="px-8 py-3 bg-white text-indigo-600 font-medium rounded-md hover:bg-indigo-50">Comenzar</a>
     </div>
   </div>
 );
@@ -82,7 +84,7 @@ const CTASection = () => (
         <div className="p-10 sm:p-16">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">¿Listo para unirte? Comienza a intercambiar favores hoy.</h2>
           <p className="mt-4 text-lg text-indigo-200">Regístrate ahora y obtén 50 puntos de bonificación para comenzar tu viaje de intercambio de favores.</p>
-          <a href="/signup" className="mt-8 bg-white text-indigo-600 font-medium rounded-md px-5 py-3 inline-flex items-center hover:bg-indigo-50">Regístrate gratis</a>
+          <a href={ROUTES.SIGN_UP} className="mt-8 bg-white text-indigo-600 font-medium rounded-md px-5 py-3 inline-flex items-center hover:bg-indigo-50">Regístrate gratis</a>
         </div>
         <img className="rounded-md object-cover" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-1.2.1&auto=format&fit=crop&w=1184&q=80" alt="Personas ayudándose mutuamente" />
       </div>
