@@ -1,4 +1,5 @@
 import './navbar.scss';
+import { ROUTES } from '../../constants/routes';
 
 const NavbarUnlog = () => {
 
@@ -14,10 +15,10 @@ const NavbarUnlog = () => {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                    <a href="/signin" className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 hover:bg-indigo-50 transition duration-150 btn-hover">
+                    <a href={ROUTES.SIGN_IN} className="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 hover:bg-indigo-50 transition duration-150 btn-hover">
                         Entrar
                     </a>
-                    <a href="/signup" className="px-4 py-2 bg-indigo-600 border border-transparent text-sm font-medium rounded-md text-white hover:bg-indigo-700 transition duration-150 btn-hover">
+                    <a href={ROUTES.SIGN_UP} className="px-4 py-2 bg-indigo-600 border border-transparent text-sm font-medium rounded-md text-white hover:bg-indigo-700 transition duration-150 btn-hover">
                         Crear cuenta
                     </a>
                 </div>
