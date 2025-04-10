@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { SignUpForm, SignInForm, HomeLoginPage, HomeUnlogPage, Transactions, MyFavors } from "./pages";
 import BoardPage from "./pages/BoardPage";
+import ProfilePage from "./pages/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { isUserLoggedIn } from "./api/auth";
@@ -56,6 +57,11 @@ function App() {
           <Route path={ROUTES.BOARD} element={
             <ProtectedRoute>
               <BoardPage/>
+            </ProtectedRoute>
+          }/>
+          <Route path={ROUTES.PROFILE} element={
+            <ProtectedRoute>
+              <ProfilePage/>
             </ProtectedRoute>
           }/>
         </Routes>

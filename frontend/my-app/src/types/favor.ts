@@ -10,9 +10,15 @@ export interface User {
   email: string;
   first_name: string;
   last_name: string;
-  phone_number: string;
+  phone_number?: string;
+  district?: {
+    id: number;
+    name: string;
+  };
   points: number;
-  district: District;
+  bio?: string;
+  skills?: string[];
+  date_joined: string;
 }
 
 export interface Favor {
