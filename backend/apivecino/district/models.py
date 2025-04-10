@@ -12,4 +12,4 @@ class District(models.Model):
         verbose_name_plural = "Distrits"
     
     def __str__(self):
-        return f"{self.name} ({self.postal_code})"
+        return f"{self.name} {self.postal_code}"

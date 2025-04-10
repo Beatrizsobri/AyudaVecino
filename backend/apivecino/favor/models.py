@@ -1,9 +1,7 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils import timezone
+from district.models import District
 
 class Favor(models.Model):
     TYPE_CHOICES = [
@@ -58,6 +56,26 @@ class Favor(models.Model):
         null=True,
         blank=True,
         verbose_name='Assigned user'
+    )
+
+    points = models.IntegerField(
+        default=0,
+        verbose_name='Points'
+    )
+
+    title = models.CharField(
+        max_length=200,
+        verbose_name='Title',
+        blank=False,
+        null=False
+    )
+
+    district = models.ForeignKey(
+        District,
+        on_delete=models.CASCADE,
+        related_name='favors',
+        verbose_name='District',
+        default=1
     )
 
     class Meta:
