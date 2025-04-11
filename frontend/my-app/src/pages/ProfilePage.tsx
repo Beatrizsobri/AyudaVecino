@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useUser } from '../contexts/UserContext';
 import { User } from '../types/favor';
 import EditProfileModal from '../components/EditProfileModal';
+import StatsCards from '../components/Profile/StatsCards';
+import ContactInfo from '../components/Profile/ContactInfo';
 
 const ProfilePage: React.FC = () => {
   const { user } = useUser();
@@ -27,7 +29,7 @@ const ProfilePage: React.FC = () => {
               <div className="relative">
                 <img
                   className="h-32 w-32 rounded-full border-4 border-white object-cover shadow-lg" 
-                  src={user.profile_picture || `https://www.gravatar.com/avatar/${user.email}?d=identicon&s=150`} 
+                  src={user.profile_picture} 
                   alt="User profile"
                 />
               </div>
@@ -46,78 +48,11 @@ const ProfilePage: React.FC = () => {
           </div>
         </div>
         <div className="px-8 pb-8 relative z-10">
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-4xl mx-auto h-32 items-center">
-            <div className="stats-card bg-white rounded-xl shadow-sm p-6 transition duration-150 hover:shadow-md">
-              <div className="flex items-center">
-                <div className="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
-                  <i className="fas fa-hand-holding-heart text-xl"></i>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Favores Dados</p>
-                  <h3 className="text-2xl font-bold text-gray-900">0</h3>
-                </div>
-              </div>
-            </div>
-            <div className="stats-card bg-white rounded-xl shadow-sm p-6 transition duration-150 hover:shadow-md">
-              <div className="flex items-center">
-                <div className="p-3 rounded-full bg-green-100 text-green-600 mr-4">
-                  <i className="fas fa-hands-helping text-xl"></i>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Favores Recibidos</p>
-                  <h3 className="text-2xl font-bold text-gray-900">0</h3>
-                </div>
-              </div>
-            </div>
-            <div className="stats-card bg-white rounded-xl shadow-sm p-6 transition duration-150 hover:shadow-md">
-              <div className="flex items-center">
-                <div className="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
-                  <i className="fas fa-coins text-xl"></i>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Puntos Actuales</p>
-                  <h3 className="text-2xl font-bold text-gray-900">{user.points}</h3>
-                </div>
-              </div>
-            </div>
-          </div>
+          <StatsCards user={user} />
         </div>
       </div>
 
-      {/* About Section */}
-      <div className="bg-white rounded-xl shadow-sm p-8 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-6">Información de Contacto</h2>
-        <div className="space-y-6">
-          <div className="flex items-center">
-            <div className="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
-              <i className="fas fa-envelope text-lg"></i>
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Email</p>
-              <p className="text-gray-900">{user.email || 'Email no especificado'}</p>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <div className="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
-              <i className="fas fa-phone text-lg"></i>
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Teléfono</p>
-              <p className="text-gray-900">{user.phone_number || 'Teléfono no especificado'}</p>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <div className="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
-              <i className="fas fa-map-marker-alt text-lg"></i>
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Distrito</p>
-              <p className="text-gray-900">{user.district?.name || 'Distrito no especificado'}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ContactInfo user={user} />
 
       <EditProfileModal
         isOpen={isEditModalOpen}

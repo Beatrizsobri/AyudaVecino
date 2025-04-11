@@ -3,10 +3,12 @@ import './navbar.scss';
 import { logout } from "../../api/auth";
 import { ROUTES } from '../../constants/routes';
 import { useLocation } from 'react-router-dom';
+import { useUser } from '../../contexts/UserContext';
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
+  const { user } = useUser();
 
   const isActiveRoute = (route: string) => {
     return location.pathname === route;
@@ -56,7 +58,7 @@ const Navbar = () => {
             <div className="ml-4 flex items-center space-x-4">
               <div className="flex items-center bg-indigo-50 px-3 py-1 rounded-full">
                 <i className="fas fa-coins text-indigo-600 mr-2"></i>
-                <span className="font-medium text-indigo-600">125 pts</span>
+                <span className="font-medium text-indigo-600">{user?.points || 0} pts</span>
               </div>
               <button className="relative p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 <i className="fas fa-bell text-xl"></i>
@@ -70,7 +72,7 @@ const Navbar = () => {
                   <span className="sr-only">Abrir menú de usuario</span>
                   <img
                     className="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    src={user?.profile_picture}
                     alt="User"
                   />
                 </button>

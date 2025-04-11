@@ -11,6 +11,13 @@ interface UserContextType {
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
+const generateGravatarUrl = (email?: string) => {
+  if (!email) {
+    return 'https://www.gravatar.com/avatar/default?d=identicon&s=150';
+  }
+  return `https://www.gravatar.com/avatar/${email.trim().toLowerCase()}?d=identicon&s=150`;
+};
+
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -19,6 +26,10 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchUser = async () => {
     try {
       const userData = await getUserProfile();
+      // Si el usuario no tiene imagen de perfil, generamos el Gravatar
+      if (!userData.profile_picture) {
+        userData.profile_picture = generateGravatarUrl(userData.email);
+      }
       setUser(userData);
       setError(null);
     } catch (err) {
@@ -32,6 +43,10 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const updateUser = async (userData: Partial<User>) => {
     try {
       const updatedUser = await updateUserProfile(userData);
+      // Si el usuario no tiene imagen de perfil, generamos el Gravatar
+      if (!updatedUser.profile_picture) {
+        updatedUser.profile_picture = generateGravatarUrl(updatedUser.email);
+      }
       setUser(updatedUser);
       setError(null);
       return updatedUser;
