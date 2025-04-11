@@ -1,12 +1,11 @@
 import { useState } from "react";
 import './navbar.scss';
-import { logout } from "../../api/auth";
 import { ROUTES } from '../../constants/routes';
 import { useLocation } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext';
+import UserMenu from './UserMenu';
 
 const Navbar = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   const { user } = useUser();
 
@@ -60,43 +59,7 @@ const Navbar = () => {
                 <i className="fas fa-coins text-indigo-600 mr-2"></i>
                 <span className="font-medium text-indigo-600">{user?.points || 0} pts</span>
               </div>
-              <button className="relative p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                <i className="fas fa-bell text-xl"></i>
-                <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
-              </button>
-              <div className="ml-3 relative">
-                <button
-                  onClick={() => setDropdownOpen(!isDropdownOpen)}
-                  className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <span className="sr-only">Abrir menú de usuario</span>
-                  <img
-                    className="h-8 w-8 rounded-full"
-                    src={user?.profile_picture}
-                    alt="User"
-                  />
-                </button>
-                {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <a
-                        href={ROUTES.PROFILE}
-                        className={`block px-4 py-2 text-sm ${
-                          isActiveRoute(ROUTES.PROFILE)
-                            ? 'bg-indigo-50 text-indigo-700'
-                            : 'text-gray-700 hover:bg-gray-100'
-                        }`}
-                      >
-                        Mi perfil
-                      </a>
-                      <button
-                          onClick={logout}
-                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          Salir
-                        </button>
-                  </div>
-                )}
-              </div>
+              <UserMenu />
             </div>
           </div>
         </div>

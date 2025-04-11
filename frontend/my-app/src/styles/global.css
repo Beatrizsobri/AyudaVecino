@@ -47,17 +47,6 @@ body {
   background-color: #f5f3ff;
 }
 
-/* Estilos para el punto de notificación */
-.notification-dot {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 12px;
-  height: 12px;
-  background-color: #ef4444;
-  border-radius: 50%;
-}
-
 /* Estilos para los botones */
 .btn-hover {
   transition: all 0.3s ease;
