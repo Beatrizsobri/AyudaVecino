@@ -27,3 +27,12 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return f"{self.username} - {self.first_name} {self.last_name}"
+
+    def save(self, *args, **kwargs):
+        """
+        Normaliza el email antes de guardar el usuario.
+        Convierte el email a minúsculas y elimina espacios en blanco.
+        """
+        if self.email:
+            self.email = self.email.lower().strip()
+        super().save(*args, **kwargs)
