@@ -9,3 +9,13 @@ export const getUserProfile = async () => {
     throw error;
   }
 };
+
+export const updateUserProfile = async (userData) => {
+  try {
+    const response = await apiClient.patch('/users/me/', userData);
+    return response.data;
+  } catch (error) {
+    console.error('Error al actualizar el perfil del usuario:', error);
+    throw error;
+  }
+};
