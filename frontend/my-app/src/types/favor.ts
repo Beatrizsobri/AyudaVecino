@@ -20,6 +20,7 @@ export interface User {
   skills?: string[];
   date_joined: string;
   profile_picture?: string;
+  profile_image?: string;
 }
 
 export interface Favor {
@@ -33,4 +34,5 @@ export interface Favor {
   district: District;
   publication_date: string;
   status: string;
+  img?: string;
 } 
