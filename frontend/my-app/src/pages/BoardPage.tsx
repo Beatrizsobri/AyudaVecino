@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
 import { MADRID_DISTRICTS } from '../constants/districts';
+import { getDistricts } from '../api/district';
 import Hero from '../components/Hero/Hero';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,6 +11,21 @@ import { es } from 'date-fns/locale';
 const Board: React.FC = () => {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [startDate, endDate] = dateRange;
+  const [districts, setDistricts] = useState<Array<{ id: number; name: string }>>([]);
+
+  useEffect(() => {
+    const fetchDistricts = async () => {
+      try {
+        const districtsData = await getDistricts();
+        setDistricts(districtsData?.results || []);
+      } catch (error) {
+        console.error('Error fetching districts:', error);
+        setDistricts([]); // Ensure districts is always an array even on error
+      }
+    };
+
+    fetchDistricts();
+  }, []);
 
   const handleSubmit = async (data: {
     title: string;
@@ -44,7 +60,7 @@ const Board: React.FC = () => {
             <div className="relative">
               <select className="appearance-none bg-gray-50 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm">
                 <option>Selecciona el distrito</option>
-                {MADRID_DISTRICTS.map((district) => (
+                {districts.map((district) => (
                   <option key={district.id} value={district.id}>
                     {district.name}
                   </option>
