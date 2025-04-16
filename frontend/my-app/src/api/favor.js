@@ -10,6 +10,7 @@ export const getFavors = async (filters = {}) => {
     
     // Añadimos cada filtro si existe
     if (filters.status) params.push(`status=${filters.status}`);
+    if (filters.type) params.push(`type=${filters.type}`);
     if (filters.start_date) params.push(`start_date=${filters.start_date}`);
     if (filters.end_date) params.push(`end_date=${filters.end_date}`);
     if (filters.district_id) params.push(`district_id=${filters.district_id}`);

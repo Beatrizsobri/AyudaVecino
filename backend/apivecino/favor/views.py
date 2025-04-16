@@ -31,6 +31,11 @@ class FavorViewSet(viewsets.ModelViewSet):
         if status:
             queryset = queryset.filter(status=status)
             
+        # Get type from query parameters
+        type = self.request.query_params.get('type', None)
+        if type:
+            queryset = queryset.filter(type=type)
+            
         # Get date range and district from query parameters
         start_date = self.request.query_params.get('start_date', None)
         end_date = self.request.query_params.get('end_date', None)

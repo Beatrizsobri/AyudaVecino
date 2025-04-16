@@ -10,6 +10,19 @@ import "react-datepicker/dist/react-datepicker.css";
 import { es } from 'date-fns/locale';
 import { Favor } from '../types/favor';
 
+const TYPE_CHOICES: Record<string, string> = {
+  'HOME': 'Hogar',
+  'TRANSPORT': 'Transporte',
+  'PETS': 'Mascotas',
+  'TECH': 'Tecnología',
+  'CLASS': 'Clases',
+  'COOKING': 'Cocina',
+  'PLUMBING': 'Fontanería',
+  'CARPENTRY': 'Carpintería',
+  'ERRANDS': 'Recados',
+  'SHOPPING': 'Compra',
+};
+
 const Board: React.FC = () => {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [startDate, endDate] = dateRange;
@@ -17,6 +30,7 @@ const Board: React.FC = () => {
   const [favors, setFavors] = useState<Favor[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState<number | null>(null);
+  const [selectedType, setSelectedType] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchDistricts = async () => {
@@ -38,6 +52,7 @@ const Board: React.FC = () => {
       try {
         const filters: any = {};
         if (selectedDistrict) filters.district_id = selectedDistrict;
+        if (selectedType) filters.type = selectedType;
         
         // Solo añadir fechas si tenemos un rango válido
         if (startDate && endDate) {
@@ -61,7 +76,7 @@ const Board: React.FC = () => {
     };
 
     fetchFavors();
-  }, [selectedDistrict, startDate, endDate]);
+  }, [selectedDistrict, startDate, endDate, selectedType]);
 
   const handleSubmit = async (data: {
     title: string;
@@ -161,39 +176,21 @@ const Board: React.FC = () => {
         
         {/* Quick filter pills */}
         <div className="flex flex-wrap gap-2 mb-6">
-          <button className="category-pill active px-4 py-1 rounded-full border border-indigo-500 text-indigo-500 text-sm">
+          <button 
+            className={`category-pill px-4 py-1 rounded-full border text-sm ${!selectedType ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-600 hover:bg-gray-50'}`}
+            onClick={() => setSelectedType(null)}
+          >
             Todos
           </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-home text-blue-500 mr-1"></i> Hogar
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-car text-green-500 mr-1"></i> Transporte
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-paw text-purple-500 mr-1"></i> Mascotas
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-laptop-code text-red-500 mr-1"></i> Tecnología
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-book text-yellow-500 mr-1"></i> Clases
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-utensils text-pink-500 mr-1"></i> Cocina
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-wrench text-blue-500 mr-1"></i> Fontanería
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-hammer text-brown-500 mr-1"></i> Carpintería
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-shopping-bag text-purple-500 mr-1"></i> Recados
-          </button>
-          <button className="category-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
-            <i className="fas fa-shopping-cart text-green-500 mr-1"></i> Compra
-          </button>
+          {Object.entries(TYPE_CHOICES).map(([key, value]) => (
+            <button 
+              key={key}
+              className={`category-pill px-4 py-1 rounded-full border text-sm ${selectedType === key ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-600 hover:bg-gray-50'}`}
+              onClick={() => setSelectedType(key)}
+            >
+              <i className={`fas ${getFavorTypeIcon(value)} mr-1`}></i> {value}
+            </button>
+          ))}
         </div>
       </div>
       
@@ -221,7 +218,7 @@ const Board: React.FC = () => {
                   <i className="fas fa-map-marker-alt text-indigo-500 mr-1"></i> {favor.district.name}
                 </div>
                 <div className="absolute top-3 right-3 bg-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
-                  <i className={`fas ${getFavorTypeIcon(favor.type)} mr-1`}></i> {favor.type}
+                  <i className={`fas ${getFavorTypeIcon(TYPE_CHOICES[favor.type])} mr-1`}></i> {TYPE_CHOICES[favor.type]}
                 </div>
               </div>
               <div className="p-5">

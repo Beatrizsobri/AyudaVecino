@@ -5,9 +5,16 @@ from district.models import District
 
 class Favor(models.Model):
     TYPE_CHOICES = [
-        ('COOKING', 'Cooking'),
-        ('MASONRY', 'Masonry'),
-        ('CLASS', 'Class'),
+        ('HOME', 'Hogar'),
+        ('TRANSPORT', 'Transporte'),
+        ('PETS', 'Mascotas'),
+        ('TECH', 'Tecnología'),
+        ('CLASS', 'Clases'),
+        ('COOKING', 'Cocina'),
+        ('PLUMBING', 'Fontanería'),
+        ('CARPENTRY', 'Carpintería'),
+        ('ERRANDS', 'Recados'),
+        ('SHOPPING', 'Compra'),
     ]
 
     STATUS_CHOICES = [
