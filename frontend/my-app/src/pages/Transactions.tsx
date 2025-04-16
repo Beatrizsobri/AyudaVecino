@@ -15,23 +15,40 @@ interface FiltersSectionProps {
   totalEarned: number;
   totalSpent: number;
   completedFavors: number;
+  currentFilter: string | undefined;
+  onFilterChange: (filter: string | undefined) => void;
 }
 
 interface TransactionsListProps {
   transactions: Transaction[];
 }
 
-const FiltersSection = ({ totalEarned, totalSpent, completedFavors }: FiltersSectionProps) => (
+const FiltersSection = ({ 
+  totalEarned, 
+  totalSpent, 
+  completedFavors,
+  currentFilter,
+  onFilterChange 
+}: FiltersSectionProps) => (
   <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
     <h2 className="text-lg font-semibold mb-4 md:mb-0">Transacciones</h2>
     <div className="flex flex-wrap gap-2 mb-6">
-      <button className="filter-pill active px-4 py-1 rounded-full border border-indigo-500 text-indigo-500 text-sm">
+      <button 
+        className={`filter-pill px-4 py-1 rounded-full border ${!currentFilter ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-600 hover:bg-gray-50'} text-sm`}
+        onClick={() => onFilterChange(undefined)}
+      >
         Todo
       </button>
-      <button className="filter-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
+      <button 
+        className={`filter-pill px-4 py-1 rounded-full border ${currentFilter === 'EARN' ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-600 hover:bg-gray-50'} text-sm`}
+        onClick={() => onFilterChange('EARN')}
+      >
         <i className="fas fa-plus text-green-500 mr-1"></i> Ganados
       </button>
-      <button className="filter-pill px-4 py-1 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 text-sm">
+      <button 
+        className={`filter-pill px-4 py-1 rounded-full border ${currentFilter === 'SPEND' ? 'border-indigo-500 text-indigo-500' : 'border-gray-300 text-gray-600 hover:bg-gray-50'} text-sm`}
+        onClick={() => onFilterChange('SPEND')}
+      >
         <i className="fas fa-minus text-red-500 mr-1"></i> Gastados
       </button>
     </div>
@@ -105,11 +122,12 @@ const Transactions = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentFilter, setCurrentFilter] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await transactionsApi.getAllTransactions();
+        const response = await transactionsApi.getAllTransactions(currentFilter);
         setTransactions(response.data.results);
         setLoading(false);
       } catch (err) {
@@ -119,7 +137,7 @@ const Transactions = () => {
     };
 
     fetchTransactions();
-  }, []);
+  }, [currentFilter]);
 
   const totalEarned = transactions
     .filter(t => t.transaction_type === 'EARN')
@@ -145,6 +163,8 @@ const Transactions = () => {
         totalEarned={totalEarned}
         totalSpent={totalSpent}
         completedFavors={totalFavors}
+        currentFilter={currentFilter}
+        onFilterChange={setCurrentFilter}
       />
       <TransactionsList transactions={transactions} />
     </main>
