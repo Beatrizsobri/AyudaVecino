@@ -217,6 +217,9 @@ const Board: React.FC = () => {
                   alt={favor.title} 
                   className="w-full h-48 object-cover"
                 />
+                <div className="absolute top-3 left-3 bg-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
+                  <i className="fas fa-map-marker-alt text-indigo-500 mr-1"></i> {favor.district.name}
+                </div>
                 <div className="absolute top-3 right-3 bg-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
                   <i className={`fas ${getFavorTypeIcon(favor.type)} mr-1`}></i> {favor.type}
                 </div>
