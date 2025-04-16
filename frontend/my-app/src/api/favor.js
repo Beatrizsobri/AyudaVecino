@@ -1,6 +1,6 @@
 import apiClient from './apiClient';
 
-export const getFavors = async (filters = {}) => {
+export const getFavors = async (filters = {}, page = 1, pageSize = 6) => {
   try {
     // Construimos la URL base
     let url = '/favors/favors';
@@ -14,6 +14,10 @@ export const getFavors = async (filters = {}) => {
     if (filters.start_date) params.push(`start_date=${filters.start_date}`);
     if (filters.end_date) params.push(`end_date=${filters.end_date}`);
     if (filters.district_id) params.push(`district_id=${filters.district_id}`);
+    
+    // Añadimos paginación
+    params.push(`page=${page}`);
+    params.push(`page_size=${pageSize}`);
     
     // Si hay parámetros, los añadimos a la URL
     if (params.length > 0) {

@@ -1,4 +1,3 @@
-import { Pagination } from "../components/Pagination/Pagination";
 import Hero from "../components/Hero/Hero";
 
 const FiltersSection = () => (
@@ -104,7 +103,6 @@ const Transactions = () => (
     />
     <FiltersSection />
     <TransactionsList />
-    <Pagination />
   </main>
 );
 
