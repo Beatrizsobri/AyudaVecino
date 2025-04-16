@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { User } from '../types/favor';
-import { useUser } from '../contexts/UserContext';
-import { MADRID_DISTRICTS } from '../constants/districts';
+import { User } from '../../types/favor';
+import { useUser } from '../../contexts/UserContext';
+import { MADRID_DISTRICTS } from '../../constants/districts';
 
 interface EditProfileModalProps {
   isOpen: boolean;

@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Estilos globales */
 body {
@@ -45,17 +45,6 @@ body {
 /* Estilos para las interacciones */
 .post-interaction:hover {
   background-color: #f5f3ff;
-}
-
-/* Estilos para el punto de notificación */
-.notification-dot {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 12px;
-  height: 12px;
-  background-color: #ef4444;
-  border-radius: 50%;
 }
 
 /* Estilos para los botones */
