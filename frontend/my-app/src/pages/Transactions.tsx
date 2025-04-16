@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Hero from "../components/Hero/Hero";
 import transactionsApi from '../api/transactions';
+import { Pagination } from '../components/Pagination/Pagination';
 
 interface Transaction {
   id: number;
@@ -123,12 +124,25 @@ const Transactions = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentFilter, setCurrentFilter] = useState<string | undefined>(undefined);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totals, setTotals] = useState({
+    total_earned: 0,
+    total_spent: 0,
+    total_favors: 0
+  });
 
   useEffect(() => {
-    const fetchTransactions = async () => {
+    const fetchData = async () => {
       try {
-        const response = await transactionsApi.getAllTransactions(currentFilter);
-        setTransactions(response.data.results);
+        const [transactionsResponse, totalsResponse] = await Promise.all([
+          transactionsApi.getAllTransactions(currentFilter, currentPage),
+          transactionsApi.getTotals()
+        ]);
+        
+        setTransactions(transactionsResponse.data.results);
+        setTotalPages(Math.ceil(transactionsResponse.data.count / 5));
+        setTotals(totalsResponse.data);
         setLoading(false);
       } catch (err) {
         setError('Error al cargar las transacciones');
@@ -136,18 +150,8 @@ const Transactions = () => {
       }
     };
 
-    fetchTransactions();
-  }, [currentFilter]);
-
-  const totalEarned = transactions
-    .filter(t => t.transaction_type === 'EARN')
-    .reduce((sum, t) => sum + t.amount, 0);
-
-  const totalSpent = transactions
-    .filter(t => t.transaction_type === 'SPEND')
-    .reduce((sum, t) => sum + t.amount, 0);
-
-  const totalFavors = transactions.length;
+    fetchData();
+  }, [currentFilter, currentPage]);
 
   if (loading) return <div>Cargando transacciones...</div>;
   if (error) return <div>{error}</div>;
@@ -157,16 +161,21 @@ const Transactions = () => {
       <Hero 
         title="Historial de Puntos"
         text="Realiza un seguimiento de tus ganancias y gastos de puntos de favor"
-        points={totalEarned - totalSpent}
+        points={totals.total_earned - totals.total_spent}
       />
       <FiltersSection 
-        totalEarned={totalEarned}
-        totalSpent={totalSpent}
-        completedFavors={totalFavors}
+        totalEarned={totals.total_earned}
+        totalSpent={totals.total_spent}
+        completedFavors={totals.total_favors}
         currentFilter={currentFilter}
         onFilterChange={setCurrentFilter}
       />
       <TransactionsList transactions={transactions} />
+      <Pagination 
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </main>
   );
 };
