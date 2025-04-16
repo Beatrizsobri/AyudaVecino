@@ -1,0 +1,149 @@
+[
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Centro",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Arganzuela",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Retiro",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Salamanca",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Chamartín",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Tetuán",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Chamberí",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Fuencarral-El Pardo",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Moncloa-Aravaca",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Latina",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Carabanchel",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Usera",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Puente de Vallecas",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Moratalaz",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Ciudad Lineal",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Hortaleza",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Villaverde",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Villa de Vallecas",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Vicálvaro",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "San Blas-Canillejas",
+      "postal_code": ""
+    }
+  },
+  {
+    "model": "district.district",
+    "fields": {
+      "name": "Barajas",
+      "postal_code": ""
+    }
+  }
+] 

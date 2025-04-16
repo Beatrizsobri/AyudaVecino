@@ -1,8 +1,24 @@
 import apiClient from './apiClient';
 
-export const getFavors = async (status) => {
+export const getFavors = async (filters = {}) => {
   try {
-    const url = status ? `/favors/favors?status=${status}` : '/favors/favors';
+    // Construimos la URL base
+    let url = '/favors/favors';
+    
+    // Creamos un array para los parámetros
+    const params = [];
+    
+    // Añadimos cada filtro si existe
+    if (filters.status) params.push(`status=${filters.status}`);
+    if (filters.start_date) params.push(`start_date=${filters.start_date}`);
+    if (filters.end_date) params.push(`end_date=${filters.end_date}`);
+    if (filters.district_id) params.push(`district_id=${filters.district_id}`);
+    
+    // Si hay parámetros, los añadimos a la URL
+    if (params.length > 0) {
+      url += `?${params.join('&')}`;
+    }
+    
     const response = await apiClient.get(url);
     return response.data;
   } catch (error) {
