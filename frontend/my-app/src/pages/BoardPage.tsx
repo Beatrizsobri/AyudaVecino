@@ -9,6 +9,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { es } from 'date-fns/locale';
 import { Favor } from '../types/favor';
+import { Pagination } from '../components/Pagination/Pagination';
 
 const TYPE_CHOICES: Record<string, string> = {
   'HOME': 'Hogar',
@@ -31,6 +32,8 @@ const Board: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [selectedDistrict, setSelectedDistrict] = useState<number | null>(null);
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchDistricts = async () => {
@@ -39,7 +42,7 @@ const Board: React.FC = () => {
         setDistricts(districtsData?.results || []);
       } catch (error) {
         console.error('Error fetching districts:', error);
-        setDistricts([]); // Ensure districts is always an array even on error
+        setDistricts([]);
       }
     };
 
@@ -54,7 +57,6 @@ const Board: React.FC = () => {
         if (selectedDistrict) filters.district_id = selectedDistrict;
         if (selectedType) filters.type = selectedType;
         
-        // Solo añadir fechas si tenemos un rango válido
         if (startDate && endDate) {
           const start = new Date(startDate);
           start.setHours(0, 0, 0, 0);
@@ -65,8 +67,9 @@ const Board: React.FC = () => {
           filters.end_date = end.toLocaleDateString('en-CA');
         }
         
-        const favorsData = await getFavors(filters);
+        const favorsData = await getFavors(filters, currentPage);
         setFavors(favorsData?.results || []);
+        setTotalPages(Math.ceil((favorsData?.count || 0) / 6));
       } catch (error) {
         console.error('Error fetching favors:', error);
         setFavors([]);
@@ -76,7 +79,7 @@ const Board: React.FC = () => {
     };
 
     fetchFavors();
-  }, [selectedDistrict, startDate, endDate, selectedType]);
+  }, [selectedDistrict, startDate, endDate, selectedType, currentPage]);
 
   const handleSubmit = async (data: {
     title: string;
@@ -117,6 +120,10 @@ const Board: React.FC = () => {
       default:
         return 'fa-question-circle text-gray-500';
     }
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   return (
@@ -264,6 +271,15 @@ const Board: React.FC = () => {
           ))
         )}
       </div>
+
+      {/* Add Pagination */}
+      {!loading && favors.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      )}
     </div>
   );
 };
