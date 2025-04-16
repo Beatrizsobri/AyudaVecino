@@ -1,18 +1,27 @@
+import React, { useState, useEffect } from 'react';
 import Tabs from "../components/Tab/Tab";
-import { useState, useEffect } from 'react';
 import { FavorRequestForm } from "../components/FavorRequestForm";
 import { getFavors } from '../api/favor';
+import Hero from '../components/Hero/Hero';
 
 interface FavorProps {
-  id: string;
+  id: number;
   title: string;
-  status: string;
   description: string;
+  points: number;
+  status: string;
   deadline: string;
-  points: string;
-  img: any;
-  helper?: string;
-  buttonText: string;
+  type: string;
+  img?: any;
+  buttonText?:any;
+  requester: {
+    id: number;
+    username: string;
+  };
+  helper?: {
+    id: number;
+    username: string;
+  };
 }
 
 interface FavorListProps {
@@ -107,7 +116,7 @@ const Favor = ({ title, status, description, deadline, points, img, helper, butt
           {helper && (
             <div className="flex items-center mt-2">
               <img src={img} alt="Helper" className="w-6 h-6 rounded-full mr-2" />
-              <span className="text-sm text-gray-600">{helper}</span>
+              <span className="text-sm text-gray-600">{helper.username}</span>
             </div>
           )}
         </div>
@@ -220,64 +229,39 @@ const PendingFavors = ({ favors, loading }: FavorListProps) => {
 export const MyFavors = () => {
   const [activeTab, setActiveTab] = useState('requested');
   const [favors, setFavors] = useState<FavorProps[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchFavors = async (type: string) => {
-    try {
-      setLoading(true);
-      // Convertir el tipo de tab al estado correcto para la API
-      const status = type === 'pending' ? 'PENDING' : type === 'accepted' ? 'ACCEPTED' : 'requested';
-      const response = await getFavors(status);
-      console.log('Raw API Response:', response);
-      
-      // Usar la propiedad results del objeto de respuesta
-      const results = response.results || [];
-      console.log('Raw Results:', results);
-      
-      // Transformar los datos de la API al formato que espera el componente Favor
-      const transformedFavors = results.map((favor: any) => {
-        console.log('Processing favor:', favor);
-        return {
-          id: favor.id || Math.random().toString(), // Si no hay id, generamos uno temporal
-          title: favor.title || 'Sin título',
-          status: type === 'pending' ? 'Pending' : type === 'accepted' ? 'Accepted' : favor.status || 'Pending',
-          description: favor.description || '',
-          deadline: new Date(favor.deadline).toLocaleDateString('es-ES', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          }),
-          points: favor.points ? `${favor.points} pts` : '0 pts',
-          img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80', // Imagen por defecto
-          buttonText: 'Ver Detalles'
-        };
-      });
-      
-      console.log('Transformed favors:', transformedFavors);
-      setFavors(transformedFavors);
-    } catch (error) {
-      console.error('Error fetching favors:', error);
-      setFavors([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchFavors(activeTab);
-  }, [activeTab]);
+  const [loading, setLoading] = useState(false);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
 
+  const handleSubmit = async (data: {
+    title: string;
+    deadline: string;
+    description: string;
+    type: string;
+    points: string;
+  }) => {
+    try {
+      // You might want to refresh the favors list here
+    } catch (error) {
+      console.error('Error creating favor:', error);
+    }
+  };
+
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <Header/>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <Hero 
+        title="Mis Favores"
+        text="Sigue los favores solicitados y los favores en los que estás ayudando"
+        buttonText="Solicitar un Favor"
+        isModalButton
+        onModalSubmit={handleSubmit}
+      />
       <Tabs onTabChange={handleTabChange}/>
       {activeTab === 'requested' && <RequestedFavors favors={favors} loading={loading} />}
       {activeTab === 'pending' && <PendingFavors favors={favors} loading={loading} />}
       {activeTab === 'accepted' && <AcceptedFavors favors={favors} loading={loading} />}
-    </main>
+    </div>
   );
-}
+};
