@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
 import { MADRID_DISTRICTS } from '../constants/districts';
 import Hero from '../components/Hero/Hero';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+import { es } from 'date-fns/locale';
 
 const Board: React.FC = () => {
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  const [startDate, endDate] = dateRange;
+
   const handleSubmit = async (data: {
     title: string;
     deadline: string;
@@ -50,21 +56,21 @@ const Board: React.FC = () => {
             </div>
             
             <div className="relative">
-              <select className="appearance-none bg-gray-50 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm">
-                <option>Todas las categorías</option>
-                <option>Servicios del Hogar</option>
-                <option>Transporte</option>
-                <option>Cuidado de Mascotas</option>
-                <option>Ayuda Tecnológica</option>
-                <option>Clases</option>
-                <option>Cocina</option>
-                <option>Fontanería</option>
-                <option>Carpintería</option>
-                <option>Recados</option>
-                <option>Compra</option>
-              </select>
+              <DatePicker
+                selectsRange={true}
+                startDate={startDate}
+                endDate={endDate}
+                onChange={(update) => {
+                  setDateRange(update);
+                }}
+                locale={es}
+                dateFormat="dd/MM/yyyy"
+                className="appearance-none bg-gray-50 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm w-full"
+                placeholderText="Selecciona rango de fechas"
+                isClearable={true}
+              />
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <i className="fas fa-chevron-down text-xs"></i>
+                <i className="fas fa-calendar text-xs"></i>
               </div>
             </div>
           </div>
