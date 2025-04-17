@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: apivecino-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: apivecino
+      POSTGRES_USER: apivecino_user
+      POSTGRES_PASSWORD: apivecino_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: apivecino-backend
+    environment:
+      DJANGO_ALLOWED_HOSTS: "*"
+      DJANGO_SECRET_KEY: changeme-super-secret
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+    command: >
+      sh -c "python manage.py migrate --settings=apivecino.settings.prod && \
+             gunicorn apivecino.wsgi:application --bind 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend/my-app
+    container_name: apivecino-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres_data:
