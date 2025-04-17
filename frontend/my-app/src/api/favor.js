@@ -3,7 +3,7 @@ import apiClient from './apiClient';
 export const getFavors = async (filters = {}, page = 1, pageSize = 6) => {
   try {
     // Construimos la URL base
-    let url = '/favors/favors';
+    let url = '/favors/';
     
     // Creamos un array para los parámetros
     const params = [];
@@ -54,8 +54,11 @@ export const getFavorsByDistrict = async (districtId) => {
 
 export const createFavor = async (favorData) => {
   try {
-    const response = await apiClient.post('/favors/', favorData);
-    return response.data;
+    // Crear el favor
+    await apiClient.post('/favors/', favorData);
+    // Obtener la lista actualizada de favores
+    const updatedFavors = await getFavors();
+    return updatedFavors;
   } catch (error) {
     console.error('Error al crear el favor:', error);
     throw error;

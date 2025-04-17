@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Hero from "../components/Hero/Hero";
 import transactionsApi from '../api/transactions';
 import { Pagination } from '../components/Pagination/Pagination';
+import { useUser } from '../contexts/UserContext';
 
 interface Transaction {
   id: number;
@@ -119,7 +120,7 @@ const TransactionsList = ({ transactions }: TransactionsListProps) => (
   </div>
 );
 
-const Transactions = () => {
+const TransactionsPage = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -152,6 +153,7 @@ const Transactions = () => {
 
     fetchData();
   }, [currentFilter, currentPage]);
+  const user = useUser();
 
   if (loading) return <div>Cargando transacciones...</div>;
   if (error) return <div>{error}</div>;
@@ -161,7 +163,7 @@ const Transactions = () => {
       <Hero 
         title="Historial de Puntos"
         text="Realiza un seguimiento de tus ganancias y gastos de puntos de favor"
-        points={totals.total_earned - totals.total_spent}
+        points={user.user?.points}
       />
       <FiltersSection 
         totalEarned={totals.total_earned}
@@ -180,4 +182,4 @@ const Transactions = () => {
   );
 };
 
-export default Transactions;
+export default TransactionsPage;
