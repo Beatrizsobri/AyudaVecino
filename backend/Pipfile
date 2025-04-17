@@ -7,8 +7,14 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+djoser = "*"
+whitenoise = "*"
 
 [dev-packages]
+ipython = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.13"
