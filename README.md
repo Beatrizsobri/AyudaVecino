@@ -39,7 +39,7 @@ npm install
 
 2. Ejecutar el servidor de desarrollo:
 ```bash
-npm run dev
+npm start
 ```
 
 El frontend estará disponible en `http://localhost:3000`
