@@ -23,7 +23,7 @@ pipenv install
 python manage.py runserver  --settings=apivecino.settings.dev
 ```
 
-**Nota**: Para cualquier comando que involucre manage.py, asegúrate de añadir siempre el flag `--settings=apivecino.settings.dev`. Por ejemplo:
+**Nota**: Para cualquier comando que involucre manage.py, asegúrate de añadir siempre el flag `--settings=apivecino.settings.dev`.
 
 
 
