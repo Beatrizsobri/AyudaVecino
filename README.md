@@ -33,7 +33,7 @@ El backend estará disponible en `http://localhost:8000`
 
 1. Instalar dependencias:
 ```bash
-cd frontend
+cd frontend/my-app
 npm install
 ```
 
