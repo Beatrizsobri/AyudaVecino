@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
-import { MADRID_DISTRICTS } from '../constants/districts';
 import { getDistricts } from '../api/district';
 import { getFavors } from '../api/favor';
 import Hero from '../components/Hero/Hero';

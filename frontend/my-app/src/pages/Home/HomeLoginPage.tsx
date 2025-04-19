@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getDistricts } from '../../api/district';
 import { getFavorsByDistrict } from '../../api/favor';
-import FavorDetailsModal from '../../components/FavorDetailsModal';
-import FavorList from '../../components/FavorList';
 import { Favor } from '../../types/favor';
 import Hero from '../../components/Hero/Hero';
 import { useUser } from '../../contexts/UserContext';
-
-interface District {
-  id: number;
-  name: string;
-  postal_code: string;
-}
+import { District } from '../../types/district';
+import FavorList from '../../components/Favor/FavorList';
+import FavorDetailsModal from '../../components/Favor/FavorDetailsModal';
 
 const HomeLoginPage = () => {
   const { user } = useUser();
@@ -111,7 +106,7 @@ const HomeLoginPage = () => {
             </div>
 
             {/* Favor Feed */}
-            <FavorList 
+            <FavorList
               favors={favors}
               loading={loading}
               onFavorClick={handleFavorClick}

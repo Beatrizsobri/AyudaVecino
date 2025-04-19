@@ -1,27 +1,5 @@
-export interface District {
-  id: number;
-  name: string;
-  postal_code: string;
-}
-
-export interface User {
-  id: number;
-  username: string;
-  email: string;
-  first_name: string;
-  last_name: string;
-  phone_number?: string;
-  district?: {
-    id: number;
-    name: string;
-  };
-  points: number;
-  bio?: string;
-  skills?: string[];
-  date_joined: string;
-  profile_picture?: string;
-  profile_image?: string;
-}
+import { District } from "./district";
+import { User } from "./user";
 
 export interface Favor {
   id: number;

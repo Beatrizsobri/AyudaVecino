@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from 'react';
 import { getDistricts } from '../api/district';
 import { registerUser } from "../api/auth";
+import { District } from "../types/district";
 
 interface FormData {
   name: string;
@@ -10,12 +11,6 @@ interface FormData {
   email: string;
   password: string;
   district: string;
-}
-
-interface District {
-  id: number, 
-  name: string, 
-  postal_code: string,
 }
 
 export default function SignUpForm() {

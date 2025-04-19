@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createFavor } from '../api/favor';
+import { createFavor } from '../../api/favor';
 
 interface FavorRequestFormProps {
   onClose: () => void;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { acceptFavor } from '../api/favor';
+import { acceptFavor } from '../../api/favor';
 
 interface AcceptFavorProps {
   favorId: number;

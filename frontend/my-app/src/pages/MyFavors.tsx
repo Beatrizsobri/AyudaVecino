@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Tabs from "../components/Tab/Tab";
-import { FavorRequestForm } from "../components/FavorRequestForm";
 import { getFavors } from '../api/favor';
 import Hero from '../components/Hero/Hero';
+import { FavorRequestForm } from '../components/Favor/FavorRequestForm';
 
 interface FavorProps {
   id: number;
