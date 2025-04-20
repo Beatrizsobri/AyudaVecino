@@ -12,6 +12,5 @@ export interface User {
     bio?: string;
     skills?: string[];
     date_joined: string;
-    profile_picture?: string;
     profile_image?: string;
   }
