@@ -18,8 +18,6 @@ services:
     environment:
       DJANGO_ALLOWED_HOSTS: "*"
       DJANGO_SECRET_KEY: changeme-super-secret
-    volumes:
-      - ./backend:/app
     depends_on:
       - db
     command: >

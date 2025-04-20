@@ -1,6 +1,7 @@
 # Estos settings son para produccion y docker. 
 
 from .base import *
+DEBUG = False
 
 DATABASES = {
     'default': {
