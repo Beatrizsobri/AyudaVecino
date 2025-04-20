@@ -1,7 +1,7 @@
 import React from 'react';
 import { Favor } from '../../types/favor';
 import { getFavorTypeIcon } from '../../utils/favorUtils';
-import { TYPE_CHOICES } from '../../constants/favorTypes';
+import { TYPE_CHOICES } from '../../types/favorTypes';
 
 interface FavorCardProps {
   favor: Favor;
