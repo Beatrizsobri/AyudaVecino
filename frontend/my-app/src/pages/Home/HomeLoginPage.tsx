@@ -8,7 +8,6 @@ import { District } from '../../types/district';
 import FavorList from '../../components/Favor/FavorList';
 import FavorDetailsModal from '../../components/Favor/FavorDetailsModal';
 import UserProfileCard from '../../components/Profile/UserProfileCard';
-import PointsSummary from '../../components/Profile/PointsSummary';
 
 const HomeLoginPage = () => {
   const { user } = useUser();
