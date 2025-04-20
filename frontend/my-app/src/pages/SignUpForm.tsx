@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getDistricts } from '../api/district';
 import { registerUser } from "../api/auth";
 import { District } from "../types/district";
+import { ROUTES } from '../constants/routes';
 
 interface FormData {
   name: string;
@@ -20,7 +22,9 @@ export default function SignUpForm() {
     formState: { errors },
   } = useForm<FormData>();
 
+  const navigate = useNavigate();
   const [districts, setDistricts] = useState<District[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     getDistricts().then(data => {
@@ -29,20 +33,32 @@ export default function SignUpForm() {
   }, []);
 
   const onSubmit = async(data: FormData) => {
-    await registerUser({
-      username: data.email,
-      email: data.email,
-      password: data.password,
-      first_name: data.name,
-      last_name: data.lastName,
-      phone_number: data.phone,
-      district: data.district,
-    })
+    try {
+      setError(null);
+      await registerUser({
+        username: data.email,
+        email: data.email,
+        password: data.password,
+        first_name: data.name,
+        last_name: data.lastName,
+        phone_number: data.phone,
+        district: data.district,
+      });
+      navigate(ROUTES.SIGN_IN);
+    } catch (err) {
+      setError('Error al registrar el usuario. Por favor, inténtalo de nuevo.');
+      console.error(err);
+    }
   };
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-2xl">
       <h2 className="text-2xl font-bold text-center mb-4">Sign Up</h2>
+      {error && (
+        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+          {error}
+        </div>
+      )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <label className="block text-sm font-medium">Nombre</label>
@@ -97,6 +113,7 @@ export default function SignUpForm() {
         <div>
           <label className="block text-sm font-medium">Barrio</label>
           <select {...register("district", { required: "Selecciona un barrio" })} className="w-full p-2 border rounded-md">
+            <option value="">Selecciona un barrio</option>
             {districts.map((district) => (
               <option key={district.id} value={district.id}>
                 {district.name}
@@ -105,7 +122,7 @@ export default function SignUpForm() {
           {errors.district?.message && <p className="text-red-500 text-sm">{String(errors.district.message)}</p>}
         </div>
 
-        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">
+        <button type="submit" className="w-full bg-indigo-600 text-white p-2 rounded-md hover:bg-indigo-700 transition-colors">
           Registrarse
         </button>
       </form>
