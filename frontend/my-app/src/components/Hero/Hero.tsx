@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FavorRequestForm } from '../FavorRequestForm';
+import { FavorRequestForm } from '../Favor/FavorRequestForm';
 
 interface HeroProps {
   title: string;

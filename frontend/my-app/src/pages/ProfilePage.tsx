@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useUser } from '../contexts/UserContext';
-import { User } from '../types/favor';
 import EditProfileModal from '../components/Profile/EditProfileModal';
 import StatsCards from '../components/Profile/StatsCards';
 import ContactInfo from '../components/Profile/ContactInfo';

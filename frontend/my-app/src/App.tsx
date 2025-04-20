@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SignUpForm, SignInForm, HomeLoginPage, HomeUnlogPage, Transactions, MyFavors } from "./pages";
+import { SignUpForm, SignInForm, HomeLoginPage, HomeUnlogPage, TransactionsPage, MyFavorsPage } from "./pages";
 import BoardPage from "./pages/BoardPage";
 import ProfilePage from "./pages/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
@@ -48,12 +48,12 @@ function App() {
             {/* Rutas protegidas */}
             <Route path={ROUTES.TRANSACTIONS} element={
               <ProtectedRoute>
-                <Transactions/>
+                <TransactionsPage/>
               </ProtectedRoute>
             }/>
             <Route path={ROUTES.MY_FAVORS} element={
               <ProtectedRoute>
-                <MyFavors/>
+                <MyFavorsPage/>
               </ProtectedRoute>
             }/>
             <Route path={ROUTES.BOARD} element={

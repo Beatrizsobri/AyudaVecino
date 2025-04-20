@@ -1,13 +1,23 @@
 from rest_framework import serializers
 from .models import CustomUser
+from district.serializers import DistrictSerializer
+from district.models import District
 
 # El objeto que voy a mostrar
 class UserSerializer(serializers.ModelSerializer):
+    district = DistrictSerializer(read_only=True)
+    district_id = serializers.PrimaryKeyRelatedField(
+        queryset=District.objects.all(),
+        source='district',
+        write_only=True,
+        required=False
+    )
+
     class Meta:
         model = CustomUser
         fields = (
             'id', 'username', 'email', 'first_name', 'last_name',
-            'phone_number', 'points', 'district',
+            'phone_number', 'points', 'district', 'district_id',
         )
         depth = 1
 

@@ -1,5 +1,5 @@
-import { Favor } from '../types/favor';
 import FavorTypeIcon from './FavorTypeIcon';
+import { Favor } from '../../types/favor';
 import AcceptFavor from './AcceptFavor';
 
 interface FavorListProps {

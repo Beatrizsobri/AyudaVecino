@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import FavorViewSet, FavorByDistrictListView, FavorDetailView, accept_favor
 
 router = DefaultRouter()
-router.register(r'favors', FavorViewSet)
+router.register(r'', FavorViewSet)
 
 urlpatterns = [
     # path('my/', MyFavorListCreateView.as_view(), name='my-favors'),  # <- esta es nueva

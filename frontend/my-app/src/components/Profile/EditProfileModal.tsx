@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { User } from '../../types/favor';
+import React, { useState, useEffect } from 'react';
 import { useUser } from '../../contexts/UserContext';
-import { MADRID_DISTRICTS } from '../../constants/districts';
+import { getDistricts } from '../../api/district';
+import { User } from '../../types/user';
 
 interface EditProfileModalProps {
   isOpen: boolean;
@@ -12,6 +12,7 @@ interface EditProfileModalProps {
 
 const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, user, onUpdate }) => {
   const { updateUser } = useUser();
+  const [districts, setDistricts] = useState<Array<{ id: number; name: string }>>([]);
   const [formData, setFormData] = useState({
     first_name: user.first_name || '',
     last_name: user.last_name || '',
@@ -21,13 +22,27 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, us
     district: user.district?.id?.toString() || ''
   });
 
+  useEffect(() => {
+    const fetchDistricts = async () => {
+      try {
+        const districtsData = await getDistricts();
+        setDistricts(districtsData?.results || []);
+      } catch (error) {
+        console.error('Error fetching districts:', error);
+        setDistricts([]);
+      }
+    };
+
+    fetchDistricts();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const district = MADRID_DISTRICTS.find(d => d.id.toString() === formData.district);
+      const district = districts.find(d => d.id.toString() === formData.district);
       const updatedUser = await updateUser({
         ...formData,
-        district: district ? { id: Number(district.id), name: district.name } : undefined
+        district: district ? { id: district.id, name: district.name, postal_code: '' } : undefined
       });
       onUpdate(updatedUser);
       onClose();
@@ -119,7 +134,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, us
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               >
                 <option value="">Selecciona un distrito</option>
-                {MADRID_DISTRICTS.map(district => (
+                {districts.map(district => (
                   <option key={district.id} value={district.id.toString()}>
                     {district.name}
                   </option>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { User } from '../../types/favor';
+import { User } from '../../types/user';
 
 interface StatsCardsProps {
   user: User;
