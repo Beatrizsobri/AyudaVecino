@@ -1,28 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getDistricts } from '../api/district';
 import { getFavors } from '../api/favor';
 import Hero from '../components/Hero/Hero';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { es } from 'date-fns/locale';
-import { Favor } from '../types/favor';
+import { Favor, TYPE_CHOICES } from '../types/favor';
 import { Pagination } from '../components/Pagination/Pagination';
 import FavorList from '../components/FavorList/FavorList';
 import { getFavorTypeIcon } from '../utils/favorUtils';
-
-const TYPE_CHOICES: Record<string, string> = {
-  'HOME': 'Hogar',
-  'TRANSPORT': 'Transporte',
-  'PETS': 'Mascotas',
-  'TECH': 'Tecnología',
-  'CLASS': 'Clases',
-  'COOKING': 'Cocina',
-  'PLUMBING': 'Fontanería',
-  'CARPENTRY': 'Carpintería',
-  'ERRANDS': 'Recados',
-  'SHOPPING': 'Compra',
-};
 
 const Board: React.FC = () => {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);

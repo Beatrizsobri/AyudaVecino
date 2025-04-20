@@ -3,15 +3,8 @@ import Hero from "../components/Hero/Hero";
 import transactionsApi from '../api/transactions';
 import { Pagination } from '../components/Pagination/Pagination';
 import { useUser } from '../contexts/UserContext';
-
-interface Transaction {
-  id: number;
-  transaction_type: string;
-  amount: number;
-  date_created: string;
-  user: number;
-  favor: number;
-}
+import TransactionsList from '../components/TransactionsList/TransactionsList';
+import { Transaction } from '../types/transaction';
 
 interface FiltersSectionProps {
   totalEarned: number;
@@ -19,10 +12,6 @@ interface FiltersSectionProps {
   completedFavors: number;
   currentFilter: string | undefined;
   onFilterChange: (filter: string | undefined) => void;
-}
-
-interface TransactionsListProps {
-  transactions: Transaction[];
 }
 
 const FiltersSection = ({ 
@@ -83,40 +72,6 @@ const FiltersSection = ({
         </div>
       </div>
     </div>
-  </div>
-);
-
-const TransactionsList = ({ transactions }: TransactionsListProps) => (
-  <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-    <div className="border-b border-gray-200 px-6 py-4">
-      <h3 className="text-lg font-medium leading-6 text-gray-900">Transacciones Recientes</h3>
-    </div>
-
-    {transactions.map((transaction) => {
-      const isSpend = transaction.transaction_type === 'SPEND';
-      return (
-        <div key={transaction.id} className="p-4 border-b border-gray-200 transaction-card hover:bg-gray-50 transition duration-150">
-          <div className="flex items-start">
-            <div className={`p-3 rounded-full ${isSpend ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'} mr-4`}>
-              <i className={`fas ${isSpend ? 'fa-shopping-cart' : 'fa-check-circle'} text-lg`}></i>
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center justify-between">
-                <h4 className="font-medium">{transaction.transaction_type}</h4>
-                <span className={`${isSpend ? 'text-red-600' : 'text-green-600'} font-semibold`}>
-                  {isSpend ? '-' : '+'}{Math.abs(transaction.amount)} pts
-                </span>
-              </div>
-              <p className="text-sm text-gray-500 mb-1">{transaction.favor} - {transaction.date_created}</p>
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-gray-400">{transaction.date_created}</span>
-                <button className="text-xs text-indigo-600 hover:text-indigo-800">Ver detalles</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    })}
   </div>
 );
 
