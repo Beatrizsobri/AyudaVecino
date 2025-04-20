@@ -7,6 +7,7 @@ interface UserContextType {
   loading: boolean;
   error: string | null;
   updateUser: (userData: Partial<User>) => Promise<User>;
+  refreshUser: () => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -62,7 +63,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, loading, error, updateUser }}>
+    <UserContext.Provider value={{ user, loading, error, updateUser, refreshUser: fetchUser }}>
       {children}
     </UserContext.Provider>
   );
