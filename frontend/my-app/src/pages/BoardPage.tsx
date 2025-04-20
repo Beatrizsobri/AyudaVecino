@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants/routes';
 import { getDistricts } from '../api/district';
 import { getFavors } from '../api/favor';
 import Hero from '../components/Hero/Hero';
@@ -9,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { es } from 'date-fns/locale';
 import { Favor } from '../types/favor';
 import { Pagination } from '../components/Pagination/Pagination';
+import FavorList from '../components/FavorList/FavorList';
+import { getFavorTypeIcon } from '../utils/favorUtils';
 
 const TYPE_CHOICES: Record<string, string> = {
   'HOME': 'Hogar',
@@ -94,33 +95,6 @@ const Board: React.FC = () => {
     }
   };
 
-  const getFavorTypeIcon = (type: string) => {
-    switch (type.toLowerCase()) {
-      case 'hogar':
-        return 'fa-home text-blue-500';
-      case 'transporte':
-        return 'fa-car text-green-500';
-      case 'mascotas':
-        return 'fa-paw text-purple-500';
-      case 'tecnología':
-        return 'fa-laptop-code text-red-500';
-      case 'clases':
-        return 'fa-book text-yellow-500';
-      case 'cocina':
-        return 'fa-utensils text-pink-500';
-      case 'fontanería':
-        return 'fa-wrench text-blue-500';
-      case 'carpintería':
-        return 'fa-hammer text-brown-500';
-      case 'recados':
-        return 'fa-shopping-bag text-purple-500';
-      case 'compra':
-        return 'fa-shopping-cart text-green-500';
-      default:
-        return 'fa-question-circle text-gray-500';
-    }
-  };
-
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -135,7 +109,7 @@ const Board: React.FC = () => {
         onModalSubmit={handleSubmit}
       />
 
-      {/* Filters and map */}
+      {/* Filters */}
       <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
           <h2 className="text-lg font-semibold mb-4 md:mb-0">Favores Cercanos</h2>
@@ -201,75 +175,10 @@ const Board: React.FC = () => {
       </div>
       
       {/* Favors grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {loading ? (
-          <div className="col-span-full text-center py-8">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Cargando favores...</p>
-          </div>
-        ) : favors.length === 0 ? (
-          <div className="col-span-full text-center py-8">
-            <p className="text-gray-600">No hay favores disponibles en este momento</p>
-          </div>
-        ) : (
-          favors.map((favor) => (
-            <div key={favor.id} className="bg-white rounded-xl shadow-sm overflow-hidden">
-              <div className="relative z-0">
-                <img 
-                  src={favor.img || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"} 
-                  alt={favor.title} 
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-3 left-3 bg-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
-                  <i className="fas fa-map-marker-alt text-indigo-500 mr-1"></i> {favor.district.name}
-                </div>
-                <div className="absolute top-3 right-3 bg-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
-                  <i className={`fas ${getFavorTypeIcon(TYPE_CHOICES[favor.type])} mr-1`}></i> {TYPE_CHOICES[favor.type]}
-                </div>
-              </div>
-              <div className="p-5">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-bold text-lg">{favor.title}</h3>
-                </div>
-                <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <i className="fas fa-calendar-alt mr-2"></i>
-                  {new Date(favor.deadline).toLocaleDateString('es-ES', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </div>
-                <p className="text-gray-600 text-sm mb-4">{favor.description}</p>
-                
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center">
-                    <img 
-                      src={favor.creator?.profile_image || "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"} 
-                      alt={favor.creator?.username || 'Usuario'} 
-                      className="w-8 h-8 rounded-full mr-2"
-                    />
-                    <div>
-                      <p className="text-sm font-medium">{favor.creator?.username || 'Anónimo'}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-bold text-indigo-600">+{favor.points} pts</p>
-                  </div>
-                </div>
-                
-                <div className="flex space-x-2">
-                  <button className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150">
-                    Aceptar Favor
-                  </button>
-                  <button className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50">
-                    <i className="fas fa-ellipsis-h text-gray-500"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
-        )}
-      </div>
+      <FavorList 
+        favors={favors}
+        loading={loading}
+      />
 
       {/* Add Pagination */}
       {!loading && favors.length > 0 && (
