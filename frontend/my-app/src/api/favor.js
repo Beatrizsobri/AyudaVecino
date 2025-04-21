@@ -94,3 +94,13 @@ export const acceptFavor = async (favorId) => {
     throw error;
   }
 };
+
+export const getMyFavors = async () => {
+  try {
+    const response = await apiClient.get('/favors/my/');
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener mis favores:', error);
+    throw error;
+  }
+};

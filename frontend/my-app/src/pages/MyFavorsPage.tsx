@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Tabs from "../components/Tab/Tab";
 import Hero from '../components/Hero/Hero';
 import FavorList from '../components/FavorList/FavorList';
 import { Favor } from '../types/favor';
+import { getMyFavors } from '../api/favor';
 
 // const EmptyFavor = () => {
 //   return (
@@ -114,7 +115,24 @@ import { Favor } from '../types/favor';
 export const MyFavorsPage = () => {
   const [activeTab, setActiveTab] = useState('requested');
   const [favors, setFavors] = useState<Favor[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFavors = async () => {
+      try {
+        setLoading(true);
+        const data = await getMyFavors();
+        setFavors(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error('Error fetching favors:', error);
+        setFavors([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFavors();
+  }, []);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -128,7 +146,8 @@ export const MyFavorsPage = () => {
     points: string;
   }) => {
     try {
-      // You might want to refresh the favors list here
+      const updatedFavors = await getMyFavors();
+      setFavors(Array.isArray(updatedFavors) ? updatedFavors : []);
     } catch (error) {
       console.error('Error creating favor:', error);
     }

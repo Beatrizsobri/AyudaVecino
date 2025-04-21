@@ -19,10 +19,12 @@ class FavorSerializer(serializers.ModelSerializer):
 
 
 
-# class MyFavorSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Favor
-#         fields = '__all__'
-#         read_only_fields = ['creator', 'publication_date', 'status', 'assigned_user']
+class MyFavorSerializer(serializers.ModelSerializer):
+    district = DistrictSerializer(read_only=True)
+    
+    class Meta:
+        model = Favor
+        fields = ['id', 'title', 'deadline', 'description', 'type', 'points', 'district', 'publication_date', 'status', 'assigned_user']
+        read_only_fields = ['creator', 'publication_date', 'status', 'assigned_user']
 
 
