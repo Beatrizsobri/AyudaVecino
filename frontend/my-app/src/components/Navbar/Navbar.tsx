@@ -29,10 +29,10 @@ const Navbar = () => {
                 { name: "Mis favores", 
                   url: ROUTES.MY_FAVORS,
                 }, 
-                { name: "Favores en mi barrio", 
+                { name: "Favores por barrio", 
                   url: ROUTES.BOARD,
                 },
-                { name: "Transacciones", 
+                { name: "Historial de puntos", 
                   url: ROUTES.TRANSACTIONS
                 }].map(
                   (item, index) => (
