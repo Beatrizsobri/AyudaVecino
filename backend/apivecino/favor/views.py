@@ -13,7 +13,7 @@ from django.db import transaction
 from django.db.models import Q
 
 class CustomPagination(pagination.PageNumberPagination):
-    page_size = 10
+    page_size = 6
     page_size_query_param = 'page_size'
     max_page_size = 100
 
@@ -72,9 +72,65 @@ class FavorDetailView(generics.RetrieveAPIView):
 class MyFavorListView(generics.ListAPIView):
     serializer_class = MyFavorSerializer
     permission_classes = [IsAuthenticated]
+    pagination_class = CustomPagination
 
     def get_queryset(self):
-        return Favor.objects.filter(Q(creator=self.request.user) | Q(assigned_user=self.request.user))
+        queryset = Favor.objects.filter(Q(creator=self.request.user) | Q(assigned_user=self.request.user))
+        
+        # Get status from query parameters
+        status = self.request.query_params.get('status', None)
+        if status and status != 'ALL':
+            # Validar que el estado es uno de los permitidos
+            if status in ['PENDING', 'ACCEPTED', 'CANCELLED']:
+                queryset = queryset.filter(status=status)
+        
+        # Ordenar por fecha (deadline) de más cercana a más lejana
+        queryset = queryset.order_by('deadline')
+            
+        print(f"MyFavorListView - Total items: {queryset.count()}")
+        return queryset
+
+class CreatedFavorListView(generics.ListAPIView):
+    serializer_class = FavorSerializer
+    permission_classes = [IsAuthenticated]
+    pagination_class = CustomPagination
+
+    def get_queryset(self):
+        queryset = Favor.objects.filter(creator=self.request.user)
+        
+        # Get status from query parameters
+        status = self.request.query_params.get('status', None)
+        if status and status != 'ALL':
+            # Validar que el estado es uno de los permitidos
+            if status in ['PENDING', 'ACCEPTED', 'CANCELLED']:
+                queryset = queryset.filter(status=status)
+        
+        # Ordenar por fecha (deadline) de más cercana a más lejana
+        queryset = queryset.order_by('deadline')
+            
+        print(f"CreatedFavorListView - Total items: {queryset.count()}")
+        return queryset
+
+class AcceptedFavorListView(generics.ListAPIView):
+    serializer_class = FavorSerializer
+    permission_classes = [IsAuthenticated]
+    pagination_class = CustomPagination
+
+    def get_queryset(self):
+        queryset = Favor.objects.filter(assigned_user=self.request.user)
+        
+        # Get status from query parameters
+        status = self.request.query_params.get('status', None)
+        if status and status != 'ALL':
+            # Validar que el estado es uno de los permitidos
+            if status in ['PENDING', 'ACCEPTED', 'CANCELLED']:
+                queryset = queryset.filter(status=status)
+        
+        # Ordenar por fecha (deadline) de más cercana a más lejana
+        queryset = queryset.order_by('deadline')
+            
+        print(f"AcceptedFavorListView - Total items: {queryset.count()}")
+        return queryset
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

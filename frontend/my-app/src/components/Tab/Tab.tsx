@@ -7,7 +7,7 @@ interface TabsProps {
 const Tabs = ({ onTabChange }: TabsProps) => {
   const [activeTab, setActiveTab] = useState('requested');
 
-  const handleTabClick = (tab:string) => {
+  const handleTabClick = (tab: string) => {
     setActiveTab(tab);
     onTabChange(tab);
   };
@@ -20,19 +20,13 @@ const Tabs = ({ onTabChange }: TabsProps) => {
             className={`tab-button ${activeTab === 'requested' ? 'active' : ''} py-4 px-1 text-sm font-medium`}
             onClick={() => handleTabClick('requested')}
           >
-            Pedidos
-          </button>
-          <button
-            className={`tab-button ${activeTab === 'pending' ? 'active' : ''} py-4 px-1 text-sm font-medium`}
-            onClick={() => handleTabClick('pending')}
-          >
-            Pendientes
+            Favores que he pedido
           </button>
           <button
             className={`tab-button ${activeTab === 'accepted' ? 'active' : ''} py-4 px-1 text-sm font-medium`}
             onClick={() => handleTabClick('accepted')}
           >
-            Aceptados
+            Favores que he ayudado
           </button>
         </nav>
       </div>

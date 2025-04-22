@@ -13,6 +13,7 @@ export interface Favor {
   publication_date: string;
   status: string;
   img?: string;
+  assigned_user?: User | null;
 } 
 
 export const TYPE_CHOICES: Record<string, string> = {

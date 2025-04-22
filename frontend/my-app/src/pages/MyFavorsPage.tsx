@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import Tabs from "../components/Tab/Tab";
 import Hero from '../components/Hero/Hero';
 import FavorList from '../components/FavorList/FavorList';
+import StatusSelector from '../components/StatusSelector/StatusSelector';
+import { Pagination } from '../components/Pagination/Pagination';
 import { Favor } from '../types/favor';
-import { getMyFavors } from '../api/favor';
+import { getMyFavors, getCreatedFavors, getAcceptedFavors } from '../api/favor';
 
 // const EmptyFavor = () => {
 //   return (
@@ -113,29 +115,60 @@ import { getMyFavors } from '../api/favor';
 // };
 
 export const MyFavorsPage = () => {
-  const [activeTab, setActiveTab] = useState('requested');
   const [favors, setFavors] = useState<Favor[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('requested');
+  const [selectedStatus, setSelectedStatus] = useState('ALL');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     const fetchFavors = async () => {
       try {
         setLoading(true);
-        const data = await getMyFavors();
-        setFavors(Array.isArray(data) ? data : []);
+        let response;
+        if (activeTab === 'requested') {
+          response = await getCreatedFavors(currentPage, selectedStatus);
+        } else if (activeTab === 'accepted') {
+          response = await getAcceptedFavors(currentPage, selectedStatus);
+        } else {
+          response = await getMyFavors(currentPage, selectedStatus);
+        }
+        
+        console.log('API Response:', response);
+        setFavors(response.results);
+        setTotalItems(response.count);
+        const calculatedPages = Math.ceil(response.count / 6);
+        console.log('Total Items:', response.count, 'Calculated Pages:', calculatedPages);
+        setTotalPages(calculatedPages);
       } catch (error) {
         console.error('Error fetching favors:', error);
         setFavors([]);
+        setTotalItems(0);
+        setTotalPages(1);
       } finally {
         setLoading(false);
       }
     };
 
     fetchFavors();
-  }, []);
+  }, [activeTab, currentPage, selectedStatus]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
+    setCurrentPage(1);
+  };
+
+  const handleStatusChange = (status: string) => {
+    setSelectedStatus(status);
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
   };
 
   const handleSubmit = async (data: {
@@ -146,8 +179,10 @@ export const MyFavorsPage = () => {
     points: string;
   }) => {
     try {
-      const updatedFavors = await getMyFavors();
-      setFavors(Array.isArray(updatedFavors) ? updatedFavors : []);
+      const response = await getCreatedFavors(currentPage, selectedStatus);
+      setFavors(response.results);
+      setTotalItems(response.count);
+      setTotalPages(Math.ceil(response.count / 6));
     } catch (error) {
       console.error('Error creating favor:', error);
     }
@@ -162,10 +197,26 @@ export const MyFavorsPage = () => {
         isModalButton
         onModalSubmit={handleSubmit}
       />
-      <Tabs onTabChange={handleTabChange}/>
-      {activeTab === 'requested' && <FavorList favors={favors} loading={loading} />}
-      {activeTab === 'pending' && <FavorList favors={favors} loading={loading} />}
-      {activeTab === 'accepted' && <FavorList favors={favors} loading={loading} />}
+      <div className="mt-8">
+        <div className="flex justify-between items-center mb-6">
+          <Tabs onTabChange={handleTabChange}/>
+          <div className="w-64">
+            <StatusSelector onStatusChange={handleStatusChange} />
+          </div>
+        </div>
+        <FavorList favors={favors} loading={loading} />
+        {!loading && totalPages > 1 && (
+          <div className="mt-4">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
+
+export default MyFavorsPage;
