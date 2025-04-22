@@ -5,7 +5,7 @@ import FavorList from '../components/FavorList/FavorList';
 import StatusSelector from '../components/StatusSelector/StatusSelector';
 import { Pagination } from '../components/Pagination/Pagination';
 import { Favor } from '../types/favor';
-import { getMyFavors, getCreatedFavors, getAcceptedFavors } from '../api/favor';
+import { getCreatedFavors, getAcceptedFavors } from '../api/favor';
 
 // const EmptyFavor = () => {
 //   return (
@@ -130,10 +130,8 @@ export const MyFavorsPage = () => {
         let response;
         if (activeTab === 'requested') {
           response = await getCreatedFavors(currentPage, selectedStatus);
-        } else if (activeTab === 'accepted') {
-          response = await getAcceptedFavors(currentPage, selectedStatus);
         } else {
-          response = await getMyFavors(currentPage, selectedStatus);
+          response = await getAcceptedFavors(currentPage, selectedStatus);
         }
         
         console.log('API Response:', response);
@@ -199,7 +197,7 @@ export const MyFavorsPage = () => {
       />
       <div className="mt-8">
         <div className="flex justify-between items-center mb-6">
-          <Tabs onTabChange={handleTabChange}/>
+          <Tabs onTabChange={handleTabChange} activeTab={activeTab} />
           <div className="w-64">
             <StatusSelector onStatusChange={handleStatusChange} />
           </div>
