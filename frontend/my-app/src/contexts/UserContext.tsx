@@ -7,6 +7,7 @@ interface UserContextType {
   loading: boolean;
   error: string | null;
   updateUser: (userData: Partial<User>) => Promise<User>;
+  refreshUser: () => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -27,8 +28,8 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const userData = await getUserProfile();
       // Si el usuario no tiene imagen de perfil, generamos el Gravatar
-      if (!userData.profile_picture) {
-        userData.profile_picture = generateGravatarUrl(userData.email);
+      if (!userData.profile_image) {
+        userData.profile_image = generateGravatarUrl(userData.email);
       }
       setUser(userData);
       setError(null);
@@ -44,8 +45,8 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const updatedUser = await updateUserProfile(userData);
       // Si el usuario no tiene imagen de perfil, generamos el Gravatar
-      if (!updatedUser.profile_picture) {
-        updatedUser.profile_picture = generateGravatarUrl(updatedUser.email);
+      if (!updatedUser.profile_image) {
+        updatedUser.profile_image = generateGravatarUrl(updatedUser.email);
       }
       setUser(updatedUser);
       setError(null);
@@ -62,7 +63,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, loading, error, updateUser }}>
+    <UserContext.Provider value={{ user, loading, error, updateUser, refreshUser: fetchUser }}>
       {children}
     </UserContext.Provider>
   );

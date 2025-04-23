@@ -26,11 +26,13 @@ const ProfilePage: React.FC = () => {
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <div className="flex items-end -mt-16">
               <div className="relative">
-                <img
-                  className="h-32 w-32 rounded-full border-4 border-white object-cover shadow-lg" 
-                  src={user.profile_picture} 
-                  alt="User profile"
-                />
+                <div className="h-32 w-32 rounded-full bg-white border-4 border-white shadow-lg overflow-hidden">
+                  <img
+                    className="h-full w-full object-cover" 
+                    src={user.profile_image} 
+                    alt="User profile"
+                  />
+                </div>
               </div>
               <div className="ml-8 mb-4">
                 <h1 className="text-3xl font-bold text-white mb-2">

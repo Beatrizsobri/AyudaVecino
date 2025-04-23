@@ -22,7 +22,7 @@ const UserMenu = () => {
         <span className="sr-only">Abrir menú de usuario</span>
         <img
           className="h-8 w-8 rounded-full"
-          src={user?.profile_picture}
+          src={user?.profile_image}
           alt="User"
         />
       </button>

@@ -7,9 +7,9 @@ import Footer from "./components/Footer/Footer";
 import { isUserLoggedIn } from "./api/auth";
 import NavbarUnlog from "./components/Navbar/NavbarUnlog";
 import { useEffect, useState } from "react";
-import ProtectedRoute from "./components/ProtectedRoute";
 import { ROUTES } from "./constants/routes";
 import { UserProvider } from "./contexts/UserContext";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

@@ -17,7 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = (
             'id', 'username', 'email', 'first_name', 'last_name',
-            'phone_number', 'points', 'district', 'district_id',
+            'phone_number', 'points', 'district', 'district_id', 'profile_image'
         )
         depth = 1
 

@@ -49,7 +49,7 @@ export default function SignInForm() {
           />
           {errors.password?.message && <p className="text-red-500 text-sm">{String(errors.password.message)}</p>}
         </div>
-        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">
+        <button type="submit" className="w-full bg-indigo-600 text-white p-2 rounded-md hover:bg-indigo-700 transition-colors">
           Loguearse
         </button>
       </form>
