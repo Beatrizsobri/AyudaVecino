@@ -32,9 +32,6 @@ const FavorList = ({ favors, loading, onFavorClick, onAccept }: FavorListProps) 
 
   return (
     <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-      <div className="border-b border-gray-200 px-4 py-4 sm:px-6">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">Favores cercanos</h3>
-      </div>
       <div className="divide-y divide-gray-200">
         {favors.map((favor) => (
           <div key={favor.id} className="p-4">

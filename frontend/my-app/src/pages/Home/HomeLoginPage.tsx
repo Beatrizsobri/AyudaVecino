@@ -1,40 +1,29 @@
 import { useState, useEffect } from 'react';
-import { getDistricts } from '../../api/district';
-import { getFavorsByDistrict } from '../../api/favor';
+import { getAcceptedFavors, getCreatedFavors } from '../../api/favor';
 import { Favor } from '../../types/favor';
 import Hero from '../../components/Hero/Hero';
 import { useUser } from '../../contexts/UserContext';
-import { District } from '../../types/district';
-import FavorList from '../../components/Favor/FavorList';
+import FavorListLimited from '../../components/FavorList/FavorListLimited';
 import FavorDetailsModal from '../../components/Favor/FavorDetailsModal';
 import UserProfileCard from '../../components/Profile/UserProfileCard';
 
 const HomeLoginPage = () => {
   const { user } = useUser();
-  const [districts, setDistricts] = useState<District[]>([]);
-  const [selectedDistrict, setSelectedDistrict] = useState(1);
-  const [favors, setFavors] = useState<Favor[]>([]);
+  const [acceptedFavors, setAcceptedFavors] = useState<Favor[]>([]);
+  const [createdFavors, setCreatedFavors] = useState<Favor[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedFavorId, setSelectedFavorId] = useState<number | null>(null);
-
-  useEffect(() => {
-    const fetchDistricts = async () => {
-      try {
-        const data = await getDistricts();
-        setDistricts(data.results);
-      } catch (error) {
-        console.error('Error fetching districts:', error);
-      }
-    };
-    fetchDistricts();
-  }, []);
 
   useEffect(() => {
     const fetchFavors = async () => {
       setLoading(true);
       try {
-        const data = await getFavorsByDistrict(selectedDistrict);
-        setFavors(data.results || []);
+        const [acceptedData, createdData] = await Promise.all([
+          getAcceptedFavors(1, 'ALL'),
+          getCreatedFavors(1, 'ALL')
+        ]);
+        setAcceptedFavors(acceptedData.results || []);
+        setCreatedFavors(createdData.results || []);
       } catch (error) {
         console.error('Error fetching favors:', error);
       } finally {
@@ -42,17 +31,7 @@ const HomeLoginPage = () => {
       }
     };
     fetchFavors();
-  }, [selectedDistrict]);
-
-  const handleFavorClick = (favorId: number) => {
-    setSelectedFavorId(favorId);
-  };
-
-  const handleAccept = async () => {
-    // Refresh the favors list after accepting a favor
-    const data = await getFavorsByDistrict(selectedDistrict);
-    setFavors(data.results || []);
-  };
+  }, []);
 
   const handleSubmit = async (data: {
     title: string;
@@ -83,36 +62,25 @@ const HomeLoginPage = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Column */}
           <div className="lg:w-2/3">
-            {/* District Selector */}
-            <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold">Seleccionar Distrito</h2>
-                <div className="relative">
-                  <select
-                    value={selectedDistrict}
-                    onChange={(e) => setSelectedDistrict(Number(e.target.value))}
-                    className="appearance-none bg-gray-50 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm"
-                  >
-                    {districts.map((district) => (
-                      <option key={district.id} value={district.id}>
-                        {district.name}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <i className="fas fa-chevron-down text-xs"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Favor Feed */}
-            <FavorList
-              favors={favors}
-              loading={loading}
-              onFavorClick={handleFavorClick}
-              onAccept={handleAccept}
-            />
+            <div className="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
+              <div className="border-b border-gray-200 px-4 py-4 sm:px-6">
+                <h3 className="text-lg font-medium leading-6 text-gray-900">Voy a ayudar próximamente</h3>
+              </div>
+              <FavorListLimited
+                favors={acceptedFavors}
+                loading={loading}
+              />
+            </div>
+            <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div className="border-b border-gray-200 px-4 py-4 sm:px-6">
+                <h3 className="text-lg font-medium leading-6 text-gray-900">Me van a ayudar próximamente</h3>
+              </div>
+              <FavorListLimited
+                favors={createdFavors}
+                loading={loading}
+              />
+            </div>
           </div>
 
           {/* Right Column (Sidebar) */}
@@ -134,3 +102,4 @@ const HomeLoginPage = () => {
 };
 
 export default HomeLoginPage;
+
