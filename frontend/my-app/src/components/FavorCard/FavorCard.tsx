@@ -1,19 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Favor, TYPE_CHOICES } from '../../types/favor';
-import { getFavorTypeIcon } from '../../utils/favorUtils';
+import { getFavorTypeIcon, getFavorTypeImage } from '../../utils/favorUtils';
 
 interface FavorCardProps {
   favor: Favor;
 }
 
 const FavorCard: React.FC<FavorCardProps> = ({ favor }) => {
+  const [showMenu, setShowMenu] = useState(false);
   const typeLabel = TYPE_CHOICES[favor.type];
   
+  const renderStatusButton = () => {
+    switch (favor.status) {
+      case 'PENDING':
+        return (
+          <button className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150">
+            Aceptar Favor
+          </button>
+        );
+      case 'ACCEPTED':
+        return (
+          <div className="flex-1 flex items-center justify-center py-2 bg-green-100 text-green-800 rounded-lg">
+            <span className="text-sm font-medium">Favor aceptado</span>
+          </div>
+        );
+      case 'CANCELLED':
+        return (
+          <div className="flex-1 flex items-center justify-center py-2 bg-red-100 text-red-800 rounded-lg">
+            <span className="text-sm font-medium">Favor cancelado</span>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const handleEdit = () => {
+    // TODO: Implementar edición
+    setShowMenu(false);
+  };
+
+  const handleDelete = () => {
+    // TODO: Implementar eliminación
+    setShowMenu(false);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-sm overflow-hidden">
       <div className="relative z-0">
         <img 
-          src={favor.img || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"} 
+          src={favor.img || getFavorTypeImage(typeLabel)} 
           alt={favor.title} 
           className="w-full h-48 object-cover"
         />
@@ -55,12 +91,33 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor }) => {
         </div>
         
         <div className="flex space-x-2">
-          <button className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150">
-            Aceptar Favor
-          </button>
-          <button className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50">
-            <i className="fas fa-ellipsis-h text-gray-500"></i>
-          </button>
+          {renderStatusButton()}
+          <div className="relative">
+            <button 
+              className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50"
+              onClick={() => setShowMenu(!showMenu)}
+            >
+              <i className="fas fa-ellipsis-h text-gray-500"></i>
+            </button>
+            {showMenu && (
+              <div className="absolute right-0 bottom-12 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-10">
+                <button 
+                  className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onClick={handleEdit}
+                >
+                  <i className="fas fa-edit mr-2"></i>
+                  Modificar
+                </button>
+                <button 
+                  className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-gray-100 flex items-center"
+                  onClick={handleDelete}
+                >
+                  <i className="fas fa-trash-alt mr-2"></i>
+                  Eliminar
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

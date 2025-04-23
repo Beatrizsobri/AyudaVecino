@@ -94,3 +94,51 @@ export const acceptFavor = async (favorId) => {
     throw error;
   }
 };
+
+export const getMyFavors = async (page = 1, status = 'ALL') => {
+  try {
+    const response = await apiClient.get(`/favors/my/?page=${page}&status=${status}`);
+    return {
+      results: response.data.results || [],
+      count: response.data.count || 0
+    };
+  } catch (error) {
+    console.error('Error fetching my favors:', error);
+    return {
+      results: [],
+      count: 0
+    };
+  }
+};
+
+export const getCreatedFavors = async (page = 1, status = 'ALL') => {
+  try {
+    const response = await apiClient.get(`/favors/created/?page=${page}&status=${status}`);
+    return {
+      results: response.data.results || [],
+      count: response.data.count || 0
+    };
+  } catch (error) {
+    console.error('Error fetching created favors:', error);
+    return {
+      results: [],
+      count: 0
+    };
+  }
+};
+
+export const getAcceptedFavors = async (page = 1, status = 'ALL') => {
+  try {
+    const response = await apiClient.get(`/favors/accepted/?page=${page}&status=${status}`);
+    return {
+      results: response.data.results || [],
+      count: response.data.count || 0
+    };
+  } catch (error) {
+    console.error('Error fetching accepted favors:', error);
+    return {
+      results: [],
+      count: 0
+    };
+  }
+};
