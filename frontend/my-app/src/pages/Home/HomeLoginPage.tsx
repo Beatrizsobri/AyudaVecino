@@ -71,7 +71,7 @@ const HomeLoginPage = () => {
     <div className="relative">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Hero 
-          title="Bienvenid@, Bea!"
+          title={`Bienvenid@, ${user?.first_name}!`}
           text={`Tienes ${user?.points || 0} pts disponibles para pedir favores`}
           buttonText="Solicitar un Favor"
           isModalButton

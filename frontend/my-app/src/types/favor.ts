@@ -11,7 +11,7 @@ export interface Favor {
   creator: User;
   district: District;
   publication_date: string;
-  status: string;
+  status: 'PENDING' | 'ACCEPTED' | 'CANCELLED';
   img?: string;
   assigned_user?: User | null;
 } 
