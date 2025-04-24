@@ -11,6 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from transaction.models import Transaction
 from django.db import transaction
 from django.db.models import Q
+from rest_framework import serializers
 
 class CustomPagination(pagination.PageNumberPagination):
     page_size = 6
@@ -52,7 +53,26 @@ class FavorViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        serializer.save(creator=self.request.user)
+        user = self.request.user
+        favor = serializer.save(creator=user)
+        
+        # Check if user has enough points
+        if user.points < favor.points:
+            raise serializers.ValidationError({
+                'error': 'No tienes suficientes puntos para crear este favor'
+            })
+        
+        # Deduct points from creator
+        user.points -= favor.points
+        user.save()
+        
+        # Create transaction
+        Transaction.objects.create(
+            user=favor.creator,
+            favor=favor,
+            transaction_type='SPEND',
+            amount=favor.points
+        )
 
 class FavorByDistrictListView(generics.ListAPIView):
     serializer_class = FavorSerializer
@@ -164,14 +184,6 @@ def accept_favor(request, favor_id):
             user=request.user,
             favor=favor,
             transaction_type='EARN',
-            amount=favor.points
-        )
-
-        # Transaction for the creator (SPEND)
-        Transaction.objects.create(
-            user=favor.creator,
-            favor=favor,
-            transaction_type='SPEND',
             amount=favor.points
         )
 

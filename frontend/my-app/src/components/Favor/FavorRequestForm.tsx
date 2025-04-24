@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createFavor } from '../../api/favor';
+import { useUser } from '../../contexts/UserContext';
 
 interface FavorRequestFormProps {
   onClose: () => void;
@@ -13,6 +14,7 @@ interface FavorRequestFormProps {
 }
 
 export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) => {
+  const { refreshUser } = useUser();
   const [formData, setFormData] = useState({
     title: '',
     deadline: '',
@@ -20,16 +22,33 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
     type: '',
     points: ''
   });
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate deadline is not in the past
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const selectedDate = new Date(formData.deadline);
+    
+    if (selectedDate < today) {
+      setError('La fecha límite no puede ser anterior al día de hoy');
+      return;
+    }
+
     try {
       await createFavor(formData);
+      await refreshUser();
       onSubmit(formData);
       onClose();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error al crear el favor:', error);
-      // Aquí podrías mostrar un mensaje de error al usuario
+      if (error.response?.status === 400) {
+        setError(error.response.data.error);
+      } else {
+        setError('Ha ocurrido un error al crear el favor');
+      }
     }
   };
 
@@ -56,6 +75,11 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
               </svg>
             </button>
           </div>
+          {error && (
+            <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+              {error}
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div>
