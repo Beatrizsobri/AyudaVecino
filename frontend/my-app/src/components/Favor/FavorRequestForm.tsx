@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { createFavor } from '../../api/favor';
+import { createFavor, updateFavor } from '../../api/favor';
+import { useUser } from '../../contexts/UserContext';
 
 interface FavorRequestFormProps {
   onClose: () => void;
@@ -10,31 +11,86 @@ interface FavorRequestFormProps {
     type: string;
     points: string;
   }) => void;
+  initialData?: {
+    title: string;
+    deadline: string;
+    description: string;
+    type: string;
+    points: string;
+  };
+  favorId?: number;
 }
 
-export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) => {
+export const FavorRequestForm = ({ onClose, onSubmit, initialData, favorId }: FavorRequestFormProps) => {
+  const { refreshUser } = useUser();
+  
+  // Función para formatear la fecha al formato YYYY-MM-DD
+  const formatDateForInput = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
+
   const [formData, setFormData] = useState({
-    title: '',
-    deadline: '',
-    description: '',
-    type: '',
-    points: ''
+    title: initialData?.title || '',
+    deadline: initialData ? formatDateForInput(initialData.deadline) : '',
+    description: initialData?.description || '',
+    type: initialData?.type || '',
+    points: initialData?.points || ''
   });
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate points are not negative
+    if (parseInt(formData.points) < 0) {
+      setError('Los puntos no pueden ser negativos');
+      return;
+    }
+
+    // Validate deadline is not in the past
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const selectedDate = new Date(formData.deadline);
+    
+    if (selectedDate < today) {
+      setError('La fecha límite no puede ser anterior al día de hoy');
+      return;
+    }
+
     try {
-      await createFavor(formData);
+      if (initialData && favorId) {
+        // Editing mode
+        await updateFavor(favorId, formData);
+      } else {
+        // Creation mode
+        await createFavor(formData);
+      }
+      await refreshUser();
       onSubmit(formData);
       onClose();
-    } catch (error) {
-      console.error('Error al crear el favor:', error);
-      // Aquí podrías mostrar un mensaje de error al usuario
+    } catch (error: any) {
+      console.error('Error al crear/modificar el favor:', error);
+      if (error.response?.status === 400) {
+        setError(error.response.data.error);
+      } else {
+        setError('Ha ocurrido un error al crear/modificar el favor');
+      }
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    
+    if (name === 'points') {
+      if (parseInt(value) < 0) {
+        setError('Los puntos no pueden ser negativos');
+        return;
+      } else {
+        setError(null);
+      }
+    }
+
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -56,6 +112,11 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
               </svg>
             </button>
           </div>
+          {error && (
+            <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+              {error}
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div>
@@ -145,7 +206,7 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
                 type="submit"
                 className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-indigo-700 transition duration-150"
               >
-                Pedir
+                {initialData ? 'Modificar' : 'Pedir'}
               </button>
             </div>
           </form>

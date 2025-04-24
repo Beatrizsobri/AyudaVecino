@@ -6,6 +6,7 @@ import StatusSelector from '../components/StatusSelector/StatusSelector';
 import { Pagination } from '../components/Pagination/Pagination';
 import { Favor } from '../types/favor';
 import { getCreatedFavors, getAcceptedFavors } from '../api/favor';
+import FavorCard from '../components/FavorCard/FavorCard';
 
 // const EmptyFavor = () => {
 //   return (
@@ -123,33 +124,33 @@ export const MyFavorsPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
 
-  useEffect(() => {
-    const fetchFavors = async () => {
-      try {
-        setLoading(true);
-        let response;
-        if (activeTab === 'requested') {
-          response = await getCreatedFavors(currentPage, selectedStatus);
-        } else {
-          response = await getAcceptedFavors(currentPage, selectedStatus);
-        }
-        
-        console.log('API Response:', response);
-        setFavors(response.results);
-        setTotalItems(response.count);
-        const calculatedPages = Math.ceil(response.count / 6);
-        console.log('Total Items:', response.count, 'Calculated Pages:', calculatedPages);
-        setTotalPages(calculatedPages);
-      } catch (error) {
-        console.error('Error fetching favors:', error);
-        setFavors([]);
-        setTotalItems(0);
-        setTotalPages(1);
-      } finally {
-        setLoading(false);
+  const fetchFavors = async () => {
+    try {
+      setLoading(true);
+      let response;
+      if (activeTab === 'requested') {
+        response = await getCreatedFavors(currentPage, selectedStatus);
+      } else {
+        response = await getAcceptedFavors(currentPage, selectedStatus);
       }
-    };
+      
+      console.log('API Response:', response);
+      setFavors(response.results);
+      setTotalItems(response.count);
+      const calculatedPages = Math.ceil(response.count / 6);
+      console.log('Total Items:', response.count, 'Calculated Pages:', calculatedPages);
+      setTotalPages(calculatedPages);
+    } catch (error) {
+      console.error('Error fetching favors:', error);
+      setFavors([]);
+      setTotalItems(0);
+      setTotalPages(1);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchFavors();
   }, [activeTab, currentPage, selectedStatus]);
 
@@ -202,7 +203,15 @@ export const MyFavorsPage = () => {
             <StatusSelector onStatusChange={handleStatusChange} />
           </div>
         </div>
-        <FavorList favors={favors} loading={loading} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {favors.map((favor) => (
+            <FavorCard 
+              key={favor.id}
+              favor={favor}
+              onFavorChange={fetchFavors}
+            />
+          ))}
+        </div>
         {!loading && totalPages > 1 && (
           <div className="mt-4">
             <Pagination

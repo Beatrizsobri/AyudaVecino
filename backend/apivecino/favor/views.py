@@ -11,6 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from transaction.models import Transaction
 from django.db import transaction
 from django.db.models import Q
+from rest_framework import serializers
 
 class CustomPagination(pagination.PageNumberPagination):
     page_size = 6
@@ -52,7 +53,78 @@ class FavorViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        serializer.save(creator=self.request.user)
+        user = self.request.user
+        favor = serializer.save(creator=user)
+        
+        # Check if user has enough points
+        if user.points < favor.points:
+            raise serializers.ValidationError({
+                'error': 'No tienes suficientes puntos para crear este favor'
+            })
+        
+        # Deduct points from creator
+        user.points -= favor.points
+        user.save()
+        
+        # Create transaction
+        Transaction.objects.create(
+            user=favor.creator,
+            favor=favor,
+            transaction_type='SPEND',
+            amount=favor.points
+        )
+
+    @action(detail=True, methods=['post'])
+    def cancel(self, request, pk=None):
+        favor = self.get_object()
+        
+        # Check if the user is the creator
+        if favor.creator != request.user:
+            return Response(
+                {'error': 'Solo el creador puede cancelar el favor'}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+            
+        # Check if the favor is already cancelled
+        if favor.status == 'CANCELLED':
+            return Response(
+                {'error': 'El favor ya está cancelado'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
+        with transaction.atomic():
+            # Update favor status
+            favor.status = 'CANCELLED'
+            favor.save()
+            
+            # Add points back to creator
+            favor.creator.points += favor.points
+            favor.creator.save()
+            
+            # Create RETURN transaction for creator
+            Transaction.objects.create(
+                user=favor.creator,
+                favor=favor,
+                transaction_type='RETURN',
+                amount=favor.points
+            )
+            
+            # If there is an assigned user, deduct points and create RETURN transaction
+            if favor.assigned_user:
+                favor.assigned_user.points -= favor.points
+                favor.assigned_user.save()
+                
+                Transaction.objects.create(
+                    user=favor.assigned_user,
+                    favor=favor,
+                    transaction_type='RETURN',
+                    amount=-favor.points
+                )
+            
+        return Response(
+            {'message': 'Favor cancelado exitosamente'}, 
+            status=status.HTTP_200_OK
+        )
 
 class FavorByDistrictListView(generics.ListAPIView):
     serializer_class = FavorSerializer
@@ -154,20 +226,16 @@ def accept_favor(request, favor_id):
         favor.assigned_user = request.user
         favor.save()
 
+        # Update user points
+        request.user.points += favor.points
+        request.user.save()
+
         # Create transactions
         # Transaction for the acceptor (EARN)
         Transaction.objects.create(
             user=request.user,
             favor=favor,
             transaction_type='EARN',
-            amount=favor.points
-        )
-
-        # Transaction for the creator (SPEND)
-        Transaction.objects.create(
-            user=favor.creator,
-            favor=favor,
-            transaction_type='SPEND',
             amount=favor.points
         )
 

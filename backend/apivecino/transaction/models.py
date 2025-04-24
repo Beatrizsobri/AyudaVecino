@@ -6,6 +6,7 @@ class Transaction(models.Model):
     TRANSACTION_TYPES = [
         ('SPEND', 'Spend'),
         ('EARN', 'Earn'),
+        ('RETURN', 'Return'),
     ]
     user = models.ForeignKey(
         get_user_model(),
@@ -20,7 +21,7 @@ class Transaction(models.Model):
     )
     
     transaction_type = models.CharField(
-        max_length=5,
+        max_length=6,
         choices=TRANSACTION_TYPES,
     )
     

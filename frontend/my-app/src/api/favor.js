@@ -142,3 +142,13 @@ export const getAcceptedFavors = async (page = 1, status = 'ALL') => {
     };
   }
 };
+
+export const cancelFavor = async (favorId) => {
+  try {
+    const response = await apiClient.post(`/favors/${favorId}/cancel/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error al cancelar el favor:', error);
+    throw error;
+  }
+};

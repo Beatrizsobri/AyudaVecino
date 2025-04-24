@@ -9,8 +9,10 @@ import { Favor, TYPE_CHOICES } from '../types/favor';
 import { Pagination } from '../components/Pagination/Pagination';
 import FavorList from '../components/FavorList/FavorList';
 import { getFavorTypeIcon } from '../utils/favorUtils';
+import { useUser } from '../contexts/UserContext';
 
 const Board: React.FC = () => {
+  const { refreshUser } = useUser();
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [startDate, endDate] = dateRange;
   const [districts, setDistricts] = useState<Array<{ id: number; name: string }>>([]);
@@ -35,37 +37,42 @@ const Board: React.FC = () => {
     fetchDistricts();
   }, []);
 
-  useEffect(() => {
-    const fetchFavors = async () => {
-      setLoading(true);
-      try {
-        const filters: any = {};
-        if (selectedDistrict) filters.district_id = selectedDistrict;
-        if (selectedType) filters.type = selectedType;
+  const fetchFavors = async () => {
+    setLoading(true);
+    try {
+      const filters: any = {};
+      if (selectedDistrict) filters.district_id = selectedDistrict;
+      if (selectedType) filters.type = selectedType;
+      
+      if (startDate && endDate) {
+        const start = new Date(startDate);
+        start.setHours(0, 0, 0, 0);
+        filters.start_date = start.toLocaleDateString('en-CA');
         
-        if (startDate && endDate) {
-          const start = new Date(startDate);
-          start.setHours(0, 0, 0, 0);
-          filters.start_date = start.toLocaleDateString('en-CA');
-          
-          const end = new Date(endDate);
-          end.setHours(23, 59, 59, 999);
-          filters.end_date = end.toLocaleDateString('en-CA');
-        }
-        
-        const favorsData = await getFavors(filters, currentPage);
-        setFavors(favorsData?.results || []);
-        setTotalPages(Math.ceil((favorsData?.count || 0) / 6));
-      } catch (error) {
-        console.error('Error fetching favors:', error);
-        setFavors([]);
-      } finally {
-        setLoading(false);
+        const end = new Date(endDate);
+        end.setHours(23, 59, 59, 999);
+        filters.end_date = end.toLocaleDateString('en-CA');
       }
-    };
+      
+      const response = await getFavors(filters, currentPage);
+      setFavors(response.results || []);
+      setTotalPages(Math.ceil(response.count / 6));
+    } catch (error) {
+      console.error('Error fetching favors:', error);
+      setFavors([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchFavors();
-  }, [selectedDistrict, startDate, endDate, selectedType, currentPage]);
+  }, [currentPage, selectedDistrict, selectedType, startDate, endDate]);
+
+  const handleAcceptFavor = async () => {
+    await fetchFavors();
+    await refreshUser();
+  };
 
   const handleSubmit = async (data: {
     title: string;
@@ -164,6 +171,7 @@ const Board: React.FC = () => {
       <FavorList 
         favors={favors}
         loading={loading}
+        onAccept={handleAcceptFavor}
       />
 
       {/* Add Pagination */}
