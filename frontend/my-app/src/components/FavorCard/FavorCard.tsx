@@ -157,7 +157,7 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
           
           <div className="flex space-x-2">
             {renderStatusButton()}
-            {isMyFavor && (
+            {isMyFavor && favor.status !== 'CANCELLED' && (
               <div className="relative">
                 <button 
                   className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50"
@@ -167,13 +167,15 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
                 </button>
                 {showMenu && (
                   <div className="absolute right-0 bottom-12 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-10">
-                    <button 
-                      className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                      onClick={handleEdit}
-                    >
-                      <i className="fas fa-edit mr-2"></i>
-                      Modificar
-                    </button>
+                    {!favor.assigned_user && (
+                      <button 
+                        className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                        onClick={handleEdit}
+                      >
+                        <i className="fas fa-edit mr-2"></i>
+                        Modificar
+                      </button>
+                    )}
                     <button 
                       className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-gray-100 flex items-center"
                       onClick={handleDelete}
