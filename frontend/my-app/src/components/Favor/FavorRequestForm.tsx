@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createFavor } from '../../api/favor';
+import { createFavor, updateFavor } from '../../api/favor';
 import { useUser } from '../../contexts/UserContext';
 
 interface FavorRequestFormProps {
@@ -11,16 +11,31 @@ interface FavorRequestFormProps {
     type: string;
     points: string;
   }) => void;
+  initialData?: {
+    title: string;
+    deadline: string;
+    description: string;
+    type: string;
+    points: string;
+  };
+  favorId?: number;
 }
 
-export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) => {
+export const FavorRequestForm = ({ onClose, onSubmit, initialData, favorId }: FavorRequestFormProps) => {
   const { refreshUser } = useUser();
+  
+  // Función para formatear la fecha al formato YYYY-MM-DD
+  const formatDateForInput = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
+
   const [formData, setFormData] = useState({
-    title: '',
-    deadline: '',
-    description: '',
-    type: '',
-    points: ''
+    title: initialData?.title || '',
+    deadline: initialData ? formatDateForInput(initialData.deadline) : '',
+    description: initialData?.description || '',
+    type: initialData?.type || '',
+    points: initialData?.points || ''
   });
   const [error, setError] = useState<string | null>(null);
 
@@ -44,16 +59,22 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
     }
 
     try {
-      await createFavor(formData);
+      if (initialData && favorId) {
+        // Editing mode
+        await updateFavor(favorId, formData);
+      } else {
+        // Creation mode
+        await createFavor(formData);
+      }
       await refreshUser();
       onSubmit(formData);
       onClose();
     } catch (error: any) {
-      console.error('Error al crear el favor:', error);
+      console.error('Error al crear/modificar el favor:', error);
       if (error.response?.status === 400) {
         setError(error.response.data.error);
       } else {
-        setError('Ha ocurrido un error al crear el favor');
+        setError('Ha ocurrido un error al crear/modificar el favor');
       }
     }
   };
@@ -185,7 +206,7 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
                 type="submit"
                 className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-indigo-700 transition duration-150"
               >
-                Pedir
+                {initialData ? 'Modificar' : 'Pedir'}
               </button>
             </div>
           </form>
