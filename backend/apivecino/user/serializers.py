@@ -21,6 +21,23 @@ class UserSerializer(serializers.ModelSerializer):
         )
         depth = 1
 
+    def to_internal_value(self, data):
+        # Si viene el objeto district completo, extraemos el ID
+        if 'district' in data and isinstance(data['district'], dict):
+            district_data = data.pop('district')
+            if 'id' in district_data:
+                data['district_id'] = district_data['id']
+        
+        return super().to_internal_value(data)
+
+    def update(self, instance, validated_data):
+        # Actualizar los campos del usuario
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        
+        instance.save()
+        return instance
+
 class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
