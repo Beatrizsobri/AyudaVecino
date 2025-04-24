@@ -12,6 +12,7 @@ from transaction.models import Transaction
 from django.db import transaction
 from django.db.models import Q
 from rest_framework import serializers
+from django.utils import timezone
 
 class CustomPagination(pagination.PageNumberPagination):
     page_size = 6
@@ -26,7 +27,14 @@ class FavorViewSet(viewsets.ModelViewSet):
     pagination_class = CustomPagination
 
     def get_queryset(self):
-        queryset = Favor.objects.all()
+        today = timezone.now().date()
+        
+        # Base queryset excluding cancelled favors and past favors
+        queryset = Favor.objects.exclude(
+            status='CANCELLED'
+        ).filter(
+            deadline__gte=today
+        )
         
         # Get status from query parameters
         status = self.request.query_params.get('status', None)

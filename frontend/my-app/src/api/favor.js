@@ -111,9 +111,10 @@ export const getMyFavors = async (page = 1, status = 'ALL') => {
   }
 };
 
-export const getCreatedFavors = async (page = 1, status = 'ALL') => {
+export const getCreatedFavors = async (page = 1, status = 'ACCEPTED') => {
   try {
-    const response = await apiClient.get(`/favors/created/?page=${page}&status=${status}`);
+    const today = new Date().toISOString().split('T')[0];
+    const response = await apiClient.get(`/favors/created/?page=${page}&status=${status}&start_date=${today}`);
     return {
       results: response.data.results || [],
       count: response.data.count || 0
@@ -127,9 +128,10 @@ export const getCreatedFavors = async (page = 1, status = 'ALL') => {
   }
 };
 
-export const getAcceptedFavors = async (page = 1, status = 'ALL') => {
+export const getAcceptedFavors = async (page = 1, status = 'ACCEPTED') => {
   try {
-    const response = await apiClient.get(`/favors/accepted/?page=${page}&status=${status}`);
+    const today = new Date().toISOString().split('T')[0];
+    const response = await apiClient.get(`/favors/accepted/?page=${page}&status=${status}&start_date=${today}`);
     return {
       results: response.data.results || [],
       count: response.data.count || 0
