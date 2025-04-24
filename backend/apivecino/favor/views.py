@@ -154,6 +154,10 @@ def accept_favor(request, favor_id):
         favor.assigned_user = request.user
         favor.save()
 
+        # Update user points
+        request.user.points += favor.points
+        request.user.save()
+
         # Create transactions
         # Transaction for the acceptor (EARN)
         Transaction.objects.create(

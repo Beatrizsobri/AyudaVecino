@@ -1,20 +1,36 @@
 import React, { useState } from 'react';
 import { Favor, TYPE_CHOICES } from '../../types/favor';
 import { getFavorTypeIcon, getFavorTypeImage } from '../../utils/favorUtils';
+import { acceptFavor } from '../../api/favor';
 
 interface FavorCardProps {
   favor: Favor;
+  onAccept?: () => void;
 }
 
-const FavorCard: React.FC<FavorCardProps> = ({ favor }) => {
+const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept }) => {
   const [showMenu, setShowMenu] = useState(false);
   const typeLabel = TYPE_CHOICES[favor.type];
   
+  const handleAcceptFavor = async () => {
+    try {
+      await acceptFavor(favor.id);
+      if (onAccept) {
+        onAccept();
+      }
+    } catch (error) {
+      console.error('Error accepting favor:', error);
+    }
+  };
+
   const renderStatusButton = () => {
     switch (favor.status) {
       case 'PENDING':
         return (
-          <button className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150">
+          <button 
+            className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150"
+            onClick={handleAcceptFavor}
+          >
             Aceptar Favor
           </button>
         );
