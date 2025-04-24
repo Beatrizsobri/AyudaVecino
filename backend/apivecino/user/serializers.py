@@ -39,6 +39,12 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 class UserCreateSerializer(serializers.ModelSerializer):
+    district = serializers.PrimaryKeyRelatedField(
+        queryset=District.objects.all(),
+        required=False,
+        allow_null=True
+    )
+
     class Meta:
         model = CustomUser
         fields = (
