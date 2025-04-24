@@ -25,7 +25,7 @@ class CustomUser(AbstractUser):
     """
 
     phone_number = models.CharField(max_length=15)
-    points = models.IntegerField(default=0)
+    points = models.IntegerField(default=200)
     district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, blank=True, related_name='users')
     profile_image = models.URLField(
         max_length=500,

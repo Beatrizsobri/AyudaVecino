@@ -27,6 +27,12 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validate points are not negative
+    if (parseInt(formData.points) < 0) {
+      setError('Los puntos no pueden ser negativos');
+      return;
+    }
+
     // Validate deadline is not in the past
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -54,6 +60,16 @@ export const FavorRequestForm = ({ onClose, onSubmit }: FavorRequestFormProps) =
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    
+    if (name === 'points') {
+      if (parseInt(value) < 0) {
+        setError('Los puntos no pueden ser negativos');
+        return;
+      } else {
+        setError(null);
+      }
+    }
+
     setFormData(prev => ({
       ...prev,
       [name]: value

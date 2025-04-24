@@ -24,14 +24,25 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept }) => {
   };
 
   const renderStatusButton = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const favorDate = new Date(favor.deadline);
+    favorDate.setHours(0, 0, 0, 0);
+    const isOldFavor = favorDate < today;
+
     switch (favor.status) {
       case 'PENDING':
         return (
           <button 
-            className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-150"
+            className={`flex-1 py-2 rounded-lg font-medium transition duration-150 ${
+              isOldFavor 
+                ? 'bg-gray-400 text-white cursor-not-allowed' 
+                : 'bg-indigo-600 text-white hover:bg-indigo-700'
+            }`}
             onClick={handleAcceptFavor}
+            disabled={isOldFavor}
           >
-            Aceptar Favor
+            {isOldFavor ? 'Favor expirado' : 'Aceptar Favor'}
           </button>
         );
       case 'ACCEPTED':
