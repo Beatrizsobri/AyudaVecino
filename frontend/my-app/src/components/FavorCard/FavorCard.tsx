@@ -1,26 +1,46 @@
 import React, { useState } from 'react';
 import { Favor, TYPE_CHOICES } from '../../types/favor';
 import { getFavorTypeIcon, getFavorTypeImage } from '../../utils/favorUtils';
-import { acceptFavor } from '../../api/favor';
+import { acceptFavor, cancelFavor } from '../../api/favor';
+import { useUser } from '../../contexts/UserContext';
 
 interface FavorCardProps {
   favor: Favor;
   onAccept?: () => void;
+  onFavorChange?: () => void;
 }
 
-const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept }) => {
+const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange }) => {
   const [showMenu, setShowMenu] = useState(false);
   const typeLabel = TYPE_CHOICES[favor.type];
+  const { refreshUser } = useUser();
   
   const handleAcceptFavor = async () => {
     try {
       await acceptFavor(favor.id);
+      await refreshUser();
       if (onAccept) {
         onAccept();
+      }
+      if (onFavorChange) {
+        onFavorChange();
       }
     } catch (error) {
       console.error('Error accepting favor:', error);
     }
+  };
+
+  const handleDelete = async () => {
+    try {
+      await cancelFavor(favor.id);
+      await refreshUser();
+      if (onFavorChange) {
+        onFavorChange();
+      }
+    } catch (error) {
+      console.error('Error canceling favor:', error);
+    }
+    setShowMenu(false);
   };
 
   const renderStatusButton = () => {
@@ -64,11 +84,6 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept }) => {
 
   const handleEdit = () => {
     // TODO: Implementar edición
-    setShowMenu(false);
-  };
-
-  const handleDelete = () => {
-    // TODO: Implementar eliminación
     setShowMenu(false);
   };
 
@@ -140,7 +155,7 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept }) => {
                   onClick={handleDelete}
                 >
                   <i className="fas fa-trash-alt mr-2"></i>
-                  Eliminar
+                  Cancelar
                 </button>
               </div>
             )}

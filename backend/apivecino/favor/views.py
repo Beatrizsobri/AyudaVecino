@@ -74,6 +74,58 @@ class FavorViewSet(viewsets.ModelViewSet):
             amount=favor.points
         )
 
+    @action(detail=True, methods=['post'])
+    def cancel(self, request, pk=None):
+        favor = self.get_object()
+        
+        # Check if the user is the creator
+        if favor.creator != request.user:
+            return Response(
+                {'error': 'Solo el creador puede cancelar el favor'}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+            
+        # Check if the favor is already cancelled
+        if favor.status == 'CANCELLED':
+            return Response(
+                {'error': 'El favor ya está cancelado'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
+        with transaction.atomic():
+            # Update favor status
+            favor.status = 'CANCELLED'
+            favor.save()
+            
+            # Add points back to creator
+            favor.creator.points += favor.points
+            favor.creator.save()
+            
+            # Create RETURN transaction for creator
+            Transaction.objects.create(
+                user=favor.creator,
+                favor=favor,
+                transaction_type='RETURN',
+                amount=favor.points
+            )
+            
+            # If there is an assigned user, deduct points and create RETURN transaction
+            if favor.assigned_user:
+                favor.assigned_user.points -= favor.points
+                favor.assigned_user.save()
+                
+                Transaction.objects.create(
+                    user=favor.assigned_user,
+                    favor=favor,
+                    transaction_type='RETURN',
+                    amount=-favor.points
+                )
+            
+        return Response(
+            {'message': 'Favor cancelado exitosamente'}, 
+            status=status.HTTP_200_OK
+        )
+
 class FavorByDistrictListView(generics.ListAPIView):
     serializer_class = FavorSerializer
     permission_classes = [permissions.IsAuthenticated]

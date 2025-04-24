@@ -9,6 +9,7 @@ interface TransactionCardProps {
 const TransactionCard: React.FC<TransactionCardProps> = ({ transaction }) => {
   const [showModal, setShowModal] = useState(false);
   const isSpend = transaction.transaction_type === 'SPEND';
+  const isReturn = transaction.transaction_type === 'RETURN';
   const formattedDate = new Date(transaction.date_created).toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
@@ -19,13 +20,25 @@ const TransactionCard: React.FC<TransactionCardProps> = ({ transaction }) => {
     <>
       <div className="p-4 border-b border-gray-200 transaction-card hover:bg-gray-50 transition duration-150">
         <div className="flex items-start">
-          <div className={`w-10 h-10 flex items-center justify-center rounded-full ${isSpend ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'} mr-4`}>
-            <i className={`fas ${isSpend ? 'fa-arrow-down' : 'fa-arrow-up'} text-base`}></i>
+          <div className={`w-10 h-10 flex items-center justify-center rounded-full ${
+            isSpend ? 'bg-red-100 text-red-600' : 
+            isReturn ? 'bg-purple-100 text-purple-600' : 
+            'bg-green-100 text-green-600'
+          } mr-4`}>
+            <i className={`fas ${
+              isSpend ? 'fa-arrow-down' : 
+              isReturn ? 'fa-undo' : 
+              'fa-arrow-up'
+            } text-base`}></i>
           </div>
           <div className="flex-1">
             <div className="flex items-center justify-between">
               <h4 className="font-medium">{transaction.favor.title}</h4>
-              <span className={`${isSpend ? 'text-red-600' : 'text-green-600'} font-semibold`}>
+              <span className={`${
+                isSpend ? 'text-red-600' : 
+                isReturn ? 'text-purple-600' : 
+                'text-green-600'
+              } font-semibold`}>
                 {isSpend ? '-' : '+'}{Math.abs(transaction.amount)} pts
               </span>
             </div>
