@@ -3,7 +3,7 @@ import apiClient from './apiClient';
 export const getFavors = async (filters = {}, page = 1, pageSize = 6) => {
   try {
     // Construimos la URL base
-    let url = '/favors/favors';
+    let url = '/favors/';
     
     // Creamos un array para los parámetros
     const params = [];
@@ -54,8 +54,11 @@ export const getFavorsByDistrict = async (districtId) => {
 
 export const createFavor = async (favorData) => {
   try {
-    const response = await apiClient.post('/favors/', favorData);
-    return response.data;
+    // Crear el favor
+    await apiClient.post('/favors/', favorData);
+    // Obtener la lista actualizada de favores
+    const updatedFavors = await getFavors();
+    return updatedFavors;
   } catch (error) {
     console.error('Error al crear el favor:', error);
     throw error;
@@ -88,6 +91,64 @@ export const acceptFavor = async (favorId) => {
     return response.data;
   } catch (error) {
     console.error('Error al aceptar el favor:', error);
+    throw error;
+  }
+};
+
+export const getMyFavors = async (page = 1, status = 'ALL') => {
+  try {
+    const response = await apiClient.get(`/favors/my/?page=${page}&status=${status}`);
+    return {
+      results: response.data.results || [],
+      count: response.data.count || 0
+    };
+  } catch (error) {
+    console.error('Error fetching my favors:', error);
+    return {
+      results: [],
+      count: 0
+    };
+  }
+};
+
+export const getCreatedFavors = async (page = 1, status = 'ALL') => {
+  try {
+    const response = await apiClient.get(`/favors/created/?page=${page}&status=${status}`);
+    return {
+      results: response.data.results || [],
+      count: response.data.count || 0
+    };
+  } catch (error) {
+    console.error('Error fetching created favors:', error);
+    return {
+      results: [],
+      count: 0
+    };
+  }
+};
+
+export const getAcceptedFavors = async (page = 1, status = 'ALL') => {
+  try {
+    const response = await apiClient.get(`/favors/accepted/?page=${page}&status=${status}`);
+    return {
+      results: response.data.results || [],
+      count: response.data.count || 0
+    };
+  } catch (error) {
+    console.error('Error fetching accepted favors:', error);
+    return {
+      results: [],
+      count: 0
+    };
+  }
+};
+
+export const cancelFavor = async (favorId) => {
+  try {
+    const response = await apiClient.post(`/favors/${favorId}/cancel/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error al cancelar el favor:', error);
     throw error;
   }
 };

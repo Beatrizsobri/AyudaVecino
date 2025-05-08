@@ -1,5 +1,5 @@
 import React from 'react';
-import { getFavorById } from '../api/favor';
+import { getFavorById } from '../../api/favor';
 
 interface FavorDetailsModalProps {
   favorId: number;

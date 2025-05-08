@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SignUpForm, SignInForm, HomeLoginPage, HomeUnlogPage, Transactions, MyFavors } from "./pages";
+import { SignUpForm, SignInForm, HomeLoginPage, HomeUnlogPage, TransactionsPage, MyFavorsPage } from "./pages";
 import BoardPage from "./pages/BoardPage";
 import ProfilePage from "./pages/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
@@ -7,9 +7,9 @@ import Footer from "./components/Footer/Footer";
 import { isUserLoggedIn } from "./api/auth";
 import NavbarUnlog from "./components/Navbar/NavbarUnlog";
 import { useEffect, useState } from "react";
-import ProtectedRoute from "./components/ProtectedRoute";
 import { ROUTES } from "./constants/routes";
 import { UserProvider } from "./contexts/UserContext";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -48,12 +48,12 @@ function App() {
             {/* Rutas protegidas */}
             <Route path={ROUTES.TRANSACTIONS} element={
               <ProtectedRoute>
-                <Transactions/>
+                <TransactionsPage/>
               </ProtectedRoute>
             }/>
             <Route path={ROUTES.MY_FAVORS} element={
               <ProtectedRoute>
-                <MyFavors/>
+                <MyFavorsPage/>
               </ProtectedRoute>
             }/>
             <Route path={ROUTES.BOARD} element={

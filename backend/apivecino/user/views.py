@@ -19,7 +19,9 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         elif request.method == 'PATCH':
             serializer = self.get_serializer(request.user, data=request.data, partial=True)
+            
             if serializer.is_valid():
-                serializer.save()
+                instance = serializer.save()
                 return Response(serializer.data)
-            return Response(serializer.errors, status=400)
+            else:
+                return Response(serializer.errors, status=400)
