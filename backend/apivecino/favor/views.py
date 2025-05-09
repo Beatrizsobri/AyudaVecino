@@ -12,6 +12,7 @@ from transaction.models import Transaction
 from django.db import transaction
 from django.db.models import Q
 from rest_framework import serializers
+from django.utils import timezone
 
 class CustomPagination(pagination.PageNumberPagination):
     page_size = 6
@@ -26,7 +27,14 @@ class FavorViewSet(viewsets.ModelViewSet):
     pagination_class = CustomPagination
 
     def get_queryset(self):
-        queryset = Favor.objects.all()
+        today = timezone.now().date()
+        
+        # Base queryset excluding cancelled favors and past favors
+        queryset = Favor.objects.exclude(
+            status='CANCELLED'
+        ).filter(
+            deadline__gte=today
+        )
         
         # Get status from query parameters
         status = self.request.query_params.get('status', None)
@@ -177,6 +185,11 @@ class CreatedFavorListView(generics.ListAPIView):
             if status in ['PENDING', 'ACCEPTED', 'CANCELLED']:
                 queryset = queryset.filter(status=status)
         
+        # Get start_date from query parameters
+        start_date = self.request.query_params.get('start_date', None)
+        if start_date:
+            queryset = queryset.filter(deadline__gte=start_date)
+        
         # Ordenar por fecha (deadline) de más cercana a más lejana
         queryset = queryset.order_by('deadline')
             
@@ -197,6 +210,11 @@ class AcceptedFavorListView(generics.ListAPIView):
             # Validar que el estado es uno de los permitidos
             if status in ['PENDING', 'ACCEPTED', 'CANCELLED']:
                 queryset = queryset.filter(status=status)
+        
+        # Get start_date from query parameters
+        start_date = self.request.query_params.get('start_date', None)
+        if start_date:
+            queryset = queryset.filter(deadline__gte=start_date)
         
         # Ordenar por fecha (deadline) de más cercana a más lejana
         queryset = queryset.order_by('deadline')

@@ -14,7 +14,22 @@ export interface Favor {
   status: 'PENDING' | 'ACCEPTED' | 'CANCELLED';
   img?: string;
   assigned_user?: User | null;
-} 
+}
+
+export interface FavorResponse {
+  results: Favor[];
+  count: number;
+}
+
+export type FavorStatus = 'PENDING' | 'ACCEPTED' | 'CANCELLED' | 'ALL';
+
+export interface FavorFilters {
+  status?: FavorStatus;
+  type?: string;
+  start_date?: string;
+  end_date?: string;
+  district_id?: number;
+}
 
 export const TYPE_CHOICES: Record<string, string> = {
   'HOME': 'Hogar',

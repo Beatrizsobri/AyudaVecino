@@ -15,22 +15,21 @@ const HomeLoginPage = () => {
   const [selectedFavorId, setSelectedFavorId] = useState<number | null>(null);
 
   useEffect(() => {
-    const fetchFavors = async () => {
-      setLoading(true);
+    const fetchData = async () => {
       try {
-        const [acceptedData, createdData] = await Promise.all([
-          getAcceptedFavors(1, 'ALL'),
-          getCreatedFavors(1, 'ALL')
+        const today = new Date().toISOString().split('T')[0];
+        const [acceptedFavors, createdFavors] = await Promise.all([
+          getAcceptedFavors(1, 'ACCEPTED', today),
+          getCreatedFavors(1, 'ACCEPTED', today)
         ]);
-        setAcceptedFavors(acceptedData.results || []);
-        setCreatedFavors(createdData.results || []);
+        setAcceptedFavors(acceptedFavors.results);
+        setCreatedFavors(createdFavors.results);
       } catch (error) {
         console.error('Error fetching favors:', error);
-      } finally {
-        setLoading(false);
       }
     };
-    fetchFavors();
+
+    fetchData();
   }, []);
 
   const handleSubmit = async (data: {
