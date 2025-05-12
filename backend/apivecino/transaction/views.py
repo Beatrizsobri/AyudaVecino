@@ -25,7 +25,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if transaction_type:
             queryset = queryset.filter(transaction_type=transaction_type)
             
-        return queryset
+        return queryset.order_by('-date_created')
 
     @action(detail=False, methods=['get'])
     def totals(self, request):
