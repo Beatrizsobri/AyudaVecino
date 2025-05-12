@@ -23,7 +23,7 @@ pipenv install
 python manage.py runserver  --settings=apivecino.settings.dev
 ```
 
-**Nota**: Para cualquier comando que involucre manage.py, asegúrate de añadir siempre el flag `--settings=apivecino.settings.dev`.
+**Nota**: Para cualquier comando que involucre manage.py, asegúrate de añadir siempre el flag `--settings=apivecino.settings.dev`. Por ejemplo:
 
 
 
@@ -33,13 +33,13 @@ El backend estará disponible en `http://localhost:8000`
 
 1. Instalar dependencias:
 ```bash
-cd frontend/my-app
+cd frontend
 npm install
 ```
 
 2. Ejecutar el servidor de desarrollo:
 ```bash
-npm start
+npm run dev
 ```
 
 El frontend estará disponible en `http://localhost:3000`
