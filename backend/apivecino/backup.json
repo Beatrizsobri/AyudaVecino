@@ -1,14 +1,5 @@
 [
 {
-  "model": "board.board",
-  "pk": 1,
-  "fields": {
-    "district": 1,
-    "creation_date": "2025-03-26T12:21:03.552Z",
-    "favors": []
-  }
-},
-{
   "model": "district.district",
   "pk": 1,
   "fields": {
