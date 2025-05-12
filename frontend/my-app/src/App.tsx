@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SignUpForm, SignInForm, HomeLoginPage, HomeUnlogPage, TransactionsPage, MyFavorsPage } from "./pages";
+import { SignUpForm, SignInForm, HomeLoginPage, HomeUnlogPage, TransactionsPage, MyFavorsPage, ComoFunciona, SistemaPuntos, Seguridad, HistoriasExito, CentroAyuda, NormasComunidad, PoliticaPrivacidad, Contacto } from "./pages";
 import BoardPage from "./pages/BoardPage";
 import ProfilePage from "./pages/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
@@ -66,6 +66,16 @@ function App() {
                 <ProfilePage/>
               </ProtectedRoute>
             }/>
+
+            {/* Rutas estáticas */}
+            <Route path={ROUTES.COMO_FUNCIONA} element={<ComoFunciona />} />
+            <Route path={ROUTES.SISTEMA_PUNTOS} element={<SistemaPuntos />} />
+            <Route path={ROUTES.SEGURIDAD} element={<Seguridad />} />
+            <Route path={ROUTES.HISTORIAS_EXITO} element={<HistoriasExito />} />
+            <Route path={ROUTES.CENTRO_AYUDA} element={<CentroAyuda />} />
+            <Route path={ROUTES.NORMAS_COMUNIDAD} element={<NormasComunidad />} />
+            <Route path={ROUTES.POLITICA_PRIVACIDAD} element={<PoliticaPrivacidad />} />
+            <Route path={ROUTES.CONTACTO} element={<Contacto />} />
           </Routes>
           <Footer/>
         </>
