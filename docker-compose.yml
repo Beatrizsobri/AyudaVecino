@@ -24,6 +24,7 @@ services:
       - db
     command: >
       sh -c "python manage.py migrate --settings=apivecino.settings.prod && \
+             python manage.py loaddata backup.json --settings=apivecino.settings.prod && \
              gunicorn apivecino.wsgi:application --bind 0.0.0.0:8000"
     ports:
       - "8000:8000"
