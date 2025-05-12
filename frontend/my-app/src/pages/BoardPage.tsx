@@ -40,7 +40,9 @@ const Board: React.FC = () => {
   const fetchFavors = async () => {
     setLoading(true);
     try {
-      const filters: any = {};
+      const filters: any = {
+        status: 'PENDING'  // Always filter for PENDING status
+      };
       if (selectedDistrict) filters.district_id = selectedDistrict;
       if (selectedType) filters.type = selectedType;
       

@@ -58,7 +58,7 @@ class FavorViewSet(viewsets.ModelViewSet):
         if district_id:
             queryset = queryset.filter(district_id=district_id)
             
-        return queryset
+        return queryset.order_by('deadline')
 
     def perform_create(self, serializer):
         user = self.request.user
