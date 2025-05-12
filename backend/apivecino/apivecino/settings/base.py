@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'djoser', ## Autenticación
     'drf_yasg', ## Swagger documentation
     # My own apps
-    'board',
     'district',
     'favor',
     'transaction',
