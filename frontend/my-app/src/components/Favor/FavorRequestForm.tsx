@@ -177,11 +177,16 @@ export const FavorRequestForm = ({ onClose, onSubmit, initialData, favorId }: Fa
                   required
                 >
                   <option value="">Selecciona un tipo</option>
-                  <option value="COOKING">Cooking</option>
-                  <option value="housework">Tareas del hogar</option>
-                  <option value="technology">Tecnología</option>
-                  <option value="education">Educación</option>
-                  <option value="other">Otro</option>
+                  <option value="HOME">Hogar</option>
+                  <option value="TRANSPORT">Transporte</option>
+                  <option value="PETS">Mascotas</option>
+                  <option value="TECH">Tecnología</option>
+                  <option value="CLASS">Clases</option>
+                  <option value="COOKING">Cocina</option>
+                  <option value="PLUMBING">Fontanería</option>
+                  <option value="CARPENTRY">Carpintería</option>
+                  <option value="ERRANDS">Recados</option>
+                  <option value="SHOPPING">Compra</option>
                 </select>
               </div>
 
