@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders', ## CORS
     'djoser', ## Autenticación
+    'drf_yasg', ## Swagger documentation
     # My own apps
     'board',
     'district',
@@ -176,4 +177,24 @@ DJOSER = {
         "current_user": ["rest_framework.permissions.IsAuthenticated"],
     },
     "HIDE_USERS": False,
+}
+
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Bearer': {
+         'type': 'apiKey',
+         'name': 'Authorization',
+         'in': 'header',
+         'description': 'Type in the *\'Value\'* input box below: **\'Token\'** followed by your token. Example: **\'Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b\'**'
+      }
+   },
+   'USE_SESSION_AUTH': False,
+   'SECURITY_REQUIREMENTS': [{'Bearer': []}],
+   'VALIDATOR_URL': None,
+   'OPERATIONS_SORTER': 'alpha',
+   'TAGS_SORTER': 'alpha',
+   'DOC_EXPANSION': 'none',
+   'DEFAULT_MODEL_RENDERING': 'example',
+   'DEFAULT_INFO': None,
+   'DEFAULT_AUTO_SCHEMA_CLASS': 'drf_yasg.inspectors.SwaggerAutoSchema',
 }

@@ -11,6 +11,7 @@ gunicorn = "*"
 psycopg2-binary = "*"
 djoser = "*"
 whitenoise = "*"
+drf-yasg = "*"
 
 [dev-packages]
 ipython = "*"
