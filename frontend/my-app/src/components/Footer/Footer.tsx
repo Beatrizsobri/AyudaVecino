@@ -32,7 +32,7 @@ const Footer = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Sobre nosotros</h3>
                     <ul className="space-y-2">
-                        <li><a href={ROUTES.COMO_FUNCIONA} onClick={handleNavigation(ROUTES.COMO_FUNCIONA)} className="text-gray-400 hover:text-white text-sm">Como funcionaAAAA</a></li>
+                        <li><a href={ROUTES.COMO_FUNCIONA} onClick={handleNavigation(ROUTES.COMO_FUNCIONA)} className="text-gray-400 hover:text-white text-sm">Como funciona</a></li>
                         <li><a href={ROUTES.SISTEMA_PUNTOS} onClick={handleNavigation(ROUTES.SISTEMA_PUNTOS)} className="text-gray-400 hover:text-white text-sm">Sistema de puntos</a></li>
                         <li><a href={ROUTES.SEGURIDAD} onClick={handleNavigation(ROUTES.SEGURIDAD)} className="text-gray-400 hover:text-white text-sm">Seguridad</a></li>
                         <li><a href={ROUTES.HISTORIAS_EXITO} onClick={handleNavigation(ROUTES.HISTORIAS_EXITO)} className="text-gray-400 hover:text-white text-sm">Historias de éxito</a></li>
