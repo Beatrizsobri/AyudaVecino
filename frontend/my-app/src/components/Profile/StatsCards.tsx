@@ -3,9 +3,11 @@ import { User } from '../../types/user';
 
 interface StatsCardsProps {
   user: User;
+  favoresDados: number;
+  favoresRecibidos: number;
 }
 
-const StatsCards: React.FC<StatsCardsProps> = ({ user }) => {
+const StatsCards: React.FC<StatsCardsProps> = ({ user, favoresDados, favoresRecibidos }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-4xl mx-auto h-32 items-center">
       <div className="stats-card bg-white rounded-xl shadow-sm p-6 transition duration-150 hover:shadow-md">
@@ -15,7 +17,7 @@ const StatsCards: React.FC<StatsCardsProps> = ({ user }) => {
           </div>
           <div>
             <p className="text-sm text-gray-500">Favores Dados</p>
-            <h3 className="text-2xl font-bold text-gray-900">0</h3>
+            <h3 className="text-2xl font-bold text-gray-900">{favoresDados}</h3>
           </div>
         </div>
       </div>
@@ -26,7 +28,7 @@ const StatsCards: React.FC<StatsCardsProps> = ({ user }) => {
           </div>
           <div>
             <p className="text-sm text-gray-500">Favores Recibidos</p>
-            <h3 className="text-2xl font-bold text-gray-900">0</h3>
+            <h3 className="text-2xl font-bold text-gray-900">{favoresRecibidos}</h3>
           </div>
         </div>
       </div>

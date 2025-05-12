@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useUser } from '../contexts/UserContext';
 import EditProfileModal from '../components/Profile/EditProfileModal';
 import StatsCards from '../components/Profile/StatsCards';
 import ContactInfo from '../components/Profile/ContactInfo';
+import { getCreatedFavors, getAcceptedFavors } from '../api/favor';
 
 const ProfilePage: React.FC = () => {
   const { user } = useUser();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [favoresDados, setFavoresDados] = useState(0);
+  const [favoresRecibidos, setFavoresRecibidos] = useState(0);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const dados = await getAcceptedFavors(1, 'ALL');
+        setFavoresDados(dados.count || 0);
+        const recibidos = await getCreatedFavors(1, 'ALL');
+        setFavoresRecibidos(recibidos.count || 0);
+      } catch (e) {
+        setFavoresDados(0);
+        setFavoresRecibidos(0);
+      }
+    };
+    if (user) fetchStats();
+  }, [user]);
 
   if (!user) {
     return <div className="p-4">Cargando...</div>;
@@ -49,7 +67,7 @@ const ProfilePage: React.FC = () => {
           </div>
         </div>
         <div className="px-8 pb-8 relative z-10">
-          <StatsCards user={user} />
+          <StatsCards user={user} favoresDados={favoresDados} favoresRecibidos={favoresRecibidos} />
         </div>
       </div>
 
