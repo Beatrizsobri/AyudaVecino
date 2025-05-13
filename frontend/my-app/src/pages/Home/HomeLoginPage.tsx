@@ -64,7 +64,7 @@ const HomeLoginPage = () => {
             {/* Favor Feed */}
             <div className="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
               <div className="border-b border-gray-200 px-4 py-4 sm:px-6">
-                <h3 className="text-lg font-medium leading-6 text-gray-900">Voy a ayudar próximamente</h3>
+                <h3 className="text-lg font-medium leading-6 text-gray-900">Hoy ayudarás con:</h3>
               </div>
               <FavorListLimited
                 favors={acceptedFavors}
@@ -73,7 +73,7 @@ const HomeLoginPage = () => {
             </div>
             <div className="bg-white rounded-xl shadow-sm overflow-hidden">
               <div className="border-b border-gray-200 px-4 py-4 sm:px-6">
-                <h3 className="text-lg font-medium leading-6 text-gray-900">Me van a ayudar próximamente</h3>
+                <h3 className="text-lg font-medium leading-6 text-gray-900">Hoy te ayudarán con:</h3>
               </div>
               <FavorListLimited
                 favors={createdFavors}

@@ -18,6 +18,13 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
   const { user, refreshUser } = useUser();
   const isMyFavor = user?.id === favor.creator?.id;
   
+  // Calcular si el favor está expirado
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const favorDate = new Date(favor.deadline);
+  favorDate.setHours(0, 0, 0, 0);
+  const isOldFavor = favorDate < today;
+
   const handleAcceptFavor = async () => {
     try {
       await acceptFavor(favor.id);
@@ -47,18 +54,11 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
   };
 
   const renderStatusButton = () => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const favorDate = new Date(favor.deadline);
-    favorDate.setHours(0, 0, 0, 0);
-    const isOldFavor = favorDate < today;
-    const isMyFavor = user?.id === favor.creator?.id;
-
     switch (favor.status) {
       case 'PENDING':
         return (
           <button 
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium transition duration-150 ${
+            className={`flex-1 h-10 py-2 px-3 rounded-lg text-xs font-medium transition duration-150 ${
               isOldFavor || isMyFavor
                 ? 'bg-gray-400 text-white cursor-not-allowed' 
                 : 'bg-indigo-600 text-white hover:bg-indigo-700'
@@ -72,13 +72,13 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
         );
       case 'ACCEPTED':
         return (
-          <div className="flex-1 flex items-center justify-center py-2 px-3 bg-green-100 text-green-800 rounded-lg text-xs font-medium">
+          <div className="flex-1 flex items-center justify-center h-10 py-2 px-3 bg-green-100 text-green-800 rounded-lg text-xs font-medium">
             <span>Favor aceptado</span>
           </div>
         );
       case 'CANCELLED':
         return (
-          <div className="flex-1 flex items-center justify-center py-2 px-3 bg-red-100 text-red-800 rounded-lg text-xs font-medium">
+          <div className="flex-1 flex items-center justify-center h-10 py-2 px-3 bg-red-100 text-red-800 rounded-lg text-xs font-medium">
             <span>Favor cancelado</span>
           </div>
         );
@@ -126,6 +126,9 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
           <div className="absolute top-3 right-3 bg-white px-2 py-1 rounded-full text-xs font-semibold flex items-center">
             <i className={`fas ${getFavorTypeIcon(typeLabel)} mr-1`}></i> {typeLabel}
           </div>
+          <div className="absolute bottom-3 right-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+            {favor.points} pts
+          </div>
         </div>
         <div className="p-5">
           <div className="flex justify-between items-start mb-2">
@@ -141,35 +144,68 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
           </div>
           <p className="text-gray-600 text-sm mb-4">{favor.description}</p>
           
-          <div className="flex justify-between items-center mb-4">
-            <div className="flex flex-col">
-              <div className="flex items-center mb-2">
-                <img 
-                  src={favor.creator?.profile_image || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"} 
-                  alt={favor.creator?.first_name || 'Usuario'} 
-                  className="w-6 h-6 rounded-full mr-2"
-                />
-                <div>
-                  <p className="text-xs font-medium">{favor.creator?.first_name || 'Anónimo'}</p>
-                  <p className="text-[10px] text-gray-500">Creador</p>
+          <div className="mb-4 min-h-[70px]">
+            <div className="grid grid-cols-2 gap-x-4 items-start">
+              {/* Columna 1: nombres, roles y avatar */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-2">
+                  <img 
+                    src={favor.creator?.profile_image || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"} 
+                    alt={favor.creator?.first_name || 'Usuario'} 
+                    className="w-6 h-6 rounded-full"
+                  />
+                  <div>
+                    <p className="text-xs font-medium text-black">{favor.creator?.first_name || 'Anónimo'}</p>
+                    <p className="text-[10px] text-gray-500">Creador</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img 
+                    src={favor.assigned_user?.profile_image || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"} 
+                    alt={favor.assigned_user?.first_name || 'Usuario asignado'} 
+                    className="w-6 h-6 rounded-full"
+                  />
+                  <div>
+                    <p className="text-xs font-medium text-black">{favor.assigned_user?.first_name || 'Sin asignar'}</p>
+                    <p className="text-[10px] text-gray-500">Asignado</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center">
-                <img 
-                  src={favor.assigned_user?.profile_image || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"} 
-                  alt={favor.assigned_user?.first_name || 'Usuario asignado'} 
-                  className="w-6 h-6 rounded-full mr-2"
-                />
+              {/* Columna 2: datos de contacto */}
+              <div className="flex flex-col gap-4">
                 <div>
-                  <p className={`text-xs font-medium ${favor.assigned_user ? 'text-indigo-600' : 'text-gray-500'}`}>
-                    {favor.assigned_user?.first_name || 'Sin asignar'}
-                  </p>
-                  <p className="text-[10px] text-gray-500">Asignado</p>
+                  {favor.status === 'ACCEPTED' && favor.assigned_user && (
+                    <>
+                      {favor.creator?.email && (
+                        <span className="flex items-center gap-1 text-[10px] text-indigo-600">
+                          <i className="fas fa-envelope text-[11px] mr-1"></i>{favor.creator.email}
+                        </span>
+                      )}
+                      {favor.creator?.phone_number && (
+                        <span className="flex items-center gap-1 text-[10px] text-indigo-600">
+                          <i className="fas fa-phone text-[11px] mr-1"></i>{favor.creator.phone_number}
+                        </span>
+                      )}
+                    </>
+                  )}
+                </div>
+                <div>
+                  {favor.status === 'ACCEPTED' && favor.assigned_user && (
+                    <>
+                      {favor.assigned_user.email && (
+                        <span className="flex items-center gap-1 text-[10px] text-indigo-600">
+                          <i className="fas fa-envelope text-[11px] mr-1"></i>{favor.assigned_user.email}
+                        </span>
+                      )}
+                      {favor.assigned_user.phone_number && (
+                        <span className="flex items-center gap-1 text-[10px] text-indigo-600">
+                          <i className="fas fa-phone text-[11px] mr-1"></i>{favor.assigned_user.phone_number}
+                        </span>
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
-            </div>
-            <div className="text-right">
-              <p className="font-bold text-indigo-600">+{favor.points} pts</p>
             </div>
           </div>
           
@@ -185,7 +221,7 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
                 </button>
                 {showMenu && (
                   <div className="absolute right-0 bottom-12 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-10">
-                    {!favor.assigned_user && (
+                    {favor.status === 'PENDING' && !isOldFavor && !favor.assigned_user && (
                       <button 
                         className="w-full px-4 py-2 text-left text-xs text-gray-700 hover:bg-gray-100 flex items-center"
                         onClick={handleEdit}
