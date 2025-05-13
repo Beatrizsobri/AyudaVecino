@@ -9,8 +9,7 @@ const NavbarUnlog = () => {
             <div className="flex justify-between h-16">
                 <div className="flex items-center">
                     <div className="flex-shrink-0 flex items-center">
-                        <i className="fas fa-handshake text-indigo-600 text-2xl mr-2"></i>
-                        <span className="text-xl font-bold text-indigo-600">AyudaVecino</span>
+                        <img src={require('../../assets/logocolortitle.png')} alt="Ayuda Vecino Logo" className="h-28 w-auto" />
                     </div>
                 </div>
 

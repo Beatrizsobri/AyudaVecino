@@ -14,10 +14,12 @@ const Footer = () => {
     <footer className="bg-gray-800 text-white mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 className="text-lg font-semibold mb-4">AyudaVecino</h3>
-                    <p className="text-gray-400 text-sm">Intercambia favores con tus vecinos usando nuestro sistema de puntos.</p>
-                    <div className="flex space-x-4 mt-4">
+                <div className="flex flex-col items-center text-center justify-start h-full">
+                    <a href="/">
+                        <img src={require('../../assets/logowhite.png')} alt="Ayuda Vecino Logo" className="h-16 w-auto mb-1" />
+                    </a>
+                    <p className="text-gray-400 text-sm mb-1">Intercambia favores con tus vecinos usando nuestro sistema de puntos.</p>
+                    <div className="flex space-x-4">
                         <a href="#" className="text-gray-400 hover:text-white">
                             <i className="fab fa-facebook-f"></i>
                         </a>
