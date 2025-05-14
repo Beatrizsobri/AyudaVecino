@@ -1,1445 +1,1184 @@
 [
-{
-  "model": "district.district",
-  "pk": 1,
-  "fields": {
-    "name": "Arganzuela",
-    "postal_code": ""
+  {
+    "model": "district.district",
+    "pk": 1,
+    "fields": {
+      "name": "Arganzuela",
+      "postal_code": "28045"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 2,
+    "fields": {
+      "name": "Alcala",
+      "postal_code": "28801"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 3,
+    "fields": {
+      "name": "Centro",
+      "postal_code": "28012"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 4,
+    "fields": {
+      "name": "Retiro",
+      "postal_code": "28007"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 5,
+    "fields": {
+      "name": "Salamanca",
+      "postal_code": "28006"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 6,
+    "fields": {
+      "name": "Chamartín",
+      "postal_code": "28016"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 7,
+    "fields": {
+      "name": "Tetuán",
+      "postal_code": "28020"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 8,
+    "fields": {
+      "name": "Chamberí",
+      "postal_code": "28010"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 9,
+    "fields": {
+      "name": "Fuencarral-El Pardo",
+      "postal_code": "28049"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 10,
+    "fields": {
+      "name": "Moncloa-Aravaca",
+      "postal_code": "28008"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 11,
+    "fields": {
+      "name": "Latina",
+      "postal_code": "28025"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 12,
+    "fields": {
+      "name": "Carabanchel",
+      "postal_code": "28025"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 13,
+    "fields": {
+      "name": "Usera",
+      "postal_code": "28026"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 14,
+    "fields": {
+      "name": "Puente de Vallecas",
+      "postal_code": "28053"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 15,
+    "fields": {
+      "name": "Moratalaz",
+      "postal_code": "28030"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 16,
+    "fields": {
+      "name": "Ciudad Lineal",
+      "postal_code": "28027"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 17,
+    "fields": {
+      "name": "Hortaleza",
+      "postal_code": "28033"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 18,
+    "fields": {
+      "name": "Villaverde",
+      "postal_code": "28021"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 19,
+    "fields": {
+      "name": "Villa de Vallecas",
+      "postal_code": "28031"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 20,
+    "fields": {
+      "name": "Vicálvaro",
+      "postal_code": "28032"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 21,
+    "fields": {
+      "name": "San Blas-Canillejas",
+      "postal_code": "28037"
+    }
+  },
+  {
+    "model": "district.district",
+    "pk": 22,
+    "fields": {
+      "name": "Barajas",
+      "postal_code": "28042"
+    }
+  },
+  {
+    "model": "user.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$dPrbKHHnco5wicrVGwmuZN$w5A7unK9Llk8pP+93jb9MhuTJBUgT7EWXDgiaiOo1FY=",
+      "last_login": "2025-05-09T15:14:33.590Z",
+      "is_superuser": true,
+      "username": "Bea",
+      "first_name": "Ana julia",
+      "last_name": "Renovada",
+      "email": "beatrizs0910@hotmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-03-26T12:12:27Z",
+      "phone_number": "626221237",
+      "points": 200,
+      "district": 4,
+      "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.customuser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$QT2HHio1bBMQxVNPPUs8H4$ECsXtb6DAZR3XzVYxe2HnVrURlALcvcst+LLJlGL3wI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "usuario 2",
+      "first_name": "apellido 2",
+      "last_name": "Apellido 2",
+      "email": "beatriz.sobrino.paredes@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-03T15:44:39.151Z",
+      "phone_number": "626221237",
+      "points": 200,
+      "district": 2,
+      "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.customuser",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$OZPMz3RQ1sRhoR1CjSPLcM$Q6Izk5g0fuXaYGzHgkogfUZ4MZ3ZlbKJ4NiYMmR8Neg=",
+      "last_login": "2025-04-03T15:57:18.333Z",
+      "is_superuser": false,
+      "username": "usuario 3",
+      "first_name": "Usuario 3",
+      "last_name": "Apellido 3",
+      "email": "beatriz.sobrino.paredes@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-03T15:56:46.130Z",
+      "phone_number": "656656656",
+      "points": 200,
+      "district": 6,
+      "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.customuser",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$AAVVgHHns0eIVKtRhjVLM7$Qi4QciGMvsiEOZ1xXcybkW5MpuZi1K55ANO1r3/WN9o=",
+      "last_login": "2025-04-04T15:57:33.200Z",
+      "is_superuser": false,
+      "username": "beatriz.sobrino.paredes+2@gmail.com",
+      "first_name": "Usuario 4",
+      "last_name": "Usuario 4",
+      "email": "beatriz.sobrino.paredes+2@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-04T15:56:58.874Z",
+      "phone_number": "666666666",
+      "points": 200,
+      "district": 5,
+      "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 7,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 7",
+      "publication_date": "2025-04-09T15:19:07.613Z",
+      "deadline": "2025-06-23T00:00:00Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 7",
+      "district": 6
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 8,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 8",
+      "publication_date": "2025-04-09T15:20:47.279Z",
+      "deadline": "2025-06-06T00:00:00Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 8",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 9,
+    "fields": {
+      "type": "SHOPPING",
+      "description": "Favor 9",
+      "publication_date": "2025-04-09T15:39:22.677Z",
+      "deadline": "2025-06-09T15:39:18Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 9",
+      "district": 10
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 10,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 10",
+      "publication_date": "2025-04-09T15:39:43.975Z",
+      "deadline": "2025-06-16T15:39:41Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 10",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 11,
+    "fields": {
+      "type": "CLASS",
+      "description": "Favor 11",
+      "publication_date": "2025-04-09T15:40:35.747Z",
+      "deadline": "2025-06-09T15:40:33Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 11",
+      "district": 2
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 12,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 12",
+      "publication_date": "2025-04-10T10:20:00Z",
+      "deadline": "2025-06-20T00:00:00Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 12",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 13,
+    "fields": {
+      "type": "CLASS",
+      "description": "Favor 13",
+      "publication_date": "2025-04-10T10:25:00Z",
+      "deadline": "2025-06-25T00:00:00Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 13",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 14,
+    "fields": {
+      "type": "TRANSPORT",
+      "description": "Favor 14",
+      "publication_date": "2025-04-10T10:30:00Z",
+      "deadline": "2025-06-22T00:00:00Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 14",
+      "district": 2
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 15,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 15",
+      "publication_date": "2025-04-10T10:35:00Z",
+      "deadline": "2025-06-18T00:00:00Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 15",
+      "district": 2
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 16,
+    "fields": {
+      "type": "CLASS",
+      "description": "Favor 16",
+      "publication_date": "2025-04-10T10:40:00Z",
+      "deadline": "2025-06-27T00:00:00Z",
+      "status": "PENDING",
+      "creator": 2,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 16",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 17,
+    "fields": {
+      "type": "ERRANDS",
+      "description": "Favor 17",
+      "publication_date": "2025-04-10T10:45:00Z",
+      "deadline": "2025-06-24T00:00:00Z",
+      "status": "PENDING",
+      "creator": 3,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 17",
+      "district": 19
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 18,
+    "fields": {
+      "type": "HOME",
+      "description": "Favor 18",
+      "publication_date": "2025-04-10T10:50:00Z",
+      "deadline": "2025-06-19T00:00:00Z",
+      "status": "PENDING",
+      "creator": 3,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 18",
+      "district": 19
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 19,
+    "fields": {
+      "type": "CLASS",
+      "description": "Favor 19",
+      "publication_date": "2025-04-10T10:55:00Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 3,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 19",
+      "district": 19
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 20,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 20",
+      "publication_date": "2025-04-16T17:08:11.171Z",
+      "deadline": "2025-06-30T17:07:54Z",
+      "status": "PENDING",
+      "creator": 3,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 20",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 21,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 21",
+      "publication_date": "2025-04-16T22:14:41.029Z",
+      "deadline": "2025-06-16T00:00:00Z",
+      "status": "PENDING",
+      "creator": 3,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 21",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 22,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 22",
+      "publication_date": "2025-04-16T22:18:01.562Z",
+      "deadline": "2025-06-22T00:00:00Z",
+      "status": "PENDING",
+      "creator": 4,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 22",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 23,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 23",
+      "publication_date": "2025-04-16T22:20:21.322Z",
+      "deadline": "2025-06-29T00:00:00Z",
+      "status": "PENDING",
+      "creator": 4,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 23",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 24,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 24",
+      "publication_date": "2025-04-16T22:23:02.163Z",
+      "deadline": "2025-06-25T00:00:00Z",
+      "status": "PENDING",
+      "creator": 4,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 24",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 25,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 25",
+      "publication_date": "2025-04-20T23:29:49.933Z",
+      "deadline": "2025-06-24T00:00:00Z",
+      "status": "PENDING",
+      "creator": 4,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 25",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 26,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 26",
+      "publication_date": "2025-04-20T23:38:32.480Z",
+      "deadline": "2025-06-27T00:00:00Z",
+      "status": "PENDING",
+      "creator": 4,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 26",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 27,
+    "fields": {
+      "type": "HOME",
+      "description": "Favor 27",
+      "publication_date": "2025-04-24T15:31:34.189Z",
+      "deadline": "2025-06-25T15:31:27Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 27",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 28,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 28",
+      "publication_date": "2025-04-24T15:38:14.844Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 28",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 29,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 29",
+      "publication_date": "2025-04-24T15:44:05.351Z",
+      "deadline": "2025-06-25T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 29",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 30,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 30",
+      "publication_date": "2025-04-24T15:44:36.323Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 30",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 31,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 31",
+      "publication_date": "2025-04-24T15:45:35.603Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 31",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 32,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 32",
+      "publication_date": "2025-04-24T15:46:35.530Z",
+      "deadline": "2025-06-24T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 32",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 33,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 33",
+      "publication_date": "2025-04-24T15:47:15.435Z",
+      "deadline": "2025-06-25T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 33",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 34,
+    "fields": {
+      "type": "HOME",
+      "description": "Favor 34",
+      "publication_date": "2025-04-24T15:53:24.709Z",
+      "deadline": "2025-06-01T15:53:21Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 34",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 35,
+    "fields": {
+      "type": "HOME",
+      "description": "Favor 35",
+      "publication_date": "2025-04-24T15:54:59.265Z",
+      "deadline": "2025-06-01T15:54:51Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 35",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 36,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 36",
+      "publication_date": "2025-04-24T16:28:38.936Z",
+      "deadline": "2025-06-27T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 36",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 37,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 37",
+      "publication_date": "2025-04-24T20:19:22.355Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 37",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 38,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 38",
+      "publication_date": "2025-04-24T20:19:33.566Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 38",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 39,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 39",
+      "publication_date": "2025-04-24T20:37:12.606Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 39",
+      "district": 1
+    }
+  },
+  {
+    "model": "favor.favor",
+    "pk": 40,
+    "fields": {
+      "type": "COOKING",
+      "description": "Favor 40",
+      "publication_date": "2025-04-24T20:37:18.124Z",
+      "deadline": "2025-06-26T00:00:00Z",
+      "status": "PENDING",
+      "creator": 1,
+      "assigned_user": null,
+      "points": 10,
+      "title": "Favor 40",
+      "district": 1
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "favor": 7,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-09T15:19:07.613Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "favor": 8,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-09T15:20:47.279Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 3,
+    "fields": {
+      "user": 2,
+      "favor": 9,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-09T15:39:22.677Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 4,
+    "fields": {
+      "user": 2,
+      "favor": 10,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-09T15:39:43.975Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 5,
+    "fields": {
+      "user": 2,
+      "favor": 11,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-09T15:40:35.747Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 6,
+    "fields": {
+      "user": 2,
+      "favor": 12,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:20:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 7,
+    "fields": {
+      "user": 2,
+      "favor": 13,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:25:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 8,
+    "fields": {
+      "user": 2,
+      "favor": 14,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:30:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 9,
+    "fields": {
+      "user": 2,
+      "favor": 15,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:35:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 10,
+    "fields": {
+      "user": 2,
+      "favor": 16,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:40:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 11,
+    "fields": {
+      "user": 3,
+      "favor": 17,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:45:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 12,
+    "fields": {
+      "user": 3,
+      "favor": 18,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:50:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 13,
+    "fields": {
+      "user": 3,
+      "favor": 19,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-10T10:55:00Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 14,
+    "fields": {
+      "user": 3,
+      "favor": 20,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-16T17:08:11.171Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 15,
+    "fields": {
+      "user": 3,
+      "favor": 21,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-16T22:14:41.029Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 16,
+    "fields": {
+      "user": 4,
+      "favor": 22,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-16T22:18:01.562Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 17,
+    "fields": {
+      "user": 4,
+      "favor": 23,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-16T22:20:21.322Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 18,
+    "fields": {
+      "user": 4,
+      "favor": 24,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-16T22:23:02.163Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 19,
+    "fields": {
+      "user": 4,
+      "favor": 25,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-20T23:29:49.933Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 20,
+    "fields": {
+      "user": 4,
+      "favor": 26,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-20T23:38:32.480Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 21,
+    "fields": {
+      "user": 1,
+      "favor": 27,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:31:34.189Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 22,
+    "fields": {
+      "user": 1,
+      "favor": 28,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:38:14.844Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 23,
+    "fields": {
+      "user": 1,
+      "favor": 29,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:44:05.351Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 24,
+    "fields": {
+      "user": 1,
+      "favor": 30,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:44:36.323Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 25,
+    "fields": {
+      "user": 1,
+      "favor": 31,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:45:35.603Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 26,
+    "fields": {
+      "user": 1,
+      "favor": 32,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:46:35.530Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 27,
+    "fields": {
+      "user": 1,
+      "favor": 33,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:47:15.435Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 28,
+    "fields": {
+      "user": 1,
+      "favor": 34,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:53:24.709Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 29,
+    "fields": {
+      "user": 1,
+      "favor": 35,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T15:54:59.265Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 30,
+    "fields": {
+      "user": 1,
+      "favor": 36,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T16:28:38.936Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 31,
+    "fields": {
+      "user": 1,
+      "favor": 37,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T20:19:22.355Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 32,
+    "fields": {
+      "user": 1,
+      "favor": 38,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T20:19:33.566Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 33,
+    "fields": {
+      "user": 1,
+      "favor": 39,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T20:37:12.606Z"
+    }
+  },
+  {
+    "model": "transaction.transaction",
+    "pk": 34,
+    "fields": {
+      "user": 1,
+      "favor": 40,
+      "transaction_type": "SPEND",
+      "amount": 10,
+      "date_created": "2025-04-24T20:37:18.124Z"
+    }
   }
-},
-{
-  "model": "district.district",
-  "pk": 2,
-  "fields": {
-    "name": "Alcala",
-    "postal_code": "22000"
-  }
-},
-{
-  "model": "district.district",
-  "pk": 3,
-  "fields": {
-    "name": "Centro",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 4,
-  "fields": {
-    "name": "Arganzuela",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 5,
-  "fields": {
-    "name": "Retiro",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 6,
-  "fields": {
-    "name": "Salamanca",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 7,
-  "fields": {
-    "name": "Chamartín",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 8,
-  "fields": {
-    "name": "Tetuán",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 9,
-  "fields": {
-    "name": "Chamberí",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 10,
-  "fields": {
-    "name": "Fuencarral-El Pardo",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 11,
-  "fields": {
-    "name": "Moncloa-Aravaca",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 12,
-  "fields": {
-    "name": "Latina",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 13,
-  "fields": {
-    "name": "Carabanchel",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 14,
-  "fields": {
-    "name": "Usera",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 15,
-  "fields": {
-    "name": "Puente de Vallecas",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 16,
-  "fields": {
-    "name": "Moratalaz",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 17,
-  "fields": {
-    "name": "Ciudad Lineal",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 18,
-  "fields": {
-    "name": "Hortaleza",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 19,
-  "fields": {
-    "name": "Villaverde",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 20,
-  "fields": {
-    "name": "Villa de Vallecas",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 21,
-  "fields": {
-    "name": "Vicálvaro",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 22,
-  "fields": {
-    "name": "San Blas-Canillejas",
-    "postal_code": ""
-  }
-},
-{
-  "model": "district.district",
-  "pk": 23,
-  "fields": {
-    "name": "Barajas",
-    "postal_code": ""
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 7,
-  "fields": {
-    "type": "COOKING",
-    "description": "AAA",
-    "publication_date": "2025-04-09T15:19:07.613Z",
-    "deadline": "2025-04-23T00:00:00Z",
-    "status": "CANCELLED",
-    "creator": 1,
-    "assigned_user": 13,
-    "points": 99,
-    "title": "Favor 1 Bea",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 8,
-  "fields": {
-    "type": "COOKING",
-    "description": "Favor 2 bea description",
-    "publication_date": "2025-04-09T15:20:47.279Z",
-    "deadline": "2025-04-06T00:00:00Z",
-    "status": "CANCELLED",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 12,
-    "title": "Favor 2 Bea",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 9,
-  "fields": {
-    "type": "SHOPPING",
-    "description": "Favor 1 de David",
-    "publication_date": "2025-04-09T15:39:22.677Z",
-    "deadline": "2025-04-09T15:39:18Z",
-    "status": "ACCEPTED",
-    "creator": 6,
-    "assigned_user": 1,
-    "points": 88,
-    "title": "Favor David 1",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 10,
-  "fields": {
-    "type": "COOKING",
-    "description": "David el mejor",
-    "publication_date": "2025-04-09T15:39:43.975Z",
-    "deadline": "2025-04-16T15:39:41Z",
-    "status": "ACCEPTED",
-    "creator": 6,
-    "assigned_user": 1,
-    "points": 8,
-    "title": "Favor numero 2 David",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 11,
-  "fields": {
-    "type": "CLASS",
-    "description": "AAAAA",
-    "publication_date": "2025-04-09T15:40:35.747Z",
-    "deadline": "2025-04-09T15:40:33Z",
-    "status": "ACCEPTED",
-    "creator": 7,
-    "assigned_user": 1,
-    "points": 90,
-    "title": "Favor Juan",
-    "district": 2
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 12,
-  "fields": {
-    "type": "COOKING",
-    "description": "Necesito ayuda para preparar una cena especial",
-    "publication_date": "2025-04-10T10:20:00Z",
-    "deadline": "2025-04-20T00:00:00Z",
-    "status": "PENDING",
-    "creator": 8,
-    "assigned_user": null,
-    "points": 50,
-    "title": "Ayuda para cena especial",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 13,
-  "fields": {
-    "type": "CLASS",
-    "description": "Clases de inglés para principiantes",
-    "publication_date": "2025-04-10T10:25:00Z",
-    "deadline": "2025-04-25T00:00:00Z",
-    "status": "ACCEPTED",
-    "creator": 8,
-    "assigned_user": 1,
-    "points": 75,
-    "title": "Clases de inglés",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 14,
-  "fields": {
-    "type": "TRANSPORT",
-    "description": "Ayuda para arreglar una pared",
-    "publication_date": "2025-04-10T10:30:00Z",
-    "deadline": "2025-04-22T00:00:00Z",
-    "status": "PENDING",
-    "creator": 9,
-    "assigned_user": null,
-    "points": 100,
-    "title": "Reparación de pared",
-    "district": 2
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 15,
-  "fields": {
-    "type": "COOKING",
-    "description": "Preparación de comida para evento familiar",
-    "publication_date": "2025-04-10T10:35:00Z",
-    "deadline": "2025-04-18T00:00:00Z",
-    "status": "PENDING",
-    "creator": 9,
-    "assigned_user": null,
-    "points": 60,
-    "title": "Ayuda para evento familiar",
-    "district": 2
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 16,
-  "fields": {
-    "type": "CLASS",
-    "description": "Clases de guitarra para principiantes",
-    "publication_date": "2025-04-10T10:40:00Z",
-    "deadline": "2025-04-27T00:00:00Z",
-    "status": "ACCEPTED",
-    "creator": 10,
-    "assigned_user": 1,
-    "points": 80,
-    "title": "Clases de guitarra",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 17,
-  "fields": {
-    "type": "ERRANDS",
-    "description": "Ayuda para instalar estanterías",
-    "publication_date": "2025-04-10T10:45:00Z",
-    "deadline": "2025-04-24T00:00:00Z",
-    "status": "ACCEPTED",
-    "creator": 10,
-    "assigned_user": 1,
-    "points": 45,
-    "title": "Instalación de estanterías",
-    "district": 19
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 18,
-  "fields": {
-    "type": "HOME",
-    "description": "Preparación de postres para cumpleaños",
-    "publication_date": "2025-04-10T10:50:00Z",
-    "deadline": "2025-04-19T00:00:00Z",
-    "status": "ACCEPTED",
-    "creator": 11,
-    "assigned_user": 1,
-    "points": 55,
-    "title": "Ayuda para postres",
-    "district": 19
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 19,
-  "fields": {
-    "type": "CLASS",
-    "description": "Clases de programación básica",
-    "publication_date": "2025-04-10T10:55:00Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "ACCEPTED",
-    "creator": 11,
-    "assigned_user": 1,
-    "points": 90,
-    "title": "Clases de programación",
-    "district": 19
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 20,
-  "fields": {
-    "type": "COOKING",
-    "description": "FAvor Cocina",
-    "publication_date": "2025-04-16T17:08:11.171Z",
-    "deadline": "2025-04-30T17:07:54Z",
-    "status": "CANCELLED",
-    "creator": 1,
-    "assigned_user": 6,
-    "points": 30,
-    "title": "Favor de Bea",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 21,
-  "fields": {
-    "type": "COOKING",
-    "description": "Favor 1",
-    "publication_date": "2025-04-16T22:14:41.029Z",
-    "deadline": "2025-05-16T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 10,
-    "title": "Favor 1",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 22,
-  "fields": {
-    "type": "COOKING",
-    "description": "favor2",
-    "publication_date": "2025-04-16T22:18:01.562Z",
-    "deadline": "2025-05-22T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 20,
-    "title": "favor2",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 23,
-  "fields": {
-    "type": "COOKING",
-    "description": "favor 3",
-    "publication_date": "2025-04-16T22:20:21.322Z",
-    "deadline": "2025-05-29T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 5,
-    "title": "favor3",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 24,
-  "fields": {
-    "type": "COOKING",
-    "description": "favor4",
-    "publication_date": "2025-04-16T22:23:02.163Z",
-    "deadline": "2025-05-25T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 2,
-    "title": "favor 4",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 25,
-  "fields": {
-    "type": "COOKING",
-    "description": "ai ai ai no llores, ya acabaremos algun maldito día",
-    "publication_date": "2025-04-20T23:29:49.933Z",
-    "deadline": "2025-04-24T00:00:00Z",
-    "status": "CANCELLED",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 90,
-    "title": "Favorcitonuevo",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 26,
-  "fields": {
-    "type": "COOKING",
-    "description": "Nuevo titulito",
-    "publication_date": "2025-04-20T23:38:32.480Z",
-    "deadline": "2025-04-27T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 90,
-    "title": "baila y no llores",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 27,
-  "fields": {
-    "type": "HOME",
-    "description": "AAAA",
-    "publication_date": "2025-04-24T15:31:34.189Z",
-    "deadline": "2025-04-25T15:31:27Z",
-    "status": "ACCEPTED",
-    "creator": 6,
-    "assigned_user": 1,
-    "points": 8,
-    "title": "Micheladas",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 28,
-  "fields": {
-    "type": "COOKING",
-    "description": "mE quita quitalooooo",
-    "publication_date": "2025-04-24T15:38:14.844Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 10,
-    "title": "Vamos a probar a quitarme puntos",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 29,
-  "fields": {
-    "type": "COOKING",
-    "description": "HOLI",
-    "publication_date": "2025-04-24T15:44:05.351Z",
-    "deadline": "2025-04-25T00:00:00Z",
-    "status": "CANCELLED",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 50,
-    "title": "FAvor modificado",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 30,
-  "fields": {
-    "type": "COOKING",
-    "description": "AAA DIOS",
-    "publication_date": "2025-04-24T15:44:36.323Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": 6,
-    "points": 4,
-    "title": "Favor loco de 1000 puntos",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 31,
-  "fields": {
-    "type": "COOKING",
-    "description": "AA",
-    "publication_date": "2025-04-24T15:45:35.603Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 10000,
-    "title": "WEEEzzz",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 32,
-  "fields": {
-    "type": "COOKING",
-    "description": "AA",
-    "publication_date": "2025-04-24T15:46:35.530Z",
-    "deadline": "2025-04-24T00:00:00Z",
-    "status": "CANCELLED",
-    "creator": 1,
-    "assigned_user": 6,
-    "points": 6,
-    "title": "WEEE",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 33,
-  "fields": {
-    "type": "COOKING",
-    "description": "HOLI",
-    "publication_date": "2025-04-24T15:47:15.435Z",
-    "deadline": "2025-04-25T00:00:00Z",
-    "status": "CANCELLED",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 1,
-    "title": "Favor de 1 puntito",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 34,
-  "fields": {
-    "type": "HOME",
-    "description": "EL PASADOOOOO",
-    "publication_date": "2025-04-24T15:53:24.709Z",
-    "deadline": "2025-04-01T15:53:21Z",
-    "status": "ACCEPTED",
-    "creator": 6,
-    "assigned_user": 1,
-    "points": 28,
-    "title": "Favor david pasado",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 35,
-  "fields": {
-    "type": "HOME",
-    "description": "AAAA",
-    "publication_date": "2025-04-24T15:54:59.265Z",
-    "deadline": "2025-04-01T15:54:51Z",
-    "status": "PENDING",
-    "creator": 6,
-    "assigned_user": null,
-    "points": 0,
-    "title": "FAVOR PASADO DAVID 123",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 36,
-  "fields": {
-    "type": "COOKING",
-    "description": "Nuevo titulito",
-    "publication_date": "2025-04-24T16:28:38.936Z",
-    "deadline": "2025-04-27T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 9,
-    "title": "baila y no llores 123",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 37,
-  "fields": {
-    "type": "COOKING",
-    "description": "descript",
-    "publication_date": "2025-04-24T20:19:22.355Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 1900,
-    "title": "FAVORCITO NUEVO OLE OLE",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 38,
-  "fields": {
-    "type": "COOKING",
-    "description": "descript",
-    "publication_date": "2025-04-24T20:19:33.566Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 50,
-    "title": "FAVORCITO NUEVO OLE OLE",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 39,
-  "fields": {
-    "type": "COOKING",
-    "description": "fgcffgvb",
-    "publication_date": "2025-04-24T20:37:12.606Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 5000,
-    "title": "meb quita pts",
-    "district": 1
-  }
-},
-{
-  "model": "favor.favor",
-  "pk": 40,
-  "fields": {
-    "type": "COOKING",
-    "description": "fgcffgvb",
-    "publication_date": "2025-04-24T20:37:18.124Z",
-    "deadline": "2025-04-26T00:00:00Z",
-    "status": "PENDING",
-    "creator": 1,
-    "assigned_user": null,
-    "points": 50,
-    "title": "meb quita pts",
-    "district": 1
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 1,
-  "fields": {
-    "user": 1,
-    "favor": 9,
-    "transaction_type": "EARN",
-    "amount": 88,
-    "date_created": "2025-04-09T17:26:25.423Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 2,
-  "fields": {
-    "user": 6,
-    "favor": 9,
-    "transaction_type": "SPEND",
-    "amount": 88,
-    "date_created": "2025-04-09T17:26:25.423Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 3,
-  "fields": {
-    "user": 1,
-    "favor": 10,
-    "transaction_type": "EARN",
-    "amount": 10,
-    "date_created": "2025-04-09T17:32:46.584Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 4,
-  "fields": {
-    "user": 6,
-    "favor": 10,
-    "transaction_type": "SPEND",
-    "amount": 10,
-    "date_created": "2025-04-09T17:32:46.584Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 5,
-  "fields": {
-    "user": 1,
-    "favor": 17,
-    "transaction_type": "EARN",
-    "amount": 45,
-    "date_created": "2025-04-10T17:19:51.039Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 6,
-  "fields": {
-    "user": 10,
-    "favor": 17,
-    "transaction_type": "SPEND",
-    "amount": 45,
-    "date_created": "2025-04-10T17:19:51.040Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 7,
-  "fields": {
-    "user": 13,
-    "favor": 7,
-    "transaction_type": "EARN",
-    "amount": 99,
-    "date_created": "2025-04-16T17:10:00.905Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 8,
-  "fields": {
-    "user": 1,
-    "favor": 7,
-    "transaction_type": "SPEND",
-    "amount": 99,
-    "date_created": "2025-04-16T17:10:00.905Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 9,
-  "fields": {
-    "user": 1,
-    "favor": 16,
-    "transaction_type": "EARN",
-    "amount": 80,
-    "date_created": "2025-04-16T22:25:57.215Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 10,
-  "fields": {
-    "user": 10,
-    "favor": 16,
-    "transaction_type": "SPEND",
-    "amount": 80,
-    "date_created": "2025-04-16T22:25:57.216Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 11,
-  "fields": {
-    "user": 1,
-    "favor": 27,
-    "transaction_type": "EARN",
-    "amount": 8,
-    "date_created": "2025-04-24T15:33:41.600Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 12,
-  "fields": {
-    "user": 6,
-    "favor": 27,
-    "transaction_type": "SPEND",
-    "amount": 8,
-    "date_created": "2025-04-24T15:33:41.601Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 13,
-  "fields": {
-    "user": 1,
-    "favor": 19,
-    "transaction_type": "EARN",
-    "amount": 90,
-    "date_created": "2025-04-24T15:35:11.140Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 14,
-  "fields": {
-    "user": 11,
-    "favor": 19,
-    "transaction_type": "SPEND",
-    "amount": 90,
-    "date_created": "2025-04-24T15:35:11.140Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 15,
-  "fields": {
-    "user": 1,
-    "favor": 18,
-    "transaction_type": "EARN",
-    "amount": 55,
-    "date_created": "2025-04-24T15:35:44.367Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 16,
-  "fields": {
-    "user": 11,
-    "favor": 18,
-    "transaction_type": "SPEND",
-    "amount": 55,
-    "date_created": "2025-04-24T15:35:44.367Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 17,
-  "fields": {
-    "user": 1,
-    "favor": 11,
-    "transaction_type": "EARN",
-    "amount": 90,
-    "date_created": "2025-04-24T15:36:57.424Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 18,
-  "fields": {
-    "user": 7,
-    "favor": 11,
-    "transaction_type": "SPEND",
-    "amount": 90,
-    "date_created": "2025-04-24T15:36:57.424Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 19,
-  "fields": {
-    "user": 1,
-    "favor": 29,
-    "transaction_type": "SPEND",
-    "amount": 63,
-    "date_created": "2025-04-24T15:44:05.354Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 20,
-  "fields": {
-    "user": 1,
-    "favor": 33,
-    "transaction_type": "SPEND",
-    "amount": 1,
-    "date_created": "2025-04-24T15:47:15.437Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 21,
-  "fields": {
-    "user": 1,
-    "favor": 34,
-    "transaction_type": "EARN",
-    "amount": 28,
-    "date_created": "2025-04-24T15:54:20.061Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 22,
-  "fields": {
-    "user": 1,
-    "favor": 7,
-    "transaction_type": "RETURN",
-    "amount": 99,
-    "date_created": "2025-04-24T16:07:34.426Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 23,
-  "fields": {
-    "user": 1,
-    "favor": 25,
-    "transaction_type": "RETURN",
-    "amount": 90,
-    "date_created": "2025-04-24T16:08:34.812Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 24,
-  "fields": {
-    "user": 1,
-    "favor": 33,
-    "transaction_type": "RETURN",
-    "amount": 1,
-    "date_created": "2025-04-24T16:09:06.614Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 25,
-  "fields": {
-    "user": 1,
-    "favor": 20,
-    "transaction_type": "RETURN",
-    "amount": 30,
-    "date_created": "2025-04-24T16:11:16.029Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 26,
-  "fields": {
-    "user": 1,
-    "favor": 32,
-    "transaction_type": "RETURN",
-    "amount": 6,
-    "date_created": "2025-04-24T16:16:16.781Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 27,
-  "fields": {
-    "user": 6,
-    "favor": 32,
-    "transaction_type": "RETURN",
-    "amount": -6,
-    "date_created": "2025-04-24T16:16:16.782Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 28,
-  "fields": {
-    "user": 1,
-    "favor": 8,
-    "transaction_type": "RETURN",
-    "amount": 12,
-    "date_created": "2025-04-24T16:27:10.231Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 29,
-  "fields": {
-    "user": 1,
-    "favor": 36,
-    "transaction_type": "SPEND",
-    "amount": 90,
-    "date_created": "2025-04-24T16:28:38.941Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 30,
-  "fields": {
-    "user": 1,
-    "favor": 13,
-    "transaction_type": "EARN",
-    "amount": 75,
-    "date_created": "2025-04-24T19:47:20.819Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 31,
-  "fields": {
-    "user": 1,
-    "favor": 38,
-    "transaction_type": "SPEND",
-    "amount": 50,
-    "date_created": "2025-04-24T20:19:33.569Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 32,
-  "fields": {
-    "user": 1,
-    "favor": 29,
-    "transaction_type": "RETURN",
-    "amount": 50,
-    "date_created": "2025-04-24T20:23:08.396Z"
-  }
-},
-{
-  "model": "transaction.transaction",
-  "pk": 33,
-  "fields": {
-    "user": 1,
-    "favor": 40,
-    "transaction_type": "SPEND",
-    "amount": 50,
-    "date_created": "2025-04-24T20:37:18.126Z"
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$dPrbKHHnco5wicrVGwmuZN$w5A7unK9Llk8pP+93jb9MhuTJBUgT7EWXDgiaiOo1FY=",
-    "last_login": "2025-05-09T15:14:33.590Z",
-    "is_superuser": true,
-    "username": "Bea",
-    "first_name": "Ana julia",
-    "last_name": "Renovada",
-    "email": "beatrizs0910@hotmail.com",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2025-03-26T12:12:27Z",
-    "phone_number": "626221237",
-    "points": 400,
-    "district": 4,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 2,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$QT2HHio1bBMQxVNPPUs8H4$ECsXtb6DAZR3XzVYxe2HnVrURlALcvcst+LLJlGL3wI=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "beatrizsobrino",
-    "first_name": "",
-    "last_name": "",
-    "email": "beatriz.sobrino.paredes@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-03T15:44:39.151Z",
-    "phone_number": "626221237",
-    "points": 0,
-    "district": 2,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 3,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$OZPMz3RQ1sRhoR1CjSPLcM$Q6Izk5g0fuXaYGzHgkogfUZ4MZ3ZlbKJ4NiYMmR8Neg=",
-    "last_login": "2025-04-03T15:57:18.333Z",
-    "is_superuser": false,
-    "username": "beatriz.sobrino.paredes@gmail.com",
-    "first_name": "",
-    "last_name": "",
-    "email": "beatriz.sobrino.paredes@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-03T15:56:46.130Z",
-    "phone_number": "",
-    "points": 0,
-    "district": null,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 4,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$AAVVgHHns0eIVKtRhjVLM7$Qi4QciGMvsiEOZ1xXcybkW5MpuZi1K55ANO1r3/WN9o=",
-    "last_login": "2025-04-04T15:57:33.200Z",
-    "is_superuser": false,
-    "username": "beatriz.sobrino.paredes+2@gmail.com",
-    "first_name": "",
-    "last_name": "",
-    "email": "beatriz.sobrino.paredes+2@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-04T15:56:58.874Z",
-    "phone_number": "",
-    "points": 0,
-    "district": null,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 5,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$D7NlgWb0ci6dwe7PGRHnUr$0hd8IPiHu3P+oQC/cBJTyujGsc8Fry4Bjoq0OnncmlU=",
-    "last_login": "2025-04-04T16:10:52.866Z",
-    "is_superuser": false,
-    "username": "beatriz.sobrino@evbqa.com",
-    "first_name": "",
-    "last_name": "",
-    "email": "beatriz.sobrino@evbqa.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-04T16:10:29.607Z",
-    "phone_number": "",
-    "points": 0,
-    "district": null,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 6,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$GXjDlMCPJJwdh3ouolEr6G$X4Rc8LrfmDi96oZ7X/S1eHmnMgauy7udK6HzfWNba3I=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "David",
-    "first_name": "",
-    "last_name": "",
-    "email": "david@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-09T15:38:51Z",
-    "phone_number": "650777666",
-    "points": 993,
-    "district": 1,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 7,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "JuanFran",
-    "first_name": "",
-    "last_name": "",
-    "email": "juan@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-09T15:40:20.806Z",
-    "phone_number": "7638923123",
-    "points": 0,
-    "district": 2,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 8,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "Maria",
-    "first_name": "",
-    "last_name": "",
-    "email": "maria@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-10T10:00:00Z",
-    "phone_number": "612345678",
-    "points": 0,
-    "district": 1,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 9,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "Carlos",
-    "first_name": "",
-    "last_name": "",
-    "email": "carlos@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-10T10:05:00Z",
-    "phone_number": "623456789",
-    "points": 0,
-    "district": 2,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 10,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "Laura",
-    "first_name": "",
-    "last_name": "",
-    "email": "laura@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-10T10:10:00Z",
-    "phone_number": "634567890",
-    "points": 0,
-    "district": 1,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 11,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$YpuiUcr8VdgLdZh1jzqb4w$lTYFy2NKNsNwhaTcKR4eAo+ojB9+tSoJd2f8VIC70u0=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "Pablo",
-    "first_name": "",
-    "last_name": "",
-    "email": "pablo@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-10T10:15:00Z",
-    "phone_number": "645678901",
-    "points": 0,
-    "district": 2,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 12,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$TVkI4wndqjUqczkGlesiTz$NiTK3Yr88xKDKiooXejyPh9hT5/79s+xJ+BdTHgUpqs=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "david@davidaaaaa.com",
-    "first_name": "",
-    "last_name": "",
-    "email": "david@davidaaaaa.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-16T17:09:00.017Z",
-    "phone_number": "",
-    "points": 0,
-    "district": null,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 13,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$DpW46j3gdzW5z2SY8lVkKM$fzedpCNrTKaWIjTX0FDMz18MgS+9SLnf9r+EJLQEnPE=",
-    "last_login": "2025-04-16T17:09:41.243Z",
-    "is_superuser": false,
-    "username": "davida@davidaaaaa.com",
-    "first_name": "",
-    "last_name": "",
-    "email": "davida@davidaaaaa.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-16T17:09:26.029Z",
-    "phone_number": "",
-    "points": 0,
-    "district": null,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 14,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$DyYAXBvtO9sXW1hjDYLCw0$xtja977HpnulLvdBb9FOaETvJNkMOuyOoTwLFPpHwQ4=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "beatriz.sobrino+8989@evbqa.com",
-    "first_name": "",
-    "last_name": "",
-    "email": "beatriz.sobrino+8989@evbqa.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-20T23:46:23.545Z",
-    "phone_number": "",
-    "points": 0,
-    "district": null,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 15,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$vdpml63vXjepnBtaswKwe8$0NzRVrQHGnxhnLYREp4Z4gKGdYJI/cigdxWDSU9mXvE=",
-    "last_login": "2025-04-24T16:00:49.390Z",
-    "is_superuser": false,
-    "username": "beatriz.sobrino.paredes+nueva@gmail.com",
-    "first_name": "",
-    "last_name": "",
-    "email": "beatriz.sobrino.paredes+nueva@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-24T15:59:30.768Z",
-    "phone_number": "",
-    "points": 200,
-    "district": null,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "user.customuser",
-  "pk": 16,
-  "fields": {
-    "password": "pbkdf2_sha256$1000000$iCjjxj7q9Sw6XyG0nlWEIf$JcCxxeLH1yv99BHmDNqIM5j6AU5P2bu08YqTxRBwtq4=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "pepe@pepe.com",
-    "first_name": "pepe",
-    "last_name": "pepe",
-    "email": "pepe@pepe.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2025-04-24T16:44:22.412Z",
-    "phone_number": "123456",
-    "points": 200,
-    "district": 4,
-    "profile_image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E",
-    "groups": [],
-    "user_permissions": []
-  }
-}
 ]

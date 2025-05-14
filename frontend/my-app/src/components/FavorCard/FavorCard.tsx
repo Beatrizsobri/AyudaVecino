@@ -98,17 +98,13 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
     description: string;
     type: string;
     points: string;
+    district: string;
   }) => {
-    try {
-      await updateFavor(favor.id, formData);
-      await refreshUser();
-      if (onFavorChange) {
-        onFavorChange();
-      }
-      setShowEditForm(false);
-    } catch (error) {
-      console.error('Error updating favor:', error);
+    await refreshUser();
+    if (onFavorChange) {
+      onFavorChange();
     }
+    setShowEditForm(false);
   };
 
   return (
@@ -253,7 +249,8 @@ const FavorCard: React.FC<FavorCardProps> = ({ favor, onAccept, onFavorChange })
             deadline: favor.deadline,
             description: favor.description,
             type: favor.type,
-            points: favor.points.toString()
+            points: favor.points.toString(),
+            district: favor.district?.id?.toString() || ''
           }}
           favorId={favor.id}
         />
