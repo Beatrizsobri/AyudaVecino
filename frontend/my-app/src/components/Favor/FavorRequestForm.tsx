@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createFavor, updateFavor } from '../../api/favor';
 import { useUser } from '../../contexts/UserContext';
+import { getDistricts } from '../../api/district';
 
 interface FavorRequestFormProps {
   onClose: () => void;
@@ -10,6 +11,7 @@ interface FavorRequestFormProps {
     description: string;
     type: string;
     points: string;
+    district: string;
   }) => void;
   initialData?: {
     title: string;
@@ -17,6 +19,7 @@ interface FavorRequestFormProps {
     description: string;
     type: string;
     points: string;
+    district: string;
   };
   favorId?: number;
 }
@@ -35,9 +38,23 @@ export const FavorRequestForm = ({ onClose, onSubmit, initialData, favorId }: Fa
     deadline: initialData ? formatDateForInput(initialData.deadline) : '',
     description: initialData?.description || '',
     type: initialData?.type || '',
-    points: initialData?.points || ''
+    points: initialData?.points || '',
+    district: initialData?.district || ''
   });
   const [error, setError] = useState<string | null>(null);
+  const [districts, setDistricts] = useState<Array<{ id: number; name: string }>>([]);
+
+  useEffect(() => {
+    const fetchDistricts = async () => {
+      try {
+        const districtsData = await getDistricts();
+        setDistricts(districtsData?.results || []);
+      } catch (error) {
+        setDistricts([]);
+      }
+    };
+    fetchDistricts();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,13 +75,18 @@ export const FavorRequestForm = ({ onClose, onSubmit, initialData, favorId }: Fa
       return;
     }
 
+    if (!formData.district) {
+      setError('Debes seleccionar un distrito');
+      return;
+    }
+
     try {
       if (initialData && favorId) {
         // Editing mode
-        await updateFavor(favorId, formData);
+        await updateFavor(favorId, { ...formData, district_id: formData.district });
       } else {
         // Creation mode
-        await createFavor(formData);
+        await createFavor({ ...formData, district_id: formData.district });
       }
       await refreshUser();
       onSubmit(formData);
@@ -203,6 +225,25 @@ export const FavorRequestForm = ({ onClose, onSubmit, initialData, favorId }: Fa
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   required
                 />
+              </div>
+
+              <div>
+                <label htmlFor="district" className="block text-sm font-medium text-gray-700 mb-1">
+                  Distrito
+                </label>
+                <select
+                  id="district"
+                  name="district"
+                  value={formData.district}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                >
+                  <option value="">Selecciona un distrito</option>
+                  {districts.map(d => (
+                    <option key={d.id} value={d.id}>{d.name}</option>
+                  ))}
+                </select>
               </div>
             </div>
 
